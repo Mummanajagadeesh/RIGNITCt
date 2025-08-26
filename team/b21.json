@@ -18,6 +18,10 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/karthik-manoranjan"
+      },
+      {
+        "platform": "site",
+        "url": "http://karthik-m11.github.io/"
       }
     ]
   },
@@ -84,6 +88,10 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/kathaan-vora-845b6b219/"
+      },
+      {
+        "platform": "site",
+        "url": "https://kathaan0072.wixsite.com/kathaan"
       }
     ]
   },
@@ -106,7 +114,12 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/aftaab-ahamed-058b9b221/"
+      },
+      {
+        "platform": "site",
+        "url": "https://aftaabdev.fr.to/"
       }
     ]
   }
 ]
+
