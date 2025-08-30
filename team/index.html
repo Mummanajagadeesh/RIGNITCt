@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RIGNITC | Team</title>
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --fg-opa: rgba(255,255,255,0.08);
+      --max-width: 1100px;
+      --radius: 14px;
+      --gap: 22px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--fg); font-family:"Inter",sans-serif; line-height:1.4; padding-bottom:80px; }
+    main { max-width:var(--max-width); margin:120px auto 80px; padding:0 22px; }
+    h1 {
+      font-family:"Orbitron",sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      text-transform:uppercase;
+      text-align:center;
+      margin-bottom:18px;
+      position:relative;
+    }
+    h1:after {
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%) scaleX(.01);
+      bottom:-8px;
+      width:140px;
+      height:2px;
+      background:var(--fg);
+      transition:transform .6s cubic-bezier(.2,.9,.3,1);
+      transform-origin:center;
+    }
+    h1:hover:after { transform:translateX(-50%) scaleX(1); }
+    .year-switcher { display:flex; justify-content:center; gap:12px; margin:20px 0 40px; }
+    .year-btn {
+      background:transparent; border:1px solid var(--fg-opa); color:var(--fg);
+      padding:6px 14px; border-radius:var(--radius);
+      cursor:pointer; transition:background .25s; font-weight:600;
+    }
+    .year-btn.active, .year-btn:hover {
+      background:var(--fg); color:var(--bg);
+    }
+    .team-grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap:var(--gap);
+    }
+
+    /* ===== Minimal & Premium Member Card with Horizontal Icons ===== */
+    .member-card {
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      padding: 24px 16px;
+      border: none;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .member-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(255,255,255,0.12);
+    }
+    .member-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: translate(-100%, -100%) rotate(45deg);
+      transition: transform 0.8s ease-out;
+      pointer-events: none;
+    }
+    .member-card:hover::after {
+      transform: translate(100%, 100%) rotate(45deg);
+    }
+    .member-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+    }
+    .member-name {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .member-name::after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 1px;
+      background: rgba(255,255,255,0.5);
+      margin: 6px auto 0;
+    }
+    .member-role {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+    /* Flex container for horizontal social icons */
+    .socials {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    .socials a {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--fg);
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+    .socials a:hover {
+      background: var(--fg);
+      color: var(--bg);
+      box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    .socials svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    /* End of premium card and socials layout */
+  </style>
+</head>
+<body>
+  <nav class="dark" id="navbar" aria-label="Main navigation">
+    <a href="../" class="logo"><img src="../assets/images/logo.png" alt="RIGNITC logo"></a>
+    <div class="nav-links">
+      <a href="../about/">About Us</a>
+      <a href="../projects/">Projects</a>
+      <a href="../achievements/">Achievements</a>
+      <a href="../events/">Events</a>
+      <a href="../team/">Team</a>
+      <a href="../contact/">Contact</a>
+    </div>
+    <a class="btn-sponsor" href="../contact/">Sponsor</a>
+  </nav>
+
+  <main>
+    <h1>Team</h1>
+    <div class="year-switcher" id="year-switcher">
+      <button class="year-btn" data-year="b19">B19</button>
+      <button class="year-btn" data-year="b21">B21</button>
+      <button class="year-btn" data-year="b22">B22</button>
+      <button class="year-btn" data-year="b23">B23</button>
+      <button class="year-btn" data-year="b24">B24</button>
+      <button class="year-btn" data-year="webdev">DEV</button>
+    </div>
+    <div class="team-grid" id="team-grid"></div>
+  </main>
+
+  <script>
+    const grid = document.getElementById('team-grid');
+    const buttons = document.querySelectorAll('.year-btn');
+    function getQueryParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+function getPlatformIcon(platform) {
+  switch(platform.toLowerCase()) {
+    case "linkedin":
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.7v2.2h.1c.5-.9 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6V24h-4v-7.9c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.3V24h-4V8z"/></svg>`;
+    case "github":
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.94.58.1.79-.25.79-.56v-2.17c-3.2.7-3.88-1.39-3.88-1.39-.52-1.32-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.57.23 2.73.11 3.02.74.81 1.18 1.83 1.18 3.09 0 4.43-2.69 5.41-5.25 5.69.41.35.77 1.05.77 2.12v3.14c0 .31.21.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>`;
+    case "website":
+    case "site":
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+      </svg>`;
+    default:
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>`;
+  }
+}
+    async function loadYear(year) {
+      grid.innerHTML = "Loading...";
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.year === year));
+      try {
+        const resp = await fetch(year + ".json", { cache: "no-cache" });
+        if (!resp.ok) throw new Error("failed");
+        const data = await resp.json();
+        grid.innerHTML = "";
+        (Array.isArray(data) ? data : [data]).forEach(m => {
+          const card = document.createElement('div');
+          card.className = "member-card";
+          card.innerHTML = `
+            <img src="../${m.photo||''}" alt="${m.name||''}" class="member-photo">
+            <div class="member-name">${m.name||''}</div>
+            <div class="member-role">${m.role||''}</div>
+            <div class="socials">
+              ${(m.socials||[]).map(s => `<a href="${s.url}" target="_blank">${getPlatformIcon(s.platform)}</a>`).join('')}
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        grid.innerHTML = "Could not load " + year + ".json";
+      }
+    }
+    const initial = getQueryParam('year') || 'b22';
+    loadYear(initial);
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const year = btn.dataset.year;
+      history.pushState({}, "", "?year=" + year);
+      loadYear(year);
+    }));
+  </script>
+</body>
+</html>
