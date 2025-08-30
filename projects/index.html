@@ -51,15 +51,17 @@ html,body{
 }
 
 /* keep animated underline under title (restored) */
-.site-title{
+.site-title {
   margin:0 0 44px;
-  font-family: "Orbitron", sans-serif;  font-size:3rem;
+  font-family: "Orbitron", sans-serif;
+  font-size:3rem;
   text-align:right;
   letter-spacing:1px;
   position:relative;
   padding-bottom:12px;
 }
-.site-title::after{
+
+.site-title::after {
   content:"";
   position:absolute;
   right:0;
@@ -73,8 +75,10 @@ html,body{
   opacity:0.95;
 }
 
+.site-title:hover::after {
+  transform:scaleX(1);
+}
 
-.page:hover .site-title::after{ transform:scaleX(1); }
 
 /* projects container: rows of two */
 .projects-container{

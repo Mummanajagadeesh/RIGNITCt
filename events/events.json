@@ -1,0 +1,27 @@
+[
+  {
+    "title": "ORIGO – Robotics Workshop for Freshers",
+    "description": "Our flagship annual 2-day workshop where first-year students are introduced to robotics. Participants learn the fundamentals and build their first projects.",
+    "image": "assets/images/events/origo.jpg"
+  },
+  {
+    "title": "Workshops for M.Tech Students",
+    "description": "Every year, our B.Tech members organize and conduct robotics workshops for M.Tech students, sharing practical knowledge and bridging the gap between theory and hands-on application.",
+    "image": "assets/images/events/mtech-workshop.jpg"
+  },
+  {
+    "title": "Tech Talk Series",
+    "description": "Regular speaker sessions and interactive seminars on robotics, AI, and automation conducted throughout the year with industry professionals and alumni.",
+    "image": "assets/images/events/tech-talk.jpg"
+  },
+  {
+    "title": "Robotics Hackathon",
+    "description": "A high-energy 24-hour hackathon where teams prototype and demo robotics solutions to real-world challenges.",
+    "image": "assets/images/events/hackathon.jpg"
+  },
+  {
+    "title": "Community Outreach",
+    "description": "Workshops and exhibitions at local schools and colleges to inspire the next generation of engineers and promote robotics awareness.",
+    "image": "assets/images/events/outreach.jpg"
+  }
+]
