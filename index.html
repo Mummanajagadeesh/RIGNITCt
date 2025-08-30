@@ -452,8 +452,8 @@
         const dx = (mouseX - cx) / rect.width;
         const dy = (mouseY - cy) / rect.height;
 
-        const rotX = (-dy * 12).toFixed(2);
-        const rotY = (dx * 18).toFixed(2);
+        const rotX = (-dy * 3).toFixed(2);
+        const rotY = (dx * 3).toFixed(2);
 
         card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
         shadow.style.transform = `translateY(24px) scale(.86) translateZ(0) rotateX(${rotX/4}deg) rotateY(${rotY/4}deg)`;

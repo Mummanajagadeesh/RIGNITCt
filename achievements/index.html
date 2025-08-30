@@ -241,20 +241,37 @@ async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
           </div>
         `;
       }
-      else if(type==='startups'){
-        card=document.createElement('article');
-        card.className='startup-card';
-        card.innerHTML=`
-          <img src="../${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
-          <div class="startup-info">
-            <div class="startup-header">
-              ${item.logo?`<img src="../${escapeHtml(item.logo)}" alt="${escapeHtml(item.title)} logo" class="logo">`:''}
-              <a href="#" target="_blank"><h2>${escapeHtml(item.title)}</h2></a>
-            </div>
-            <div class="startup-desc">${escapeHtml(item.desc)}</div>
-          </div>
-        `;
-      }
+else if(type==='startups'){
+  card = document.createElement('article');
+  card.className = 'startup-card';
+  card.innerHTML = `
+    <img src="../${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
+    <div class="startup-info">
+      <div class="startup-header">
+        ${item.logo ? `<img src="../${escapeHtml(item.logo)}" alt="${escapeHtml(item.title)} logo" class="logo">` : ''}
+        <h2>
+          ${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" title="Visit website">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}
+        </h2>
+        <div class="startup-links">
+          ${item.link ? `
+            <a href="${escapeHtml(item.link)}" target="_blank" title="Website">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+              </svg>
+            </a>` : ''}
+          ${item.linkedin ? `
+            <a href="${escapeHtml(item.linkedin)}" target="_blank" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.7v2.2h.1c.5-.9 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6V24h-4v-7.9c0-1.9 0-4.4-2.7-4.4-2.7 0-3.1 2.1-3.1 4.3V24h-4V8z"/>
+              </svg>
+            </a>` : ''}
+        </div>
+      </div>
+      <div class="startup-desc">${escapeHtml(item.desc)}</div>
+    </div>
+  `;
+}
 
       if(type!=='startups'){
         if(idx>=4){card.style.display='none';card.classList.add('hidden-card')}
