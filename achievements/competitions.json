@@ -1,16 +1,24 @@
 [
   {
     "title": "ISRO Robotics Challenge (IRoCU 2025)",
-    "description": "Made it to the qualification round and secured a place among the top 24 teams across India."
-  },
+    "description": "Made it to the qualification round and secured a place among the top 24 teams across India.",
+    "photo": "assets/achievements/competitions/ISRO.png"
+},
   {
     "title": "LAM Research Challenge 2024",
-    "description": "Participated with a cross-disciplinary project demonstrating firmware, hardware, systems engineering, and business acumen."
-  },
+    "description": "Participated with a cross-disciplinary project demonstrating firmware, hardware, systems engineering, and business acumen.",
+    "photo": "assets/achievements/competitions/LAM.png"
+},
   {
     "title": "Mathworks Mini Drone Challenge 2024",
-    "description": "Participated in the MathWorks Mini Drone Challenge 2024, showcasing drone design, control, and simulation skills using MATLAB and Simulink for real-world problem solving."
-  },
+    "description": "Participated in the MathWorks Mini Drone Challenge 2024, showcasing drone design, control, and simulation skills using MATLAB and Simulink for real-world problem solving.",
+    "photo": "assets/achievements/competitions/MINIDRONE.png"
+},
+ {
+    "title": "Robocon'23",
+    "description": "Took part in Robocon'23, an international robotics competition, and secured among the top position defeating all other NITs or IITs.",
+    "photo": "assets/achievements/competitions/ROBOCON.png"
+},
   {
     "title": "Janatics Automation Skill Challenge 2024",
     "description": "Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation."
@@ -30,10 +38,6 @@
   {
     "title": "ISRO Rover Challenge",
     "description": "Qualified for the second round of the ISRO Rover Challenge competition, with submissions for the second round due on May 15th."
-  },
-  {
-    "title": "Robocon'23",
-    "description": "Took part in Robocon'23, an international robotics competition, and secured among the top position defeating all other NITs or IITs."
   },
   {
     "title": "Robocon'24",

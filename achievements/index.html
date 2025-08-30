@@ -251,6 +251,21 @@
   flex: 1 1 auto;
 }
 
+.view-more-btn {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.view-more-btn:hover {
+  background: rgba(255,255,255,0.85);
+}
+
+
   </style>
 </head>
 <body>
@@ -295,6 +310,10 @@
         No achievements found. Drop an <code>competitions.json</code> next to this page with an array of {title,description} objects.
       </div>
     </div>
+    
+    <div class="view-more-container" style="text-align:center; margin-top:20px;">
+  <button id="view-more-achievements" class="view-more-btn" style="display:none;">View More</button>
+</div>
 
 <br><br><br><br>
 
@@ -311,88 +330,138 @@
   </div>
 </div>
 
+<div class="view-more-container" style="text-align:center; margin-top:20px;">
+  <button id="view-more-research" class="view-more-btn" style="display:none;">View More</button>
+</div>
+
   </main>
 
-  <script>
-  async function loadAchievements(type, url, containerId, emptyId){
-    const container = document.getElementById(containerId);
-    const empty = document.getElementById(emptyId);
+<script>
+/**
+ * Loads achievements/research, shows first 4 items, then reveals rest on "View More".
+ * Usage (added at bottom): loadAchievements('competitions', 'competitions.json', 'achievements', 'empty-placeholder', 'view-more-achievements');
+ *                   loadAchievements('research', 'research.json', 'research', 'research-empty', 'view-more-research');
+ */
+async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
+  const container = document.getElementById(containerId);
+  const empty = document.getElementById(emptyId);
+  const viewMoreBtn = document.getElementById(viewMoreBtnId);
 
-    // for research, ensure the grid gives cards enough horizontal space
-    if(type === 'research'){
-      container.classList.add('research-list');
-    } else {
-      container.classList.remove('research-list');
+  if(!container || !empty){
+    console.warn('Missing container or empty placeholder:', containerId, emptyId);
+    return;
+  }
+
+  // Research should use horizontal layout (one per row)
+  if(type === 'research'){
+    container.classList.add('research-list');
+  } else {
+    container.classList.remove('research-list');
+  }
+
+  try{
+    // clear any previous content
+    container.innerHTML = '';
+    empty.style.display = 'none';
+
+    const resp = await fetch(url, {cache: "no-cache"});
+    if(!resp.ok) throw new Error('Network response not ok: ' + resp.status);
+    const data = await resp.json();
+
+    if(!Array.isArray(data) || data.length === 0){
+      empty.style.display = 'block';
+      empty.textContent = 'No items found.';
+      return;
     }
 
-    try{
-      const resp = await fetch(url, {cache: "no-cache"});
-      if(!resp.ok) throw new Error('Network response not ok');
-      const data = await resp.json();
+    // Render all cards but keep items after index 3 hidden initially
+    data.forEach((item, idx) => {
+      const card = document.createElement('article');
+      card.className = 'achievement-card';
+      if(type === 'research') card.classList.add('horizontal');
 
-      if(!Array.isArray(data) || data.length === 0){
-        empty.style.display = 'block';
-        return;
+      card.setAttribute('tabindex','0');
+      const badgeVal = item.badge ?? (idx + 1);
+
+      if(type === 'research'){
+        card.innerHTML = `
+          <div class="badge-col">
+            <div class="achievement-badge">#${badgeVal}</div>
+          </div>
+          <div class="card-content">
+            <div class="achievement-title">${escapeHtml(item.title)}</div>
+            <div class="achievement-description">${escapeHtml(item.description)}</div>
+          </div>
+        `;
+      } else {
+        card.innerHTML = `
+          <div>
+            <div class="achievement-badge">#${badgeVal}</div>
+            <div class="achievement-title">${escapeHtml(item.title)}</div>
+            <div class="achievement-description">${escapeHtml(item.description)}</div>
+          </div>
+        `;
       }
 
-      empty.style.display = 'none';
-      data.forEach((item, idx) => {
-        const card = document.createElement('article');
-        card.className = 'achievement-card';
-        if(type === 'research'){
-          card.classList.add('horizontal'); // apply horizontal style only to research
-        }
-        card.setAttribute('tabindex','0');
-        const badgeVal = item.badge ?? (idx + 1);
+      // hide items after the first 4 (index 0..3 shown)
+      if(idx >= 4){
+        card.style.display = 'none';
+        card.classList.add('hidden-card');
+      } else {
+        // ensure visible cards use flex so layout matches CSS
+        card.style.display = 'flex';
+      }
 
-        // IMPORTANT: for horizontal cards we place badge and content as siblings
-        if(type === 'research'){
-          card.innerHTML = `
-            <div class="badge-col">
-              <div class="achievement-badge">#${badgeVal}</div>
-            </div>
-            <div class="card-content">
-              <div class="achievement-title">${escapeHtml(item.title)}</div>
-              <div class="achievement-description">${escapeHtml(item.description)}</div>
-            </div>
-          `;
-        } else {
-          // keep competition cards as before (vertical layout)
-          card.innerHTML = `
-            <div>
-              <div class="achievement-badge">#${badgeVal}</div>
-              <div class="achievement-title">${escapeHtml(item.title)}</div>
-              <div class="achievement-description">${escapeHtml(item.description)}</div>
-            </div>
-          `;
-        }
+      container.appendChild(card);
 
-        container.appendChild(card);
-        setTimeout(()=> card.classList.add('show'), 90 * idx);
+      // add show animation (will also work when we reveal hidden cards later)
+      setTimeout(()=> card.classList.add('show'), 90 * idx);
+    });
+
+    // Wire up view-more button if necessary
+    if(data.length > 4 && viewMoreBtn){
+      viewMoreBtn.style.display = 'inline-block';
+      // remove previous handlers to avoid duplicates
+      viewMoreBtn.replaceWith(viewMoreBtn.cloneNode(true));
+      const newBtn = document.getElementById(viewMoreBtnId);
+
+      newBtn.addEventListener('click', () => {
+        const hidden = container.querySelectorAll('.hidden-card');
+        hidden.forEach(card => {
+          // show as flex so both vertical/horizontal cards align properly
+          card.style.display = 'flex';
+          // small stagger for animation
+          setTimeout(()=> card.classList.add('show'), 60);
+          card.classList.remove('hidden-card');
+        });
+        newBtn.style.display = 'none';
       });
-
-    }catch(err){
-      console.error(`Error loading ${url}`, err);
-      empty.style.display = 'block';
-      empty.textContent = `Could not load ${url} — check the console for details.`;
+    } else if(viewMoreBtn){
+      viewMoreBtn.style.display = 'none';
     }
-  }
 
-  // HTML escaping
-  function escapeHtml(str = ''){
-    return String(str)
-      .replaceAll('&','&amp;')
-      .replaceAll('<','&lt;')
-      .replaceAll('>','&gt;')
-      .replaceAll('"','&quot;')
-      .replaceAll("'",'&#39;');
+  }catch(err){
+    console.error(`Error loading ${url}`, err);
+    empty.style.display = 'block';
+    empty.textContent = `Could not load ${url} — check the console for details.`;
   }
+}
 
-  // Kick off both
-  loadAchievements('competitions', 'competitions.json', 'achievements', 'empty-placeholder');
-  loadAchievements('research', 'research.json', 'research', 'research-empty');
+// simple HTML escape (keeps your previous logic)
+function escapeHtml(str = ''){
+  return String(str)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'",'&#39;');
+}
+
+// ----- CALLS -----
+// Make sure these file paths are correct relative to this HTML file:
+loadAchievements('competitions', 'competitions.json', 'achievements', 'empty-placeholder', 'view-more-achievements');
+loadAchievements('research', 'research.json', 'research', 'research-empty', 'view-more-research');
 </script>
-
 
 
 </body>
