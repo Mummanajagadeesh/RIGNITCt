@@ -1,6 +1,6 @@
 # Website Repository
 
-This repository contains the source code for a multi-page website with sections for **About**, **Achievements**, **Events**, **Projects**, **Team**, and **Contact**. The website includes interactive features, animations, and modular assets.
+This repository contains the source code for a multi-page website with sections for **About**, **Achievements**, **Activities**, **Projects**, **Team**, and **Contact**. The website includes interactive features, animations, and modular assets.
 
 ---
 
@@ -10,17 +10,27 @@ This repository contains the source code for a multi-page website with sections 
 C:.
 ├───about
 ├───achievements
+├───activities
 ├───assets
 │   ├───css
-│   │   └── navbar.css
 │   └───images
 │       ├───about
+│       ├───achievements
+│       │   └───competitions
+│       ├───activities
 │       ├───companies
 │       ├───gallery
-│       └───projects
-├───bs               # For testing small features & code snippets
+│       ├───projects
+│       ├───startups
+│       └───team
+│           ├───b19
+│           ├───b21
+│           ├───b22
+│           ├───b23
+│           ├───b24
+│           └───dev
+├───bs # use this for testing
 ├───contact
-├───events
 ├───projects
 └───team
 ```
@@ -35,15 +45,9 @@ C:.
 
 * **Main Page:** Done
 
-  * Contains 4 scenes (last 2 need improvement).
   * Needs more company logos and updated social links.
   * Add photos to the gallery.
   * Be careful when editing layout – spline scenes may be affected.
-
-* **About Page:** Done
-
-  * Check `about/clap.html` and `bs/trans.html`.
-  * Idea: open About with a clapboard animation zooming in on scroll.
 
 * **Contact Page:** Done
 
@@ -51,9 +55,7 @@ C:.
   * Form uses Formspree ID.
   * Can directly provide a URL with pre-filled fields in the form
 
-* **Team Page:** Not a priority for now.
-
-* **Achievements, Events, Projects:** Main priorities.
+* **Activities** Main priority now
 
 ---
 
@@ -67,21 +69,15 @@ C:.
 
 ### Projects Management
 
-* Maintain `projects.json` as a modular database of projects.
-* Ensure new projects are added consistently.
-* Make a dedicated projects page that dynamically reads from `projects.json`.
+* Maintain `.json` files neatly.
+* Ensure new projs are added consistently.
 
 ### UI/UX Guidelines
 
 * Navbar CSS is located in `assets/css/navbar.css`.
-* Improve UI where needed; remove anything that feels “cringe.”
+* Improve UI where needed; remove anything that feels “cringe”.
 * Maintain consistency with colors and layout, especially for spline scenes.
 * Hidden watermarks have been masked with background colors—avoid disturbing this.
-
-### Animations
-
-* Consider implementing the **clapboard animation** for the About page.
-* Experimental transitions can be tested in `bs/`.
 
 ---
 
@@ -95,15 +91,12 @@ C:.
 
 ## Future Work
 
-1. Improve Main Page scenes (especially the last 2).
-2. Add more company logos and gallery photos.
-3. Implement clapboard animation on About page.
-4. Complete Achievements, Events, and Projects pages.
-5. Update Contact links and verify forms work with Formspree.
-6. Gradually design the Team page when time allows.
-7. Keep `projects.json` modular and easy to update.
-8. Optimize page loading speed.
-9. Make the layout and elements (like navbar and closing buttons) responsive for small devices.
-10. Improve meta tags for SEO — add a favicon (forgot to include it earlier).
-11. Maintain a black-and-white theme only and improve the overall UI.
-12. Ensure accessibility: proper alt text for images, sufficient contrast, and semantic HTML.
+* Improve the main page.
+* Add more company logos and gallery photos.
+* Complete the Activities page.
+* Keep all `.json` files modular and easy to update.
+* Optimize page loading speed.
+* **Enhance mobile optimization:** make the layout and elements (like navbar and closing buttons) fully responsive on all devices.
+* Improve meta tags for SEO.
+* Maintain a black-and-white theme only and improve the overall UI.
+* Ensure accessibility: provide proper alt text for images, maintain sufficient contrast, and use semantic HTML.
