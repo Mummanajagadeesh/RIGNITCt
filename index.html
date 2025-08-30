@@ -717,75 +717,94 @@
     #people {
       background: #111;
       color: #fff;
-  font-family: "Orbitron", sans-serif;      margin: 0;
-      padding: 20px 0; /* small vertical space */
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+      padding: 100px 0px !important;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
+      height: auto !important;
     }
 
     #people .people-header {
-      font-size: 2.5rem; /* smaller */
+      font-size: 2.5rem;
       text-align: center;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.8s ease-out;
     }
-
     #people .people-header.show {
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* --- SCROLLING COMPANY SLIDER --- */
     #people .company-slider {
       display: flex;
       gap: 50px;
       white-space: nowrap;
       align-items: center;
     }
-
     #people .company-slider img {
-      height: 50px; /* smaller logos to reduce vertical space */
+      height: 50px;
       object-fit: contain;
       display: inline-block;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1); /* white logos */
       user-select: none;
     }
-
-    /* Infinite scroll animation */
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     #people .company-slider.scroll {
       animation: scroll 40s linear infinite;
     }
 
+/* --- STATIC STARTUP GRID --- */
+#people .startup-header {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 80px;
+}
 
-        #people {
-      background: #111;
-      color: #fff;
-  font-family: "Orbitron", sans-serif;      margin: 0;
-      padding: 40px 0 !important; /* small vertical space */
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-        min-height: auto !important;
-  height: auto !important;
-    }
+#people .startup-grid {
+  display: flex;              /* use flex instead of grid */
+  justify-content: center;    /* center logos */
+  align-items: center;
+  gap: 80px;                  /* spacing between logos */
+  margin-top: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+#people .startup-grid img {
+  height: 180px;              /* make logos big */
+  max-width: 280px;
+  object-fit: contain;
+  filter: none !important;    /* colored logos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#people .startup-grid img:hover {
+  transform: scale(1.15);     /* pop out effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
 
   </style>
 
+  <!-- Existing Alumni Section -->
   <div class="people-header">We Have Alumni in</div>
-
   <div class="company-slider scroll" id="companySlider"></div>
 
+  <!-- NEW Static Startups Section -->
+  <div class="startup-header">Startups from our Lab</div>
+  <div class="startup-grid" id="startupGrid"></div>
+
   <script>
+    /* Header animation */
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting) {
@@ -794,35 +813,32 @@
         }
       });
     }, { threshold: 0.2 });
-
     observer.observe(document.querySelector('#people .people-header'));
 
-    // Dynamically load all images from companies folder
+    /* Alumni company logos */
     const companySlider = document.getElementById('companySlider');
-const companyImages = [
-  "assets/images/companies/ti.png",
-  "assets/images/companies/qualcomm.png",
-  "assets/images/companies/nvidia.png",
-  "assets/images/companies/isro.png",
-  "assets/images/companies/samsung.png",
-  "assets/images/companies/nawe.png",
-  "assets/images/companies/aws.png",
-  "assets/images/companies/intel.png",
-  "assets/images/companies/ku.png",
-  "assets/images/companies/purdue.png",
-  "assets/images/companies/texas.png",
-  "assets/images/companies/ucdavis.png",
-  "assets/images/companies/visa.png",
-  "assets/images/companies/dxc.png",
-  "assets/images/companies/uidai.png",
-  "assets/images/companies/ns.png",
-  "assets/images/companies/kbr.png",
-  "assets/images/companies/caterpillar.png"
-];
-
-
-    // To make infinite seamless scroll, duplicate enough times
-    const repeatTimes = 3; // increase if needed
+    const companyImages = [
+      "assets/images/companies/ti.png",
+      "assets/images/companies/qualcomm.png",
+      "assets/images/companies/nvidia.png",
+      "assets/images/companies/isro.png",
+      "assets/images/companies/samsung.png",
+      "assets/images/companies/nawe.png",
+      "assets/images/companies/grafito.png",
+      "assets/images/companies/aws.png",
+      "assets/images/companies/intel.png",
+      "assets/images/companies/ku.png",
+      "assets/images/companies/purdue.png",
+      "assets/images/companies/texas.png",
+      "assets/images/companies/ucdavis.png",
+      "assets/images/companies/visa.png",
+      "assets/images/companies/dxc.png",
+      "assets/images/companies/uidai.png",
+      "assets/images/companies/ns.png",
+      "assets/images/companies/kbr.png",
+      "assets/images/companies/caterpillar.png"
+    ];
+    const repeatTimes = 3;
     for (let i = 0; i < repeatTimes; i++) {
       companyImages.forEach(src => {
         const img = document.createElement('img');
@@ -830,6 +846,43 @@ const companyImages = [
         companySlider.appendChild(img);
       });
     }
+/* Startup logos (static, colored, with links + labels) */
+const startupGrid = document.getElementById('startupGrid');
+const startups = [
+  { src: "assets/images/startups/nawe.png", link: "https://www.nmotion.in/", name: "NAWE ROBOTICS" },
+  { src: "assets/images/startups/grafito.png", link: "https://www.grafito.in/", name: "GRAFITO INNOVATIONS" }
+];
+
+startups.forEach(startup => {
+  const wrapper = document.createElement('div');
+  wrapper.style.display = "flex";
+  wrapper.style.flexDirection = "column";
+  wrapper.style.alignItems = "center";
+  wrapper.style.gap = "10px";
+
+  const a = document.createElement('a');
+  a.href = startup.link;
+  a.target = "_blank"; // open in new tab
+
+  const img = document.createElement('img');
+  img.src = startup.src;
+  img.alt = startup.name;
+
+  a.appendChild(img);
+
+  const caption = document.createElement('div');
+  caption.textContent = startup.name;
+  caption.style.color = "white";
+  caption.style.fontSize = "1rem";
+  caption.style.textAlign = "center";
+
+  wrapper.appendChild(a);
+  wrapper.appendChild(caption);
+
+  startupGrid.appendChild(wrapper);
+});
+
+
   </script>
 </section>
 

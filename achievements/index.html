@@ -16,7 +16,7 @@
     :root{
       --bg: #000;
       --fg: #fff;
-      --fg-opa: rgba(255,255,255,0.06);
+      --fg-opa: rgba(255,255,255,1);
       --max-width: 1100px;
       --radius: 14px;
       --gap: 22px;
@@ -35,7 +35,9 @@
     main{max-width:var(--max-width);margin:120px auto 80px;padding:0 22px}
     .hero{display:flex;gap:28px;align-items:center;justify-content:space-between;margin-bottom:28px;position:relative}
     .hero .left{flex:1 1 60%}
-    h1{font-family:"Orbitron",sans-serif;font-size:clamp(2rem,6vw,3.6rem);letter-spacing:-1px;margin:0 0 6px;line-height:.95;text-transform:uppercase}
+    h1{font-family:"Orbitron",sans-serif;font-size:clamp(2rem,6vw,3.6rem);letter-spacing:-1px;margin:0 0 6px;line-height:.95;text-transform:uppercase;position:relative;display:inline-block}
+    h1:after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:3px;background:var(--fg);transition:width .4s ease}
+    h1:hover:after{width:100%}
     .tagline{color:rgba(255,255,255,0.85);font-weight:600;margin-top:10px;font-size:1rem;opacity:.95}
     .hero:before{content:"";position:absolute;right:-80px;top:-30px;width:400px;height:400px;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.03) 0 1px,transparent 1px),repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 40px);transform:rotate(10deg);border-radius:12px;pointer-events:none;mix-blend-mode:screen}
     .achievements{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap);margin-top:12px}
@@ -60,6 +62,77 @@
     .achievement-card.horizontal .card-content{flex:1 1 auto}
     .view-more-btn{background:var(--fg);color:var(--bg);border:none;padding:10px 22px;border-radius:var(--radius);font-weight:700;cursor:pointer;transition:all .3s ease}
     .view-more-btn:hover{background:rgba(255,255,255,.85)}
+
+    /* Startups special styling */
+    .startups-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--gap);
+      margin-top: 20px;
+    }
+    .startup-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 50%);
+      border: 1px solid rgba(255,255,255,16);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .startup-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(255,255,255,.04);
+    }
+    .startup-image {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      display: block;
+      background: #000;
+    }
+    .startup-info {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .startup-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .startup-header img.logo {
+      height: 38px;
+      width: auto;
+    }
+    .startup-header h2 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.3rem;
+      position: relative;
+      cursor: pointer;
+    }
+    .startup-header h2:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--fg);
+      transition: width .3s ease;
+    }
+    .startup-header h2:hover:after {
+      width: 100%;
+    }
+    .startup-header a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .startup-desc {
+      color: rgba(255,255,255,.82);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body>
@@ -78,6 +151,7 @@
   </nav>
 
   <main>
+    <!-- Competitions -->
     <section class="hero" aria-labelledby="ach-head">
       <div class="left">
         <h1 id="ach-head">Competitions</h1>
@@ -92,6 +166,21 @@
 
     <br><br><br><br>
 
+    <!-- Startups -->
+    <section class="hero" aria-labelledby="startup-head">
+      <div class="left">
+        <h1 id="startup-head">Startups</h1>
+        <div class="tagline">Innovations that grew into real-world ventures</div>
+      </div>
+    </section>
+
+    <div class="startups-list" id="startups" aria-live="polite">
+      <div class="empty" id="startups-empty" style="display:none;">No startups found.</div>
+    </div>
+
+    <br><br><br><br>
+
+    <!-- Research -->
     <section class="hero" aria-labelledby="res-head">
       <div class="left">
         <h1 id="res-head">Research</h1>
@@ -109,7 +198,7 @@
 async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
   const container=document.getElementById(containerId);
   const empty=document.getElementById(emptyId);
-  const viewMoreBtn=document.getElementById(viewMoreBtnId);
+  const viewMoreBtn=viewMoreBtnId?document.getElementById(viewMoreBtnId):null;
   if(!container||!empty)return;
 
   if(type==='research'){container.classList.add('research-list')}else{container.classList.remove('research-list')}
@@ -123,44 +212,60 @@ async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
     if(!Array.isArray(data)||data.length===0){empty.style.display='block';return}
 
     data.forEach((item,idx)=>{
-      const card=document.createElement('article');
-      card.className='achievement-card';
-      if(type==='research') card.classList.add('horizontal');
-      card.setAttribute('tabindex','0');
-      const badgeVal=item.badge??(idx+1);
+      let card;
+      if(type==='research'){
+        card=document.createElement('article');
+        card.className='achievement-card horizontal';
+        card.setAttribute('tabindex','0');
+        card.innerHTML=`
+          <div class="badge-col">
+            <div class="achievement-badge">#${item.badge??(idx+1)}</div>
+          </div>
+          <div class="card-content">
+            <div class="achievement-title">${escapeHtml(item.title)}</div>
+            <div class="achievement-description">${escapeHtml(item.description)}</div>
+          </div>
+        `;
+      }
+      else if(type==='competitions'){
+        card=document.createElement('article');
+        card.className='achievement-card';
+        card.setAttribute('tabindex','0');
+        const photoPath=item.photo?`../${item.photo}`:'';
+        card.innerHTML=`
+          <div>
+            ${item.photo?`<div class="achievement-photo"><img src="${escapeHtml(photoPath)}" alt="${escapeHtml(item.title)}"></div>`:''}
+            <div class="achievement-badge">#${item.badge??(idx+1)}</div>
+            <div class="achievement-title">${escapeHtml(item.title)}</div>
+            <div class="achievement-description">${escapeHtml(item.description)}</div>
+          </div>
+        `;
+      }
+      else if(type==='startups'){
+        card=document.createElement('article');
+        card.className='startup-card';
+        card.innerHTML=`
+          <img src="../${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
+          <div class="startup-info">
+            <div class="startup-header">
+              ${item.logo?`<img src="../${escapeHtml(item.logo)}" alt="${escapeHtml(item.title)} logo" class="logo">`:''}
+              <a href="#" target="_blank"><h2>${escapeHtml(item.title)}</h2></a>
+            </div>
+            <div class="startup-desc">${escapeHtml(item.desc)}</div>
+          </div>
+        `;
+      }
 
-if(type === 'research'){
-  card.innerHTML = `
-    <div class="badge-col">
-      <div class="achievement-badge">#${badgeVal}</div>
-    </div>
-    <div class="card-content">
-      <div class="achievement-title">${escapeHtml(item.title)}</div>
-      <div class="achievement-description">${escapeHtml(item.description)}</div>
-    </div>
-  `;
-} else {
-  const photoPath = item.photo ? `../${item.photo}` : '';
-  card.innerHTML = `
-    <div>
-      ${item.photo ? `<div class="achievement-photo"><img src="${escapeHtml(photoPath)}" alt="${escapeHtml(item.title)}"></div>` : ''}
-      <div class="achievement-badge">#${badgeVal}</div>
-      <div class="achievement-title">${escapeHtml(item.title)}</div>
-      <div class="achievement-description">${escapeHtml(item.description)}</div>
-    </div>
-  `;
-}
-
-
-
-      if(idx>=4){card.style.display='none';card.classList.add('hidden-card')}
-      else{card.style.display='flex'}
+      if(type!=='startups'){
+        if(idx>=4){card.style.display='none';card.classList.add('hidden-card')}
+        else{card.style.display='flex'}
+      }
 
       container.appendChild(card);
       setTimeout(()=>card.classList.add('show'),90*idx);
     });
 
-    if(data.length>4&&viewMoreBtn){
+    if(type!=='startups' && data.length>4&&viewMoreBtn){
       viewMoreBtn.style.display='inline-block';
       viewMoreBtn.replaceWith(viewMoreBtn.cloneNode(true));
       const newBtn=document.getElementById(viewMoreBtnId);
@@ -185,6 +290,7 @@ function escapeHtml(str=''){
 }
 
 loadAchievements('competitions','competitions.json','achievements','empty-placeholder','view-more-achievements');
+loadAchievements('startups','startups.json','startups','startups-empty');
 loadAchievements('research','research.json','research','research-empty','view-more-research');
 </script>
 </body>

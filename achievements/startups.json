@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Nawe Robotics",
+    "logo": "assets/images/startups/nawe.png",
+    "image": "assets/images/startups/nawe01.png",
+    "desc": "Nawe Robotics builds modular hardware and software-defined components that make it easier to develop systems with sensors and actuators."
+  },
+  {
+    "title": "Grafito Innovations",
+    "logo": "assets/images/startups/grafito.png",
+    "image": "assets/images/startups/grafito01.png",
+    "desc": "Grafito Innovations develops robotic grafting technology for agriculture, offering faster, more precise, and scalable plant grafting solutions."
+  }
+]
