@@ -157,7 +157,7 @@
     <a href="about/">About Us</a>
     <a href="projects/">Projects</a>
     <a href="achievements/">Achievements</a>
-    <a href="events/">Events</a>
+    <a href="activities/">Activities</a>
     <a href="team/">Team</a>
     <a href="contact/">Contact</a>
   </div>
@@ -318,8 +318,8 @@
   align-items: center;
   justify-content: center;
   font-family: "Sora", "Inter", sans-serif;
-  font-weight: normal;                               
-  font-size: 3.1rem;                                 
+  font-weight: bold;                               
+  font-size: 2rem;                                 
   color: #fff;
   text-decoration: none;
   padding: 12px 28px;
@@ -385,6 +385,11 @@
       #about .card-overlay h2 { font-size: 1.8rem; }
       #about .card-overlay p { font-size: 0.95rem; }
     }
+
+    #about p {
+  font-size: 1rem; /* smaller than default */
+  line-height: 1.5;  /* keeps it readable */
+}
   </style>
 
   <div class="about-container">
@@ -965,6 +970,32 @@ const companyImages = [
       min-width: auto;
     }
   }
+
+  #gallery .lightbox .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1001;
+  padding: 10px;
+}
+
+#gallery .lightbox .arrow.left {
+  left: 30px;   /* distance from left edge */
+}
+
+#gallery .lightbox .arrow.right {
+  right: 30px;  /* distance from right edge */
+}
+
+#gallery .lightbox .arrow:hover {
+  color: #bbb;
+}
+
 </style>
 
 
