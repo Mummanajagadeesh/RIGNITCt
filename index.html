@@ -100,6 +100,58 @@
     }
 
     a, button, img { cursor: none !important; }
+
+    @media (max-width: 768px) {
+  /* Disable custom cursor */
+  html, body, a, button, img {
+    cursor: default !important;
+  }
+  .cursor { display: none !important; }
+
+  /* Hero layout stack */
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 80px;   /* reduced for navbar */
+    padding: 1.5rem 1rem;
+  }
+
+  /* Slideshow fixed box */
+  #slideshow {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;     /* ✅ stable height */
+    border-radius: 0.75rem;
+    object-fit: contain;
+    background: transparent !important; /* ✅ no white box */
+  }
+
+  .text-block {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 12px rgba(255,255,255,0.5);
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+
+  /* Sections smaller */
+  section {
+    font-size: 1.8rem;
+    padding: 2rem 1rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -328,6 +380,28 @@
     #about p {
   font-size: 1rem; /* smaller than default */
   line-height: 1.5;  /* keeps it readable */
+}
+
+@media (max-width: 900px) {
+  #about .about-container {
+    padding: 100px 20px 60px;
+  }
+
+  #about .about-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  #about .about-text h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Smaller image card on mobile */
+  #about .card-wrap {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;   /* ✅ square on phones */
+  }
 }
   </style>
 
@@ -582,6 +656,49 @@
         font-size: 2.5rem;
       }
     }
+
+      @media (max-width: 768px) {
+    .projects-container {
+      padding: 80px 20px;
+      gap: 30px;
+    }
+
+    .projects-header {
+      font-size: 2.2rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr; /* ✅ stack cards */
+      gap: 24px;
+    }
+
+    .project-image {
+      height: 180px; /* smaller image box */
+    }
+
+    .project-content h2 {
+      font-size: 1.4rem;
+    }
+
+    .project-content p {
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+    }
+
+    .project-link {
+      font-size: 1rem;
+      padding: 8px 18px;
+    }
+
+    .view-all {
+      justify-content: center; /* center on mobile */
+    }
+
+    .view-all a {
+      font-size: 1.2rem;
+    }
+  }
+
   </style>
 
   <div class="projects-container">
@@ -729,7 +846,38 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
 
+  @media (max-width: 900px) {
+    #people {
+      padding: 60px 20px !important;
+      gap: 30px;
+    }
 
+    #people .people-header {
+      font-size: 1.8rem;
+    }
+
+    #people .company-slider {
+      gap: 25px;
+    }
+    #people .company-slider img {
+      height: 30px; /* smaller logos */
+    }
+
+    #people .startup-header {
+      font-size: 1.8rem;
+      margin-top: 50px;
+    }
+
+    #people .startup-grid {
+      gap: 30px;
+      margin-top: 25px;
+    }
+
+    #people .startup-grid img {
+      height: 100px;
+      max-width: 140px;
+    }
+  }
   </style>
 
   <!-- Existing Alumni Section -->
@@ -1216,6 +1364,29 @@ document.getElementById('help').onclick = () => {
       opacity: 0.8;
       text-align: center;
     }
+
+    /* ====== Footer mobile optimization ====== */
+@media (max-width:600px){
+  #footer {
+    padding: 20px 0 !important;
+    gap: 14px !important;
+  }
+
+  #footer .socials {
+    gap: 20px !important;
+    font-size: 2rem !important; /* smaller icons on mobile */
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  #footer .tag {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    padding: 0 10px !important;
+  }
+}
+
+
   </style>
 
   <!-- Social links -->

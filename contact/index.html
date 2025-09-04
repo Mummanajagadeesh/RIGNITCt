@@ -266,6 +266,82 @@ font-family: "Orbitron", sans-serif;
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ================== Mobile Fix ================== */
+@media (max-width: 768px) {
+  /* Force Contact Us title to very top */
+  .site-title {
+    position: absolute !important;
+    top: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    font-size: 2.2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    z-index: 20 !important;
+  }
+
+  .site-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) scaleX(1) !important;
+    width: 80px !important;
+    bottom: -8px !important;
+  }
+
+  /* Push page content down so title doesn’t overlap */
+  .page {
+    padding-top: 140px !important;
+  }
+
+  /* Stack layout */
+  .contact-wrapper {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  .left-side,
+  .contact-form-wrapper {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Form adjustments */
+  .contact-form {
+    max-width: 100% !important;
+    gap: 14px !important;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem !important;
+    padding: 12px 14px !important;
+  }
+
+  .contact-form button {
+    font-size: 1.4rem !important;
+    padding: 10px 20px !important;
+    border-radius: 30px !important;
+  }
+
+  /* Map / Address stack */
+  .map-address-wrapper {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  .map-frame {
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  .map-address-wrapper .address {
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
 </style>
 
 <script src="https://kit.fontawesome.com/1f1c2a06b3.js" crossorigin="anonymous"></script>

@@ -289,6 +289,89 @@ html,body{
 
 /* helpful utility for single-card rows (odd count) */
 .row.single .card{ flex:1 1 0%; }
+
+/* ====== Mobile optimization: show full description & keep View Project only ====== */
+@media (max-width:600px){
+
+  /* stack card vertically */
+  .card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+    padding: 12px !important;
+    min-height: auto !important;
+  }
+
+  /* image full width */
+  .media {
+    width: 100% !important;
+    min-height: 160px !important;
+    height: auto !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  .media img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* info section */
+  .info {
+    width: 100% !important;
+    margin-top: 12px !important;
+    padding: 6px 2px 0 !important;
+  }
+
+  /* title visible and wraps */
+  .title {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    font-size: 1rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* always show full description */
+  .short {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    -webkit-box-orient: unset !important;
+    overflow: visible !important;
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* 🔥 remove ONLY read more button */
+  .actions .btn.read-more,
+  .actions button.read-more {
+    display: none !important;
+  }
+
+  /* keep view project button */
+  .project-link {
+    display: inline-flex !important;
+    width: auto !important;
+    font-size: 0.95rem !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+  }
+
+  /* disable hover effects */
+  .card:hover { transform: none !important; box-shadow: none !important; }
+  .card:hover .media img.default-img { opacity: 1 !important; transform: none !important; }
+  .media img.hover-img { display: none !important; opacity: 0 !important; }
+
+  /* spacing */
+  .row { gap: 12px !important; }
+  .projects-container { padding-left: 16px !important; padding-right: 16px !important; }
+}
+
+
+
 </style>
 </head>
 <body>
