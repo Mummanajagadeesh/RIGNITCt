@@ -16,187 +16,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <link href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow" rel="stylesheet" type="text/css"/>
-<link rel="icon" type="image/png" href="assets/images/logo.png">
+<link rel="icon" type="image/png" href="assets/images/logog.png">
 
 <link rel="stylesheet" href="assets/css/navbar.css">
 
   <style>
-    body, html {
+    html, body {
       margin: 0; padding: 0;
       width: 100%; height: 100%;
-  font-family: "Orbitron", sans-serif;      cursor: none !important;
+      font-family: "Orbitron", sans-serif;
+      cursor: none !important;
       overflow-x: hidden;
-      transition: background 1s ease;
-      background: rgb(227,227,227); /* initial */
+      background: #000;
+      color: #fff;
     }
 
-    /* SLIDER */
-    .slider-container {
-      width: 100vw; height: 100vh; overflow: hidden; position: relative;margin-top: 60px;
-    }
-    .slider {
-      display: flex; width: 400vw; height: 100%; /* 4 scenes */
-      transition: transform 1.5s ease-in-out;
-    }
-    .scene-wrapper {
-      width: 100vw; height: 100%; flex-shrink: 0;
-      position: relative; overflow: hidden;
-    }
-    spline-viewer {
-      width: 115%; height: 115%;
-      position: absolute; top: -5%; left: -7%;
-      pointer-events: auto; /* allow cursor tracking */
+    /* HERO (first section) */
+    .hero {
+      margin-top: 120px; /* leave room for navbar */
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: left;
+      padding: 2rem;
+      gap: 3rem;
+      /* border-bottom: 2px solid #ccc; divider for first section */
     }
 
-    /* Robot scene extras */
-.title {
-  position: absolute;
-  bottom: -200px; /* start off-screen */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 15rem;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 4px;
-  mix-blend-mode: difference;
-  z-index: 900;
-
-  animation: slideUp 5.2s ease-out forwards;
-}
-
-@keyframes slideUp {
-  0% {
-    bottom: -200px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 30px; /* final position */
-    opacity: 1;
-  }
-}
-
-    .side-left {
-      position: absolute; top: 0; left: 0; height: 100%; width: 120px;
-      background: rgb(227,227,227);
-      display: flex; justify-content: center; align-items: center;
-      writing-mode: vertical-rl; transform: rotate(180deg);
-      font-size: 3.2rem; font-weight: bold; color: #111;
-      animation: scrollText 20s linear infinite; z-index: 800;
-    }
-    @keyframes scrollText {
-      0% { transform: rotate(180deg) translateY(100%); }
-      100% { transform: rotate(180deg) translateY(-100%); }
+    #slideshow {
+      filter: grayscale(1) invert(1);
+      background-color: #fff;
+      transition: opacity 0.6s ease-in-out;
+      width: 500px;
+      height: 500px;
+      object-fit: contain;
+      border-radius: 1rem;
+      flex-shrink: 0;
+      opacity: 1;
     }
 
-.scroll-arrow {
-  position: absolute;
-  bottom: 70px; right: 70px;
-  font-size: 4.5rem;
-  cursor: none; /* override default hand */
-  animation: bounce 1.5s infinite;
-  z-index: 950;
-  transition: color 0.5s ease;
-}
+    .text-block { max-width: 600px; }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .title {
+      font-size: 10rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 25px rgba(255,255,255,0.7);
     }
 
-    /* Placeholders */
+    .subtitle {
+      font-size: 1.8rem;
+      font-weight: 400;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* Section styling + dividers */
     section {
-      height: 100vh; display: flex; justify-content: center; align-items: center;
+      min-height: 100vh;
+      display: flex; justify-content: center; align-items: center;
       font-size: 3rem; font-weight: bold;
-      background: #f5f5f5; border-bottom: 2px solid #ccc;
+      background: #f5f5f5; color: #111;
+      border-bottom: 2px solid #ccc; /* divider for all sections */
     }
+    /* Explicit divider for #about too (redundant but ensures consistency) */
+    #about { border-bottom: 2px solid #ccc; }
 
-    /* Cursor */
+    /* Custom cursor (restored behavior) */
     .cursor {
       position: fixed; top: 0; left: 0;
       width: 18px; height: 18px;
-      border-radius: 50%; background: #111;
+      border-radius: 50%;
+      background: #111; /* will auto-switch to white on dark backgrounds */
       transform: translate(-50%, -50%);
-      pointer-events: none; z-index: 2000;
+      pointer-events: none;
+      z-index: 2000;
       transition: transform 0.2s ease, background 0.2s ease;
     }
-    nav.dark ~ .cursor { background: #eee; }
     .cursor.hovered {
       transform: translate(-50%, -50%) scale(1.6);
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
 
-    /* AI tagline */
-    .ai-tagline {
-      position: absolute;
-      left: 50%; transform: translateX(-50%);
-        font-family: "F3D Techno W00 Shadow", sans-serif;
-      font-size: 4rem;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-      z-index: 900;
-      letter-spacing: 2px;
-    }
-    .ai-tagline.top { top: 12%; }
-    .ai-tagline.bottom { bottom: 12%; }
-
-    a, button, .scroll-arrow {
-  cursor: none !important;
-}
-
+    a, button, img { cursor: none !important; }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-<nav id="navbar">
-  <a href="../" class="logo">
-  <img src="assets/images/logo.png" alt="Logo">
-</a>
-  <div class="nav-links">
-    <a href="about/">About Us</a>
-    <a href="projects/">Projects</a>
-    <a href="achievements/">Achievements</a>
-    <a href="activities/">Activities</a>
-    <a href="team/">Team</a>
-    <a href="contact/">Contact</a>
-  </div>
-<a class="btn-sponsor" href="contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">
-  Sponsor Us
-</a>
-</nav>
-
-
-  <!-- SLIDER -->
-  <div class="slider-container">
-    <div class="slider" id="slider">
-      <!-- Scene 1 (Robot) -->
-      <div class="scene-wrapper" style="background:rgb(227,227,227);">
-        <spline-viewer url="https://prod.spline.design/OW-JA8uLXHsfViOy/scene.splinecode"></spline-viewer>
-        <div class="title">RIGNITC</div>
-        <div class="side-left">We Bring Robots To Life</div>
-      </div>
-      <!-- Scene 2 (Drone) -->
-      <div class="scene-wrapper" style="background:rgb(11,11,11);">
-        <spline-viewer url="https://prod.spline.design/YpsdPvbFG2DWDRcp/scene.splinecode"></spline-viewer>
-      </div>
-      <!-- Scene 3 (Circuit) -->
-      <!-- <div class="scene-wrapper" style="background:rgb(11,11,11);">
-        <spline-viewer url="https://prod.spline.design/FMDKuxO3vVwJAe0X/scene.splinecode"></spline-viewer>
-      </div> -->
-      <!-- Scene 4 (AI) -->
-      <!-- <div class="scene-wrapper" style="background:rgb(11,11,11);">
-        <spline-viewer url="https://prod.spline.design/7OZMy55eefCqX0VM/scene.splinecode"></spline-viewer>
-        <div class="ai-tagline top">This is the place where</div>
-        <div class="ai-tagline bottom">AI thinks with you</div>
-      </div> -->
+  <nav id="navbar">
+    <a href="../" class="logo">
+      <img src="assets/images/logo.png" alt="Logo" style="filter: grayscale(1) invert(1);">
+    </a>
+    <div class="nav-links">
+      <a href="about/">About Us</a>
+      <a href="projects/">Projects</a>
+      <a href="achievements/">Achievements</a>
+      <a href="activities/">Activities</a>
+      <a href="team/">Team</a>
+      <a href="contact/">Contact</a>
     </div>
+    <a class="btn-sponsor" href="contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">
+      Sponsor Us
+    </a>
+  </nav>
 
-    <!-- Scroll arrow -->
-    <div class="scroll-arrow" id="scrollArrow">⬇</div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="text-block">
+      <div class="title">RIGNITC</div>
+      <div class="subtitle">Robotics Interest Group @ NIT Calicut</div>
+    </div>
+    <img id="slideshow" alt="slideshow">
   </div>
 
-  <!-- Placeholders -->
+  <!-- Sections -->
 <section id="about">
   <style>
     #about {
@@ -214,6 +149,8 @@
       gap: 50px;
       flex-wrap: wrap;
       overflow: hidden;
+           border-top: 2px solid #ccc;
+
     }
 
     #about .about-text,
@@ -230,12 +167,14 @@
     }
 
     #about .about-text {
+      font-family: Sora, "Inter", sans-serif;
       flex: 1 1 400px;
       font-size: 1.5rem;
       line-height: 2.2rem;
     }
 
     #about .about-text h1 {
+      font-family: "Orbitron", sans-serif;
       font-size: 4rem;
       margin-bottom: 20px;
     }
@@ -471,8 +410,6 @@
     })();
   </script>
 </section>
-
-
 
 <section id="projects"> 
   <style>
@@ -886,9 +823,6 @@ startups.forEach(startup => {
   </script>
 </section>
 
-
-
-
 <section id="gallery">
 <style>
   #gallery {
@@ -1242,7 +1176,7 @@ document.getElementById('help').onclick = () => {
 
 </section>
   
-  <section id="footer">
+<section id="footer">
   <!-- Font Awesome (free CDN) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -1298,122 +1232,101 @@ document.getElementById('help').onclick = () => {
   <div class="tag">No Copyrights Reserved</div>
 </section>
 
-
   <!-- Cursor -->
   <div class="cursor"></div>
 
-<script>
-(() => {
-  // ---------------- Custom Cursor ----------------
-  const cursor = document.querySelector(".cursor");
-  const links = document.querySelectorAll("a, button, .polaroid img, #scrollArrow");
-  const navbar = document.getElementById("navbar");
-  const scrollArrow = document.getElementById("scrollArrow");
-  const slider = document.getElementById("slider");
+  <script>
+    /* ---------- Custom Cursor (with background-aware color) ---------- */
+    (function() {
+      const cursor = document.querySelector(".cursor");
+      const hoverables = document.querySelectorAll("a, button, img");
 
-  Object.assign(cursor.style, {
-    position: "fixed",
-    pointerEvents: "none",
-    zIndex: "9999",
-    width: "20px",
-    height: "20px",
-    borderRadius: "50%",
-    transition: "background 0.2s, transform 0.15s",
-    transform: "translate(-50%, -50%)"
-  });
+      hoverables.forEach(el => {
+        el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+        el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+      });
 
-  // Hover effect
-  links.forEach(el => {
-    el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
-    el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
-  });
+      document.addEventListener("mousemove", e => {
+        cursor.style.top = e.clientY + "px";
+        cursor.style.left = e.clientX + "px";
 
-  // Follow mouse smoothly
-  document.addEventListener("mousemove", e => {
-    cursor.style.top = `${e.clientY}px`;
-    cursor.style.left = `${e.clientX}px`;
+        // Temporarily hide cursor to read element under pointer
+        cursor.style.display = "none";
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        cursor.style.display = "block";
+        if (!el) return;
 
-    // Determine element under cursor ignoring custom cursor
-    cursor.style.display = "none";
-    const el = document.elementFromPoint(e.clientX, e.clientY);
-    cursor.style.display = "block";
-    if (!el) return;
+        // Walk up DOM to find non-transparent background
+        let bgEl = el;
+        let bg = getComputedStyle(bgEl).backgroundColor;
+        while (bg === "rgba(0, 0, 0, 0)" && bgEl.parentElement) {
+          bgEl = bgEl.parentElement;
+          bg = getComputedStyle(bgEl).backgroundColor;
+        }
 
-    // Compute background color recursively
-    let bgEl = el;
-    let bg = window.getComputedStyle(bgEl).backgroundColor;
-    while (bg === "rgba(0, 0, 0, 0)" && bgEl.parentElement) {
-      bgEl = bgEl.parentElement;
-      bg = window.getComputedStyle(bgEl).backgroundColor;
-    }
-    const rgb = bg.match(/\d+/g);
-    if (rgb) {
-      const brightness = (0.299*rgb[0] + 0.587*rgb[1] + 0.114*rgb[2]) / 255;
-      cursor.style.background = brightness > 0.6 ? "#111" : "#fff";
-    } else {
-      cursor.style.background = "#fff";
-    }
-  });
+        // Decide white/black for visibility
+        const rgb = bg.match(/\d+/g);
+        if (rgb) {
+          const r = +rgb[0], g = +rgb[1], b = +rgb[2];
+          const brightness = (0.299*r + 0.587*g + 0.114*b) / 255;
+          cursor.style.background = brightness > 0.6 ? "#111" : "#fff";
+        } else {
+          cursor.style.background = "#fff";
+        }
+      });
+    })();
 
-  // ScrollArrow hover
-  if(scrollArrow) {
-    scrollArrow.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
-    scrollArrow.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
-    scrollArrow.style.cursor = "none";
-  }
+    /* ---------- Robust Slideshow (preload + fade) ---------- */
+    (function() {
+const images = [
+  "assets/images/main/1.png",
+  "assets/images/main/2.png",
+  "assets/images/main/3.png",
+  "assets/images/main/4.png",
+  "assets/images/main/5.png",
+  "assets/images/main/6.png",
+  "assets/images/main/7.png",
+  "assets/images/main/8.png",
+  "assets/images/main/9.png",
+  "assets/images/main/10.png",
+  "assets/images/main/11.png",
+  "assets/images/main/12.png",
+  // "assets/images/main/13.png",
+  "assets/images/main/14.png",
+  "assets/images/main/15.png"
+];
 
-  // Disable zoom globally
-  window.addEventListener("wheel", e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
-  window.addEventListener("gesturestart", e => e.preventDefault());
 
-  document.querySelectorAll("spline-viewer").forEach(spline => {
-    spline.addEventListener("wheel", e => e.preventDefault(), { passive: false });
-  });
 
-  // ---------------- Scene Cycling ----------------
-  var currentIndex = 0; // use var to avoid redeclare errors
-  const scenes = 2;
-  const cycleInterval = 20000;
-  var autoCycleTimer = null;
+      const imgEl = document.getElementById("slideshow");
+      const DELAY = 4000;
+      const FADE = 300;
 
-  function showScene(index) {
-    currentIndex = (index + scenes) % scenes;
-    if(slider) slider.style.transform = `translateX(-${100 * currentIndex}vw)`;
+      // Start with first image
+      let index = 0;
+      imgEl.src = images[index];
 
-    if(currentIndex === 0) {
-      document.body.style.background = "rgb(227,227,227)";
-      if(navbar) navbar.classList.remove("dark");
-      if(scrollArrow) scrollArrow.style.color = "#111";
-    } else {
-      document.body.style.background = "rgb(11,11,11)";
-      if(navbar) navbar.classList.add("dark");
-      if(scrollArrow) scrollArrow.style.color = "#fff";
-    }
-  }
+      function nextImage() {
+        const nextIndex = (index + 1) % images.length;
+        const nextSrc = images[nextIndex];
 
-  function startAutoCycle() {
-    stopAutoCycle();
-    autoCycleTimer = setInterval(() => showScene(currentIndex + 1), cycleInterval);
-  }
+        // Preload the next image to avoid flashes
+        const pre = new Image();
+        pre.onload = () => {
+          imgEl.style.opacity = 0;
+          setTimeout(() => {
+            imgEl.src = nextSrc;
+            imgEl.style.opacity = 1;
+            index = nextIndex;
+            setTimeout(nextImage, DELAY);
+          }, FADE);
+        };
+        pre.src = nextSrc;
+      }
 
-  function stopAutoCycle() {
-    if(autoCycleTimer) clearInterval(autoCycleTimer);
-  }
-
-  startAutoCycle();
-
-  document.addEventListener("keydown", e => {
-    if(e.key === "ArrowRight") { showScene(currentIndex + 1); stopAutoCycle(); setTimeout(startAutoCycle, cycleInterval); }
-    else if(e.key === "ArrowLeft") { showScene(currentIndex - 1); stopAutoCycle(); setTimeout(startAutoCycle, cycleInterval); }
-  });
-
-  if(scrollArrow) scrollArrow.addEventListener("click", () => {
-    const about = document.getElementById("about");
-    if(about) about.scrollIntoView({ behavior: "smooth" });
-  });
-
-})();
-</script>
-
+      // Kick off after initial delay
+      setTimeout(nextImage, DELAY);
+    })();
+  </script>
 </body>
 </html>
