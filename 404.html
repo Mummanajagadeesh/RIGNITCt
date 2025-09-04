@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RIGNITC | Page Not Found</title>
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="icon" type="image/png" href="../assets/images/logog.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+
+  <style>
+    :root{
+      --bg: #000;
+      --fg: #fff;
+      --fg-opa: rgba(255,255,255,1);
+      --max-width: 1100px;
+      --radius: 14px;
+      --gap: 22px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:var(--bg);
+      color:var(--fg);
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.35;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      text-align:center;
+      padding:120px 22px;
+    }
+    h1{
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(2rem,6vw,3.6rem);
+      letter-spacing:-1px;
+      margin-bottom:12px;
+      text-transform:uppercase;
+      position:relative;
+      display:inline-block;
+    }
+    h1:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:3px;
+      background:var(--fg);
+      transition:width .4s ease;
+    }
+    h1:hover:after{width:100%}
+    .tagline{
+      color:rgba(255,255,255,0.85);
+      font-weight:600;
+      margin-top:10px;
+      font-size:1rem;
+      opacity:.95;
+    }
+    .error-code{
+      font-family:"Orbitron",sans-serif;
+      font-size:6rem;
+      margin:40px 0 16px;
+      color:var(--fg);
+    }
+    .error-message{
+      font-size:1.3rem;
+      color:rgba(255,255,255,.82);
+      margin-bottom:24px;
+    }
+    .home-link{
+      display:inline-block;
+      background:var(--fg);
+      color:var(--bg);
+      text-decoration:none;
+      padding:12px 28px;
+      border-radius:var(--radius);
+      font-weight:700;
+      transition:all .3s ease;
+    }
+    .home-link:hover{
+      background:rgba(255,255,255,.85);
+      color:var(--bg);
+    }
+    @media(max-width:720px){
+      .error-code{font-size:4rem}
+      .error-message{font-size:1.1rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="dark" id="navbar" aria-label="Main navigation">
+    <a href="../" class="logo">
+      <img src="../assets/images/logog.png" alt="RIGNITC logo" style="filter: grayscale(1) invert(1);">
+    </a>
+    <div class="nav-links">
+      <a href="../about/">About Us</a>
+      <a href="../projects/">Projects</a>
+      <a href="../achievements/">Achievements</a>
+      <a href="../activities/">Activities</a>
+      <a href="../team/">Team</a>
+      <a href="../contact/">Contact</a>
+    </div>
+    <a class="btn-sponsor" href="../contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">Sponsor US</a>
+  </nav>
+
+  <main>
+    <h1 class="error-code">404</h1>
+    <div class="tagline">Oops! The page you are looking for does not exist.</div>
+    <p class="error-message">It might have been moved or never existed. You can return to the homepage.</p>
+    <a href="../" class="home-link">Go Back Home</a>
+  </main>
+</body>
+</html>
