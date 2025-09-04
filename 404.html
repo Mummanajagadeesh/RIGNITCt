@@ -4,35 +4,155 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RIGNITC | Page Not Found</title>
-  <link rel="stylesheet" href="../assets/css/navbar.css">
-  <link rel="icon" type="image/png" href="../assets/images/logog.png">
+  <link rel="icon" type="image/png" href="https://mummanajagadeesh.github.io/RIGNITC/assets/images/logo.png">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Sora:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg: #000;
-      --fg: #fff;
-      --fg-opa: rgba(255,255,255,1);
-      --max-width: 1100px;
-      --radius: 14px;
-      --gap: 22px;
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      padding: 14px 40px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08); 
+      box-shadow: 0 6px 28px rgba(0,0,0,0.55);
+      z-index: 1000;
+      min-width: 65%;
+      max-width: 1100px;
+      font-family: "Inter", "Segoe UI", "Roboto", sans-serif;
     }
+    .logo { display:block;width:50px;height:auto;z-index:2; }
+    .logo img { width:100%;height:auto;display:block; }
+    .nav-links { display:flex;gap:2.2rem;z-index:2; }
+    .nav-links a {
+      text-decoration:none;
+      font-weight:500;
+      padding:6px 2px;
+      transition:all 0.35s ease;
+      color:#cfcfcf;
+      position:relative;
+      letter-spacing:0.5px;
+      font-size:0.95rem;
+    }
+    .nav-links a::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:100%;
+      height:1.5px;
+      background:linear-gradient(90deg,#666,#aaa,#666);
+      border-radius:2px;
+      transform:scaleX(0);
+      transform-origin:right;
+      transition:transform 0.35s ease;
+    }
+    .nav-links a:hover::after { transform:scaleX(1);transform-origin:left; }
+    .nav-links a:hover {
+      color:#f1f1f1;
+      text-shadow:0 0 10px rgba(255,255,255,0.4);
+      transform:translateY(-2px);
+    }
+    .btn-sponsor {
+      background:linear-gradient(135deg,#2a2a2a,#111);
+      color:#e0e0e0;
+      border:1px solid rgba(255,255,255,0.25);
+      border-radius:12px;
+      padding:11px 28px;
+      font-weight:700;
+      font-size:0.95rem;
+      text-decoration:none;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      transition:transform 0.35s ease,box-shadow 0.35s ease,border 0.35s ease;
+      position:relative;
+      overflow:hidden;
+      z-index:1;
+      box-shadow:inset 0 1px 3px rgba(255,255,255,0.08),0 4px 18px rgba(0,0,0,0.6);
+    }
+    .btn-sponsor::before {
+      content:"";
+      position:absolute;
+      top:0;left:-75%;
+      width:50%;height:100%;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent);
+      transform:skewX(-20deg);
+      transition:left 0.8s ease;
+    }
+    .btn-sponsor:hover::before { left:130%; }
+    .btn-sponsor:hover {
+      transform:translateY(-2px) scale(1.03);
+      border-color:rgba(255,255,255,0.35);
+      box-shadow:0 6px 20px rgba(255,255,255,0.15),inset 0 1px 4px rgba(255,255,255,0.1);
+      background:linear-gradient(135deg,#333,#1a1a1a);
+    }
+    nav.dark { background:linear-gradient(145deg,#1c1c1c,#101010);border:1px solid rgba(255,255,255,0.12); }
+    nav.dark .nav-links a { color:#bdbdbd; }
+    nav.dark .nav-links a:hover { color:#fff; }
+    nav.dark .btn-sponsor { background:linear-gradient(135deg,#2e2e2e,#111); }
+
+    @media (max-width:768px) {
+      nav {
+        padding:12px 18px;
+        min-width:92%;
+        max-width:92%;
+        border-radius:14px;
+        position:relative;
+      }
+      .logo { width:42px;margin:0; }
+      .nav-links {
+        max-height:0;
+        overflow:hidden;
+        flex-direction:column;
+        gap:1rem;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        padding:0 16px;
+        background:rgba(20,20,20,0.95);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
+        border-radius:0 0 14px 14px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.65);
+        transition:max-height 0.35s ease,padding 0.35s ease;
+      }
+      nav:hover .nav-links,nav:focus-within .nav-links { max-height:400px;padding:16px; }
+      nav::after {
+        content:"≡";
+        font-size:1.6rem;
+        color:#fff;
+        position:absolute;
+        right:16px;
+        top:50%;
+        transform:translateY(-50%);
+        line-height:1;
+        pointer-events:none;
+      }
+      nav>.btn-sponsor { display:none!important; }
+      .nav-links .btn-sponsor { display:block;width:100%;text-align:center;margin-top:8px;order:99; }
+    }
+
+    /* =============== PAGE STYLES =============== */
+    :root{--bg:#000;--fg:#fff;--radius:14px;}
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
+    html,body{height:100%;min-height:100%;overflow-y:scroll}
     body{
       background:var(--bg);
       color:var(--fg);
       font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.35;
       display:flex;
       flex-direction:column;
-      justify-content:flex-start;
       align-items:center;
       text-align:center;
       padding:120px 22px;
@@ -40,7 +160,6 @@
     h1{
       font-family:"Orbitron",sans-serif;
       font-size:clamp(2rem,6vw,3.6rem);
-      letter-spacing:-1px;
       margin-bottom:12px;
       text-transform:uppercase;
       position:relative;
@@ -57,24 +176,9 @@
       transition:width .4s ease;
     }
     h1:hover:after{width:100%}
-    .tagline{
-      color:rgba(255,255,255,0.85);
-      font-weight:600;
-      margin-top:10px;
-      font-size:1rem;
-      opacity:.95;
-    }
-    .error-code{
-      font-family:"Orbitron",sans-serif;
-      font-size:6rem;
-      margin:40px 0 16px;
-      color:var(--fg);
-    }
-    .error-message{
-      font-size:1.3rem;
-      color:rgba(255,255,255,.82);
-      margin-bottom:24px;
-    }
+    .tagline{color:rgba(255,255,255,0.85);font-weight:600;margin-top:10px;font-size:1rem;}
+    .error-code{font-family:"Orbitron",sans-serif;font-size:6rem;margin:40px 0 16px;}
+    .error-message{font-size:1.3rem;color:rgba(255,255,255,.82);margin-bottom:24px;}
     .home-link{
       display:inline-block;
       background:var(--fg);
@@ -85,10 +189,7 @@
       font-weight:700;
       transition:all .3s ease;
     }
-    .home-link:hover{
-      background:rgba(255,255,255,.85);
-      color:var(--bg);
-    }
+    .home-link:hover{background:rgba(255,255,255,.85);color:var(--bg);}
     @media(max-width:720px){
       .error-code{font-size:4rem}
       .error-message{font-size:1.1rem}
@@ -97,9 +198,9 @@
 </head>
 <body>
   <!-- NAV -->
-  <nav class="dark" id="navbar" aria-label="Main navigation">
+  <nav class="dark" id="navbar">
     <a href="../" class="logo">
-      <img src="../assets/images/logog.png" alt="RIGNITC logo" style="filter: grayscale(1) invert(1);">
+      <img src="https://mummanajagadeesh.github.io/RIGNITC/assets/images/logo.png" alt="RIGNITC logo" style="filter: grayscale(1) invert(1);">
     </a>
     <div class="nav-links">
       <a href="../about/">About Us</a>
@@ -109,12 +210,15 @@
       <a href="../team/">Team</a>
       <a href="../contact/">Contact</a>
     </div>
-    <a class="btn-sponsor" href="../contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">Sponsor US</a>
+    <a class="btn-sponsor" href="../contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">Sponsor Us</a>
   </nav>
 
+  <!-- MAIN -->
   <main>
     <h1 class="error-code">404</h1>
+    <br><br><br>
     <div class="tagline">Oops! The page you are looking for does not exist.</div>
+    <br>
     <p class="error-message">It might have been moved or never existed. You can return to the homepage.</p>
     <a href="../" class="home-link">Go Back Home</a>
   </main>
