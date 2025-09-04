@@ -20,6 +20,7 @@ C:.
 │       ├───activities
 │       ├───companies
 │       ├───gallery
+│       ├───main
 │       ├───projects
 │       ├───startups
 │       └───team
