@@ -1333,21 +1333,22 @@ document.getElementById('help').onclick = () => {
     #footer {
       background: #000;
       color: #fff;
-  font-family: "Orbitron", sans-serif;      margin: 0;
-      padding: 15px 0; /* small height */
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+      padding: 15px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      min-height: auto !important; /* remove full-screen height */
+      min-height: auto !important;
       height: auto !important;
-      padding: 30px 0; /* keep it short */
+      padding: 30px 0;
     }
 
     #footer .socials {
       display: flex;
       gap: 40px;
-      font-size: 3.4rem; /* icon size */
+      font-size: 3.4rem;
     }
 
     #footer .socials a {
@@ -1360,6 +1361,24 @@ document.getElementById('help').onclick = () => {
       transform: scale(1.2);
     }
 
+    #footer .links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    #footer .links a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #footer .links a:hover {
+      color: #aaa;
+      text-decoration: underline;
+    }
+
     #footer .tag {
       font-size: 0.9rem;
       opacity: 0.8;
@@ -1367,38 +1386,50 @@ document.getElementById('help').onclick = () => {
     }
 
     /* ====== Footer mobile optimization ====== */
-@media (max-width:600px){
-  #footer {
-    padding: 20px 0 !important;
-    gap: 14px !important;
-  }
+    @media (max-width:600px){
+      #footer {
+        padding: 20px 0 !important;
+        gap: 14px !important;
+      }
 
-  #footer .socials {
-    gap: 20px !important;
-    font-size: 2rem !important; /* smaller icons on mobile */
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-  }
+      #footer .socials {
+        gap: 20px !important;
+        font-size: 2rem !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+      }
 
-  #footer .tag {
-    font-size: 0.75rem !important;
-    line-height: 1.4 !important;
-    padding: 0 10px !important;
-  }
-}
+      #footer .links {
+        gap: 12px !important;
+        font-size: 0.85rem !important;
+      }
 
-
+      #footer .tag {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+        padding: 0 10px !important;
+      }
+    }
   </style>
 
   <!-- Social links -->
-<div class="socials">
-  <a href="https://www.instagram.com/rig_nitc/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-  <a href="https://github.com/rignitc" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-  <a href="https://www.linkedin.com/company/rignitc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-  <a href="https://www.youtube.com/user/RIGNITC" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-  <a href="https://rignitc.github.io/blogs/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
-</div>
+  <div class="socials">
+    <a href="https://www.instagram.com/rig_nitc/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/rignitc" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/company/rignitc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/user/RIGNITC" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://rignitc.github.io/blogs/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
+  </div>
 
+  <!-- Main folder links -->
+  <div class="links">
+    <a href="/about/">About</a>
+    <a href="/achievements/">Achievements</a>
+    <a href="/activities/">Activities</a>
+    <a href="/contact/">Contact</a>
+    <a href="/projects/">Projects</a>
+    <a href="/team/">Team</a>
+  </div>
 
   <!--tagline -->
   <div class="tag">No Copyrights Reserved</div>
