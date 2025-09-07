@@ -175,8 +175,28 @@
   </nav>
 
   <!-- HERO -->
-<div class="hero">
-  <div class="text-block">
+<div class="hero" style="position: relative; background: black; color: white; overflow: hidden;">
+<img src="assets/images/main/lab.svg" 
+     alt="lab background" 
+     class="lab-bg" 
+     style="position: absolute; top: 55%; left: 30%; width: 85%; height: 85%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(5) brightness(1.4) drop-shadow(0 0 15px rgba(255,255,255,0.15)); mix-blend-mode: screen; opacity: 0.45; z-index: 0;">
+
+<style>
+  /* Mobile only styles (max-width 768px) */
+  @media (max-width: 768px) {
+    .lab-bg {
+      top: 30% !important;
+      left: 50% !important;
+      width: 120% !important;
+      height: auto !important;
+      transform: translate(-50%, -50%) !important;
+      filter: invert(1) contrast(4) brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.15)) !important;
+    }
+  }
+</style>
+
+
+  <div class="text-block" style="position: relative; z-index: 1;">
     <div class="title">RIGNITC</div>
     <p style="font-family: Sora, 'Inter', sans-serif;">
       <span style="font-size: 1.8em; font-weight: 600;">Robotics Interest Group @ NIT Calicut</span>
@@ -185,8 +205,9 @@
       <em>We fail, and we rebuild stronger. We are RIGNITC.</em>
     </p>
   </div>
-  <img id="slideshow" alt="slideshow">
+  <img id="slideshow" alt="slideshow" style="position: relative; z-index: 1;">
 </div>
+
 
 
   <!-- Sections -->
