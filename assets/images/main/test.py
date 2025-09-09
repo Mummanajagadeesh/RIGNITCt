@@ -3,8 +3,8 @@ from apng import APNG
 from PIL import Image
 
 # Step 1: Download APNG file
-url = "https://toolxox.com/site/api/uploads/toolxox.com-iconscout-4MYWc.png"
-apng_file = "404.png"
+url = "https://toolxox.com/site/api/uploads/toolxox.com-iconscout-4MYWc.webp"
+apng_file = "404.webp"
 
 print("Downloading APNG...")
 response = requests.get(url, stream=True)
