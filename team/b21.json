@@ -11,6 +11,17 @@
     ]
   },
   {
+    "name": "Nikitha S",
+    "photo": "assets/images/team/b21/nikitha-s.png",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/nikitha-saji/"
+      }
+    ]
+  },
+  {
     "name": "Karthik Manoranjan",
     "photo": "assets/images/team/b21/karthik-manoranjan.png",
     "role": "Team Member",
