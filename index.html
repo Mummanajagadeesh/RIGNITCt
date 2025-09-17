@@ -175,7 +175,7 @@
 <img src="assets/images/main/labxxxl.png" 
      alt="lab background" 
      class="lab-bg" 
-     style="position: absolute; top: 55%; left: 35%; width: 60%; height: 100%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(1) brightness(1) drop-shadow(0 0 15px rgba(255,255,255,0.15)); mix-blend-mode: screen; opacity: 0.8; z-index: 0;">
+     style="position: absolute; top: 55%; left: 35%; width: 60%; height: 100%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(1) brightness(1); mix-blend-mode: screen; opacity: 0.8; z-index: 0;">
 
 <style>
   /* Mobile only styles (max-width 768px) */
@@ -1499,6 +1499,11 @@ document.getElementById('help').onclick = () => {
           cursor.style.background = brightness > 0.6 ? "#111" : "#fff";
         } else {
           cursor.style.background = "#fff";
+        }
+        if (el.id === "slideshow" || el.classList.contains("lab-bg") || el.closest(".hero")) {
+          cursor.style.background = "#fff";
+          cursor.classList.remove("hovered");
+          return;
         }
       });
     })();
