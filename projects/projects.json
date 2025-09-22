@@ -22,7 +22,7 @@
     "short_description": "Semi-humanoid healthcare assistant robot.",
     "description": "A semi-humanoid robot for healthcare assistance, equipped with SLAM-based navigation, a touchscreen database, facial recognition, and autonomous item retrieval. Riggu aims to support doctors by enhancing patient care and decision-making.",
     "link": "riggu",
-    "image": "riggu.webp"
+    "image": "riggu-real.jpg"
   },
 
    {
@@ -34,6 +34,24 @@
     "image": "hospbed.webp"
   },
 
+  {
+  "id": "garbage-bot",
+  "title": "Garbage Bot",
+  "short_description": "Autonomous garbage-collecting robot with object detection and avoidance.",
+  "description": "An autonomous robot designed for waste collection. It uses object detection and obstacle avoidance sensors to identify and collect trash from trash cans efficiently, ensuring safe navigation in dynamic environments.",
+  "link": "garbage-bot",
+  "image": "garbage-bot.webp"
+  },
+
+  {
+    "id": "coconut-sorting-robot",
+    "title": "Coconut Sorting Robot",
+    "short_description": "Automated system to sort coconuts by physical and visual traits.",
+    "description": "The main goal of the project is to develop and design an automated system that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
+    "link": "coconut-sorting-robot",
+    "image": "image.webp"
+  },
+  
   {
     "id": "origami-bot",
     "title": "Origami Bot",
@@ -89,14 +107,6 @@
     "short_description": "Drone with multispectral cameras for soil & crop analysis.",
     "description": "An unmanned aerial vehicle equipped with multispectral and hyperspectral cameras for high-resolution soil mapping. It provides valuable data on soil properties, crop health, and terrain, contributing to efficient agricultural and environmental applications.",
     "link": "soil-uav",
-    "image": "image.webp"
-  },
-  {
-    "id": "coconut-sorting-robot",
-    "title": "Coconut Sorting Robot",
-    "short_description": "Automated system to sort coconuts by physical and visual traits.",
-    "description": "The main goal of the project is to develop and design an automated system that can effectively sort coconuts according to a variety of physical and visual characteristics. With its labour-intensive, time-consuming, and inconsistent nature, the system aims to overcome the drawbacks of conventional manual sorting techniques.",
-    "link": "coconut-sorting-robot",
     "image": "image.webp"
   }
 ]
