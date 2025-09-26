@@ -1,34 +1,42 @@
 [
   {
     "title": "IInvenTiv Mega R&D Fair",
-    "description": "Two projects were selected from NIT, out of which one was from RIG. This project was presented in front of the Hon'ble education minister of India."
+    "description": "Two projects were selected from NIT, out of which one was from RIG. This project was presented in front of the Hon'ble education minister of India.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "KTX Expo",
-    "description": "Showcased AVIBOT, one of RIG's flagship projects, at the KTX Global, aiming to attract industry partnerships to make the product market-ready."
+    "description": "Showcased AVIBOT, one of RIG's flagship projects, at the KTX Global, aiming to attract industry partnerships to make the product market-ready.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Disha Expo",
-    "description": "Represented NIT Calicut at Disha Expo'23, showcasing a few RIG projects to higher secondary school students. A technical stall was also put up at Disha 2018 organized by the Government of Kerala."
+    "description": "Represented NIT Calicut at Disha Expo'23, showcasing a few RIG projects to higher secondary school students. A technical stall was also put up at Disha 2018 organized by the Government of Kerala.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Malabar Innovation Fest",
-    "description": "Exhibited RIG projects at the Malabar Innovation Fest held at the Regional Science Centre Calicut, organized by the Government of Kerala."
+    "description": "Exhibited RIG projects at the Malabar Innovation Fest held at the Regional Science Centre Calicut, organized by the Government of Kerala.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Exhibition at KMCT College of Engineering for Women",
-    "description": "Displayed robotic projects at KMCT College of Engineering for Women, highlighting RIG's innovations."
+    "description": "Displayed robotic projects at KMCT College of Engineering for Women, highlighting RIG's innovations.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Kerala Startup Mission Startup Yatra",
-    "description": "Participated in the Kerala Startup Mission's Startup Yatra held at Thiruvananthapuram, showcasing RIG projects."
+    "description": "Participated in the Kerala Startup Mission's Startup Yatra held at Thiruvananthapuram, showcasing RIG projects.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Exhibition at Vidya Academy of Science and Technology",
-    "description": "Exhibited robotic projects at Vidya Academy of Science and Technology, engaging with students and faculty."
+    "description": "Exhibited robotic projects at Vidya Academy of Science and Technology, engaging with students and faculty.",
+    "image": "assets/images/activities/origo.webp"
   },
   {
     "title": "Lab Visits",
-    "description": "Held several lab visits for school students, showcasing robotic technologies and ongoing projects in RIG."
+    "description": "Held several lab visits for school students, showcasing robotic technologies and ongoing projects in RIG.",
+    "image": "assets/images/activities/origo.webp"
   }
 ]
