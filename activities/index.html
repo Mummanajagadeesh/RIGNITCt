@@ -123,6 +123,14 @@
 
     .empty { text-align:center; color: rgba(255,255,255,.45); padding:40px 18px; border:1px dashed rgba(255,255,255,.04); border-radius:12px; }
 
+    /* Make anchor wrap the card */
+    .resource-link {
+      display: block;
+    }
+    .resource-link .activity-card {
+      height: 100%;
+    }
+
     /* --- Exhibitions Scroll --- */
     #exhibitions {
       display: flex;
@@ -296,6 +304,36 @@
     </div>
     <div style="text-align:center;margin-top:20px;">
       <button id="view-more-workshops" class="view-more-btn" style="display:none;">View More</button>
+    </div>
+
+    <!-- Resources -->
+    <section class="hero" aria-labelledby="resources-head">
+      <div class="left">
+        <h1 id="resources-head">Resources</h1>
+        <div class="tagline">Guides, links and references to help you learn more</div>
+      </div>
+    </section>
+    <div class="activities" id="resources">
+      <div class="empty" id="resources-empty" style="display:none;">No resources found.</div>
+      
+      <!-- Resource items -->
+      <a class="resource-link" href="https://drive.google.com/drive/u/0/folders/1mlSDZa4tKQFwYp6VGSy4WQWFP07UKmDT" target="_blank" rel="noopener">
+        <article class="activity-card">
+          <div class="activity-content">
+            <div class="activity-badge">#1</div>
+            <div class="activity-title">Code file for bot</div>
+          </div>
+        </article>
+      </a>
+      
+      <a class="resource-link" href="https://www.menti.com/alrzpe157nn8" target="_blank" rel="noopener">
+        <article class="activity-card">
+          <div class="activity-content">
+            <div class="activity-badge">#2</div>
+            <div class="activity-title">Quiz</div>
+          </div>
+        </article>
+      </a>
     </div>
 
     <!-- Exhibitions -->
