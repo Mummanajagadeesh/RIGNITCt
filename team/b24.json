@@ -55,17 +55,6 @@
     ]
   },
   {
-    "name": "William Mathew",
-    "photo": "assets/images/team/b24/william-mathew.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/william-mathew-2260b3230"
-      }
-    ]
-  },
-  {
     "name": "Kumayl",
     "photo": "assets/images/team/b24/kumayl.webp",
     "role": "Team Member",
@@ -117,17 +106,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/sara-shameen-06b2a8322"
-      }
-    ]
-  },
-  {
-    "name": "Nithesh Narayanan Parthiban",
-    "photo": "assets/images/team/b24/nithesh-narayanan-parthiban.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "http://www.linkedin.com/in/nithesh-narayanan-parthiban-7a980933a"
       }
     ]
   },
@@ -227,6 +205,17 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/thareesh-prabakaran"
+      }
+    ]
+  },
+  {
+    "name": "Senthinathan PL",
+    "photo": "assets/images/team/b24/senthilnathan-pl.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/senthilnathan-pl-75380a2b7"
       }
     ]
   }
