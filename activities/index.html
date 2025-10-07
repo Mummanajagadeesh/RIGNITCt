@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Variables --- */
     :root {
       --bg: #000;
       --fg: #fff;
@@ -23,7 +22,6 @@
       --gap: 22px;
     }
 
-    /* --- Base Styles --- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
     body {
@@ -49,6 +47,7 @@
       position: relative;
     }
     .hero .left { flex: 1 1 60%; }
+
     h1 {
       font-family: "Orbitron", sans-serif;
       font-size: clamp(2rem,6vw,3.6rem);
@@ -67,6 +66,7 @@
       transition: width .4s ease;
     }
     h1:hover:after { width:100%; }
+
     .tagline { color: rgba(255,255,255,0.85); font-weight:600; margin-top:10px; font-size:1rem; }
 
     .hero:before {
@@ -82,203 +82,129 @@
       mix-blend-mode:screen;
     }
 
-    /* --- Activities Grid --- */
-    .activities {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: var(--gap);
-      margin-top: 12px;
-    }
+    /* --- Activities General --- */
     .activity-card {
       background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 50%);
       border: 1px solid rgba(255,255,255,.06);
-      padding: 20px;
       border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      position: relative;
-      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease, background .28s ease;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      position: relative;
+      isolation: isolate;
     }
-    .activity-badge { font-weight:800; font-size:1.4rem; letter-spacing:.6px; border-left:3px solid var(--fg); padding-left:12px; margin-bottom:8px; display:inline-block; color:var(--fg);}
-    .activity-title { font-weight:700; font-size:1.06rem; margin-bottom:8px; color:var(--fg);}
-    .activity-description { font-weight:800; font-size:.98rem; line-height:1.45; margin-top:6px; color:rgba(255,255,255,.77); }
 
-    .activity-photo { max-height: 0; overflow: hidden; margin-top: 0; transition: max-height 1s ease; }
-    .activity-photo img { width: 100%; height: 100%; object-fit: contain; transform: translateY(20px); opacity:0; transition: transform 0.6s ease, opacity 0.6s ease; border-radius: 8px; }
+    .activity-badge { 
+      font-weight:800; 
+      font-size:1.4rem; 
+      border-left:3px solid var(--fg); 
+      padding-left:12px; 
+      margin-bottom:6px; 
+      color:var(--fg);
+      display:inline-block;
+      transition: color .3s ease, border-color .3s ease;
+    }
 
+    .activity-title { 
+      font-weight:700; 
+      font-size:1.06rem; 
+      color:var(--fg);
+      transition: color .3s ease;
+    }
+    .activity-description { 
+      font-weight:400; 
+      font-size:.95rem; 
+      line-height:1.45; 
+      color:rgba(255,255,255,.77); 
+      margin-top:6px;
+      transition: color .3s ease;
+    }
+
+    .activity-photo img {
+      width: 250px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* --- Hover effect (color inversion) --- */
     .activity-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(255,255,255,.03);
-      border: 4px solid var(--fg);
-      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 50%); /* keep original background */
+      box-shadow: 0 30px 60px rgba(255,255,255,.05);
+      background: var(--fg);
+      color: var(--bg);
     }
     .activity-card:hover .activity-title,
-    .activity-card:hover .activity-badge { color: var(--fg); }
-    .activity-card:hover .activity-photo { max-height:200px; margin-top:12px; }
-    .activity-card:hover .activity-photo img { transform: translateY(0); opacity:1; }
-    .activity-card:hover .activity-description { color: var(--fg); }
-    .activity-card:hover .activity-badge { border-left-color: var(--fg); }
-
-    .empty { text-align:center; color: rgba(255,255,255,.45); padding:40px 18px; border:1px dashed rgba(255,255,255,.04); border-radius:12px; }
-
-    /* Make anchor wrap the card */
-    .resource-link {
-      display: block;
+    .activity-card:hover .activity-badge {
+      color: var(--bg);
     }
-    .resource-link .activity-card {
-      height: 100%;
+    .activity-card:hover .activity-description {
+      color: rgba(0,0,0,.75);
+    }
+    .activity-card:hover .activity-badge {
+      border-left-color: var(--bg);
     }
 
-    /* --- Exhibitions Scroll --- */
+    /* --- Workshops --- */
+    #workshops {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--gap);
+      margin-bottom: 80px;
+    }
+
+    #workshops .activity-card:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    #workshops .activity-content { flex: 1; }
+
+    /* --- Exhibitions --- */
     #exhibitions {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: var(--gap);
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 10px;
-    }
-    #exhibitions::-webkit-scrollbar { display: none; }
-    .scroll-btn {
-      position: absolute;
-      top: 110px;
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background-color: #fff;
-      color: #000;
-      border: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 10;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-    .scroll-btn:hover { transform: translateY(-50%) scale(1.1); background-color: #f0f0f0; }
-    .scroll-btn.left { left: -20px; }
-    .scroll-btn.right { right: -20px; }
-    .scroll-wrapper {
-      position: relative;
-      max-width: 100%; /* or var(--max-width) */
-    }
-
-    .scroll-container {
-      display: flex;
-      gap: var(--gap);
-      overflow-x: auto; /* allows scrolling */
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-    }
-    .scroll-container::-webkit-scrollbar {
-      display: none;
+      margin-top: 20px;
     }
 
     #exhibitions .activity-card {
-      flex: 0 0 calc((100% - 2*22px)/3); /* 3 cards per viewport */
-      min-width: 220px;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-        /* Workshops Grid */
-    #workshops {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
-      gap: var(--gap);
-      margin-top: 12px;
+    #exhibitions .activity-photo img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
-    #workshops .activity-card {
-    display: flex;              /* put children side by side */
-    flex-direction:row;
-    align-items: flex-start;        /* vertically align image + text */
-    gap: 16px;                  /* space between image and text */
-    padding: 16px;  
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1;
-  }
-
-    #workshops .activity-card img {
-    width: 150px;  ;  
-    height: auto;               /* keep proportions */
-    border-radius: 8px;         /* optional rounded corners */
-    object-fit: cover;          /* make sure it crops nicely */
+    .empty { 
+      text-align:center; 
+      color: rgba(255,255,255,.45); 
+      padding:40px 18px; 
+      border:1px dashed rgba(255,255,255,.04); 
+      border-radius:12px; 
     }
 
-    
-    #workshops .activity-card .activity-content {
-      flex: 1;                    /* take up remaining space */
-    }
-
-    /* Make sure the hidden cards are initially not shown */
-    #workshops .hidden-card {
-      display: none;
-    }
-
-    /* Hover effect for workshops cards */
-    #workshops .activity-card:hover {
-      transform: scale(1.05);
-      z-index: 10;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .1); /* subtle shadow for lift */
-      background: #ffffff; /* whole card white */
-      color: #000000;      /* default text color black */
-    }
-
-    #workshops .activity-card:hover .activity-title,
-    #workshops .activity-card:hover .activity-badge,
-    #workshops .activity-card:hover .activity-description {
-      display: block;
-      color: #000000;
-      max-height: 500px; /* enough to fit description */
-      opacity: 1;
-    }
-    #workshops .activity-description {
-      display: none;
-      margin-top: 6px;
-      color: #000; /* black text for workshops */
-      font-weight: 400;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-    }
-    #workshops .activity-photo {
-  max-height: none;       /* allow full height */
-  margin-top: 0;          /* optional */
-  overflow: visible;      /* show image always */
-}
-
-#workshops .activity-photo img {
-  width: 150px;           /* keep fixed width */
-  height: auto;           /* maintain aspect ratio */
-  object-fit: cover;      /* crop nicely if needed */
-  transform: none;        /* remove translate effect */
-  opacity: 1;             /* always visible */
-  transition: none;       /* remove hover transition */
-}
-    /* --- View More Button --- */
-    .view-more-btn {
-      background: var(--fg);
-      color: var(--bg);
-      border: none;
-      padding: 10px 22px;
-      border-radius: var(--radius);
-      font-weight: 700;
-      cursor: pointer;
-      transition: all .3s ease;
-    }
-    .view-more-btn:hover { background: rgba(255,255,255,.85); }
-
-    /* --- Responsive --- */
     @media(max-width:720px) {
       .hero { flex-direction: column; align-items: flex-start; gap:12px; }
       .hero:before { display: none; }
-      .activity-badge { font-size: 1.06rem; }
+      #workshops .activity-card { flex-direction: column; }
+      #workshops .activity-card:nth-child(even) { flex-direction: column; }
+      .activity-photo img { width: 100%; }
     }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="dark" id="navbar" aria-label="Main navigation">
+  <nav class="dark" id="navbar">
     <a href="../" class="logo"><img src="../assets/images/logog.webp" alt="RIGNITC logo" style="filter: grayscale(1) invert(1);"></a>
     <div class="nav-links">
       <a href="../about/">About Us</a>
@@ -292,6 +218,7 @@
   </nav>
 
   <main>
+
     <!-- Workshops -->
     <section class="hero" aria-labelledby="workshop-head">
       <div class="left">
@@ -299,41 +226,9 @@
         <div class="tagline">We learn, we share, we grow together</div>
       </div>
     </section>
-    <div class="activities" id="workshops" aria-live="polite">
-      <div class="empty" id="workshops-empty" style="display:none;">No workshops found.</div>
-    </div>
-    <div style="text-align:center;margin-top:20px;">
-      <button id="view-more-workshops" class="view-more-btn" style="display:none;">View More</button>
-    </div>
 
-    <!-- Resources -->
-    <section class="hero" aria-labelledby="resources-head">
-      <div class="left">
-        <h1 id="resources-head">Resources</h1>
-        <div class="tagline">Guides, links and references to help you learn more</div>
-      </div>
-    </section>
-    <div class="activities" id="resources">
-      <div class="empty" id="resources-empty" style="display:none;">No resources found.</div>
-      
-      <!-- Resource items -->
-      <a class="resource-link" href="https://drive.google.com/drive/u/0/folders/1mlSDZa4tKQFwYp6VGSy4WQWFP07UKmDT" target="_blank" rel="noopener">
-        <article class="activity-card">
-          <div class="activity-content">
-            <div class="activity-badge">#1</div>
-            <div class="activity-title">Code file for bot</div>
-          </div>
-        </article>
-      </a>
-      
-      <a class="resource-link" href="https://www.menti.com/alrzpe157nn8" target="_blank" rel="noopener">
-        <article class="activity-card">
-          <div class="activity-content">
-            <div class="activity-badge">#2</div>
-            <div class="activity-title">Quiz</div>
-          </div>
-        </article>
-      </a>
+    <div id="workshops">
+      <div class="empty" id="workshops-empty" style="display:none;">No workshops found.</div>
     </div>
 
     <!-- Exhibitions -->
@@ -343,86 +238,50 @@
         <div class="tagline">Showcasing our innovations to the world</div>
       </div>
     </section>
-    <div class="scroll-wrapper">
-      <button class="scroll-btn left" onclick="scrollExhib(-1)"><</button>
-      
-      <div id="exhibitions" class="scroll-container" aria-live="polite">
-        <div class="empty" id="exhibitions-empty" style="display:none;">No exhibitions found.</div>
-      </div>
-      
-      <button class="scroll-btn right" onclick="scrollExhib(1)">></button>
+
+    <div id="exhibitions">
+      <div class="empty" id="exhibitions-empty" style="display:none;">No exhibitions found.</div>
     </div>
+
   </main>
 
-  <!-- --- JS --- -->
   <script>
-    async function loadActivities(type, url, containerId, emptyId, viewMoreBtnId) {
+    async function loadActivities(type, url, containerId, emptyId) {
       const container = document.getElementById(containerId);
       const empty = document.getElementById(emptyId);
-      const viewMoreBtn = viewMoreBtnId ? document.getElementById(viewMoreBtnId) : null;
       if (!container || !empty) return;
 
       try {
-        container.innerHTML = '';
-        empty.style.display = 'none';
         const resp = await fetch(url, { cache: "no-cache" });
         if (!resp.ok) throw new Error('Network error ' + resp.status);
         const data = await resp.json();
         if (!Array.isArray(data) || data.length === 0) { empty.style.display = 'block'; return; }
 
         data.forEach((item, idx) => {
-          let card = document.createElement('article');
+          const card = document.createElement('article');
           card.className = 'activity-card';
-          card.setAttribute('tabindex', '0');
-
           const photoPath = item.photo || item.image ? `../${item.photo || item.image}` : '';
+
           card.innerHTML = `
             ${photoPath ? `<div class="activity-photo"><img src="${photoPath}" alt="${item.title}"></div>` : ''}
             <div class="activity-content">
-              <div class="activity-badge">#${item.badge ?? (idx+1)}</div>
+              <div class="activity-badge">#${item.badge ?? (idx + 1)}</div>
               <div class="activity-title">${item.title}</div>
               <div class="activity-description">${item.description}</div>
             </div>
           `;
-          if (type === 'workshops' && idx >= 3) {
-            card.style.display = 'none';
-            card.classList.add('hidden-card');
-          }
-
           container.appendChild(card);
-          setTimeout(() => card.classList.add('show'), 90 * idx);
         });
 
-        if (type === 'workshops' && data.length > 4 && viewMoreBtn) {
-          viewMoreBtn.style.display = 'inline-block';
-          viewMoreBtn.replaceWith(viewMoreBtn.cloneNode(true));
-          const newBtn = document.getElementById(viewMoreBtnId);
-          newBtn.addEventListener('click', () => {
-            container.querySelectorAll('.hidden-card').forEach(card => {
-              card.style.display = 'flex';
-              setTimeout(() => card.classList.add('show'), 60);
-              card.classList.remove('hidden-card');
-            });
-            newBtn.style.display = 'none';
-          });
-        } else if (viewMoreBtn) { viewMoreBtn.style.display = 'none'; }
-
       } catch (err) {
-        console.error('Error', err);
+        console.error('Error loading', err);
         empty.style.display = 'block';
         empty.textContent = 'Could not load ' + url;
       }
     }
 
-    loadActivities('workshops', 'workshops.json', 'workshops', 'workshops-empty', 'view-more-workshops');
+    loadActivities('workshops', 'workshops.json', 'workshops', 'workshops-empty');
     loadActivities('exhibitions', 'exhib.json', 'exhibitions', 'exhibitions-empty');
-
-    function scrollExhib(direction) {
-      const container = document.getElementById('exhibitions');
-      const cardWidth = container.querySelector('.activity-card')?.offsetWidth || 300;
-      const gap = 22;
-      container.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
-    }
   </script>
 </body>
 </html>
