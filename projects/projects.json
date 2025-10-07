@@ -35,14 +35,6 @@
   },
 
   {
-    "id": "origami-bot",
-    "title": "Origami Bot",
-    "short_description": "Transformable multipurpose robot for defense.",
-    "description": "A multipurpose utility inspired by origami, capable of transforming into a boat, tent, or shield. Designed for soldiers, it uses actuation mechanisms like tendons or hinged motors to create compact and expandable structures for extreme weather conditions and sudden attacks.",
-    "link": "origami-bot",
-    "image": "image.webp"
-  },
-  {
     "id": "auv",
     "title": "AUV Varuna",
     "short_description": "An advanced underwater vehicle with object detection and torpedo launch capability.",
@@ -51,35 +43,11 @@
     "image": "image.webp"
   },
   {
-    "id": "swab-testing-machine",
-    "title": "Swab Testing Machine",
-    "short_description": "Automated nasal and oropharyngeal swab testing robot.",
-    "description": "An automated robot for nasal and oropharyngeal swab tests, featuring a 5-DOF manipulator and a Kinect camera system for precise nose detection. Incorporates YOLOv5 for accuracy, force sensors for safe operation, and advanced safety measures to minimize risks.",
-    "link": "swab-testing-machine",
-    "image": "image.webp"
-  },
-  {
     "id": "multi-rotor-uav",
     "title": "Fully Actuated Multi-Rotor UAV",
     "short_description": "Smart farming UAV with fully actuated rotors.",
     "description": "A UAV designed for smart farming, overcoming limitations of conventional UAVs with fully actuated rotors for precise interaction with crops. It focuses on soil map generation through on-the-go soil data collection and addresses challenges like low flight time and payload capacity.",
     "link": "multi-rotor-uav",
-    "image": "image.webp"
-  },
-  {
-    "id": "agribot",
-    "title": "Agribot",
-    "short_description": "Autonomous agricultural vehicle for multiple farming tasks.",
-    "description": "An advanced autonomous agricultural vehicle for tasks like tilling, harvesting, and pesticide spraying. Features include weed detection algorithms, 3D mapping, obstacle avoidance, IMU and GPS integration, and image processing for plant disease and weed identification.",
-    "link": "agribot",
-    "image": "image.webp"
-  },
-  {
-    "id": "quadruped",
-    "title": "Quadruped",
-    "short_description": "Load-carrying quadruped robot inspired by elephants.",
-    "description": "A quadruped robot inspired by elephants, prioritizing stability over speed for traversing difficult terrains. Designed to carry heavy loads efficiently, it deviates from the traditional speed-focused quadruped design.",
-    "link": "quadruped",
     "image": "image.webp"
   },
  
