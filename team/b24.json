@@ -218,5 +218,16 @@
         "url": "https://www.linkedin.com/in/senthilnathan-pl-75380a2b7"
       }
     ]
+  },
+    {
+    "name": "Devichand KS",
+    "photo": "assets/images/team/b24/devichand-ks.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/devichand-k-s-6919a637b/"
+      }
+    ]
   }
 ]
