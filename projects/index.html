@@ -6,10 +6,8 @@
 <title>Projects</title>
 
 <!-- Fonts & Icons (kept) -->
- <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
-<!-- HEAD -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;600;800&family=Poppins:wght@100;200;400;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow" rel="stylesheet" type="text/css"/>
@@ -50,17 +48,62 @@ html,body{
   position:relative;
 }
 
-/* keep animated underline under title (restored) */
+/* GTA font */
+@font-face {
+  font-family: 'Pricedown';
+  src: url('../assets/fonts/Pricedown Bl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Title wrapper for STACK (left) + PROJECTS (right) */
+.title-wrapper {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:60px;
+  gap:30px;
+}
+
+/* STACK small title */
+.stack-section {
+  flex:0 0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.stack-title {
+  font-family:'Pricedown', sans-serif !important;
+  font-size:2rem;  /* smaller than Projects */
+  margin:0 0 16px;
+  color:#fff;
+  letter-spacing:2px;
+}
+/* STACK icons horizontal */
+.stack-icons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.stack-icons img {
+  height:30px;
+  width:auto;
+  object-fit:contain;
+  filter:brightness(0) invert(1); /* force white */
+  background:transparent;
+}
+
+/* PROJECTS big title */
 .site-title {
-  margin:0 0 44px;
-  font-family: "Orbitron", sans-serif;
+  flex:1;
+  margin:0;
+  font-family:'Pricedown', sans-serif !important;
   font-size:5rem;
   text-align:right;
   letter-spacing:1px;
   position:relative;
   padding-bottom:12px;
 }
-
 .site-title::after {
   content:"";
   position:absolute;
@@ -74,11 +117,7 @@ html,body{
   transition: transform .6s cubic-bezier(.2,.9,.3,1);
   opacity:0.95;
 }
-
-.site-title:hover::after {
-  transform:scaleX(1);
-}
-
+.site-title:hover::after { transform:scaleX(1); }
 
 /* projects container: rows of two */
 .projects-container{
@@ -112,34 +151,28 @@ html,body{
   position:relative;
 }
 
-/* collapsed sibling (reduced size) */
+/* collapsed sibling */
 .row.expanded-left .card.left,
-.row.expanded-right .card.right{
-  /* expanded classes override below */
-}
+.row.expanded-right .card.right{}
 .row.expanded-left .card.left{
   flex:2.6 1 0%;
   box-shadow: 0 18px 40px rgba(255,255,255,0.03);
-  border-color: #fff;
+  border-color:#fff;
 }
 .row.expanded-left .card.right{
   flex:0.4 1 0%;
   opacity:0.6;
-  transform: translateX(0);
+  transform:translateX(0);
 }
-
-/* expanding right card to left (mirror) */
 .row.expanded-right .card.right{
   flex:2.6 1 0%;
-  box-shadow: 0 18px 40px rgba(255,255,255,0.03);
-  border-color: #fff;
+  box-shadow:0 18px 40px rgba(255,255,255,0.03);
+  border-color:#fff;
 }
 .row.expanded-right .card.left{
   flex:0.4 1 0%;
   opacity:0.6;
 }
-
-/* when no expansion (default) both equal */
 .card:hover{ transform: translateY(-4px); }
 
 /* media column */
@@ -165,11 +198,9 @@ html,body{
   min-width:0;
   gap:8px;
 }
-
-/* title + meta */
 .title{
   margin:0;
-  font-family:"Poppins", "Inter", sans-serif;
+  font-family:"Poppins","Inter",sans-serif;
   font-weight:600;
   font-size:1.05rem;
   white-space:nowrap;
@@ -192,8 +223,6 @@ html,body{
   border-radius:999px;
   background:transparent;
 }
-
-/* short description */
 .short{
   margin:0;
   color:var(--muted);
@@ -204,16 +233,12 @@ html,body{
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-
-/* actions styled as real buttons (made more prominent) */
 .actions{
   margin-top:8px;
   display:flex;
   gap:12px;
   align-items:center;
 }
-
-/* button styles (black & white only) */
 .btn{
   -webkit-appearance:none;
   appearance:none;
@@ -227,17 +252,9 @@ html,body{
   transition: background var(--transition), border-color var(--transition), transform .08s ease;
 }
 .btn:active{ transform: translateY(1px); }
-.btn.primary{
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.18);
-}
-.btn.ghost{
-  background: transparent;
-  border-color: rgba(255,255,255,0.08);
-}
-.btn:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-
-/* extra area (hidden until expanded) - reveals inside expanded card */
+.btn.primary{ background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.18); }
+.btn.ghost{ background:transparent; border-color:rgba(255,255,255,0.08); }
+.btn:hover{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2); }
 .extra{
   margin-top:12px;
   color:var(--muted);
@@ -248,140 +265,38 @@ html,body{
   opacity:0;
   transition: max-height .36s ease, opacity .28s linear;
 }
-
-/* when the containing row is expanded, show the extra for the expanded card */
 .row.expanded-left .card.left .extra,
-.row.expanded-right .card.right .extra{
-  max-height:420px;
-  opacity:1;
-}
-
-/* collapsed card extra remains hidden */
+.row.expanded-right .card.right .extra{ max-height:420px; opacity:1; }
 .row.expanded-left .card.right .extra,
-.row.expanded-right .card.left .extra{
-  max-height:0;
-  opacity:0;
-}
+.row.expanded-right .card.left .extra{ max-height:0; opacity:0; }
+.card:focus-within,.btn:focus{ outline:3px solid rgba(255,255,255,0.04); outline-offset:3px; }
 
-/* keyboard focus outline */
-.card:focus-within, .btn:focus{
-  outline: 3px solid rgba(255,255,255,0.04);
-  outline-offset: 3px;
-}
-
-/* responsive: single column on small screens */
-@media (max-width:880px){
+/* responsive */
+@media(max-width:880px){
   .row{ flex-direction:column; gap:16px; }
   .media{ width:100%; min-height:160px; }
   .card{ min-height:160px; }
-  /* expanded behavior: when a card is expanded, show its extra below (vertical) */
   .row.expanded-left .card,
-  .row.expanded-right .card{
-    flex: 1 1 auto;
-    opacity:1;
-  }
+  .row.expanded-right .card{ flex:1 1 auto; opacity:1; }
   .row.expanded-left .card .extra,
-  .row.expanded-right .card .extra{
-    max-height:420px;
-    opacity:1;
-  }
+  .row.expanded-right .card .extra{ max-height:420px; opacity:1; }
 }
-
-/* helpful utility for single-card rows (odd count) */
 .row.single .card{ flex:1 1 0%; }
-
-/* ====== Mobile optimization: show full description & keep View Project only ====== */
-@media (max-width:600px){
-
-  /* stack card vertically */
-  .card {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    overflow: visible !important;
-    padding: 12px !important;
-    min-height: auto !important;
-  }
-
-  /* image full width */
-  .media {
-    width: 100% !important;
-    min-height: 160px !important;
-    height: auto !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    display: block !important;
-  }
-  .media img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-
-  /* info section */
-  .info {
-    width: 100% !important;
-    margin-top: 12px !important;
-    padding: 6px 2px 0 !important;
-  }
-
-  /* title visible and wraps */
-  .title {
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: unset !important;
-    font-size: 1rem !important;
-    margin-bottom: 6px !important;
-  }
-
-  /* always show full description */
-  .short {
-    display: block !important;
-    -webkit-line-clamp: unset !important;
-    -webkit-box-orient: unset !important;
-    overflow: visible !important;
-    font-size: 0.95rem !important;
-    line-height: 1.4 !important;
-    margin-bottom: 8px !important;
-  }
-
-  /* 🔥 remove ONLY read more button */
-  .actions .btn.read-more,
-  .actions button.read-more {
-    display: none !important;
-  }
-
-  /* keep view project button */
-  .project-link {
-    display: inline-flex !important;
-    width: auto !important;
-    font-size: 0.95rem !important;
-    padding: 8px 12px !important;
-    border-radius: 8px !important;
-  }
-
-  /* disable hover effects */
-  .card:hover { transform: none !important; box-shadow: none !important; }
-  .card:hover .media img.default-img { opacity: 1 !important; transform: none !important; }
-  .media img.hover-img { display: none !important; opacity: 0 !important; }
-
-  /* spacing */
-  .row { gap: 12px !important; }
-  .projects-container { padding-left: 16px !important; padding-right: 16px !important; }
+@media(max-width:600px){
+  .card{ flex-direction:column!important; align-items:stretch!important; overflow:visible!important; padding:12px!important; min-height:auto!important; }
+  .media{ width:100%!important; min-height:160px!important; height:auto!important; border-radius:12px!important; overflow:hidden!important; display:block!important; }
+  .media img{ width:100%!important; height:auto!important; object-fit:cover!important; display:block!important; }
+  .info{ width:100%!important; margin-top:12px!important; padding:6px 2px 0!important; }
+  .title{ white-space:normal!important; overflow:visible!important; text-overflow:unset!important; font-size:1rem!important; margin-bottom:6px!important; }
+  .short{ display:block!important; -webkit-line-clamp:unset!important; -webkit-box-orient:unset!important; overflow:visible!important; font-size:0.95rem!important; line-height:1.4!important; margin-bottom:8px!important; }
+  .actions .btn.read-more,.actions button.read-more{ display:none!important; }
+  .project-link{ display:inline-flex!important; width:auto!important; font-size:0.95rem!important; padding:8px 12px!important; border-radius:8px!important; }
+  .card:hover{ transform:none!important; box-shadow:none!important; }
+  .card:hover .media img.default-img{ opacity:1!important; transform:none!important; }
+  .media img.hover-img{ display:none!important; opacity:0!important; }
+  .row{ gap:12px!important; }
+  .projects-container{ padding-left:16px!important; padding-right:16px!important; }
 }
-
-    @font-face {
-    font-family: 'Pricedown';
-    src: url('../assets/fonts/Pricedown Bl.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.site-title {
-    font-family: 'Pricedown', sans-serif !important;
-}
-
-
 </style>
 </head>
 <body>
@@ -399,13 +314,38 @@ html,body{
     <a href="../team/">Team</a>
     <a href="../contact/">Contact</a>
   </div>
-<a class="btn-sponsor" href="contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">
+  <a class="btn-sponsor" href="contact/?name=Member%20of%20_&email=@company.in&message=We%20would%20like%20to%20become%20a%20sponsor%20of%20RIGNITC%20%2EPlease%20get%20in%20touch%20with%20us.">
     Sponsor US
   </a>
 </nav>
 
 <div class="page">
-  <h1 class="site-title">PROJECTS</h1>
+
+  <!-- Title wrapper with STACK (left) and PROJECTS (right) -->
+  <div class="title-wrapper">
+    <div class="stack-section">
+      <h2 class="stack-title">STACK</h2>
+      <div class="stack-icons">
+        <img src="../assets/images/stack/ros.svg" alt="Robot Operating System (ROS)">
+        <img src="../assets/images/stack/ros2.svg" alt="Robot Operating System 2 (ROS 2)">
+        <img src="../assets/images/stack/tux.png" alt="Linux mascot Tux">
+        <img src="../assets/images/stack/c++.svg" alt="C++ programming language">
+        <img src="../assets/images/stack/python.svg" alt="Python programming language">
+        <img src="../assets/images/stack/gazebo.svg" alt="Gazebo simulator">
+        <img src="../assets/images/stack/webots.png" alt="Webots simulator">
+        <img src="../assets/images/stack/mission-planner.png" alt="Mission Planner software">
+        <img src="../assets/images/stack/rviz.svg" alt="RViz visualization tool">
+        <img src="../assets/images/stack/nav2.svg" alt="Navigation 2 (Nav2) framework">
+        <img src="../assets/images/stack/ignition.svg" alt="Ignition robotics simulator">
+        <img src="../assets/images/stack/solidworks.png" alt="SolidWorks CAD software">
+        <img src="../assets/images/stack/fusion.png" alt="Autodesk Fusion 360 CAD software">
+        <img src="../assets/images/stack/opencv.svg" alt="OpenCV computer vision library">
+        <img src="../assets/images/stack/raspberry.svg" alt="Raspberry Pi single-board computer">
+
+              </div>
+    </div>
+    <h1 class="site-title">PROJECTS</h1>
+  </div>
 
   <div class="projects-container" id="projects-container" aria-live="polite">
     <!-- JS will create .row elements containing up to 2 .card elements each -->
@@ -413,21 +353,12 @@ html,body{
 </div>
 
 <script>
-/* Script features:
- - loads projects.json (same path as before)
- - renders rows of two cards each (last row can be single)
- - toggles row classes so when one card expands, sibling collapses and layout animates horizontally
- - keyboard accessible (Enter/Space toggles; Escape collapses)
- - "Read more" toggles expansion, "Open" opens project.url if present
-*/
-
 (async function(){
   const container = document.getElementById('projects-container');
 
-  // helper: fetch projects.json with fallback sample
   async function fetchProjects(){
     try {
-      const r = await fetch('projects.json', {cache:'no-cache'});
+      const r = await fetch('projects.json',{cache:'no-cache'});
       if(!r.ok) throw new Error('projects.json load failed');
       const data = await r.json();
       if(!Array.isArray(data)) throw new Error('projects.json must be array');
@@ -435,49 +366,25 @@ html,body{
     } catch(e){
       console.error('projects load failed, using fallback', e);
       return [
-        {
-          "title":"Sample Project Alpha",
-          "short_description":"Fallback sample project to prevent empty UI.",
-          "description":"This is sample descriptive text for Project Alpha. Replace with your projects.json data.",
-          "image":"placeholder-1.jpg",
-          "tags":["UI","Design"],
-          "date":"2024-07-01",
-          "url":"#"
-        },
-        {
-          "title":"Sample Project Beta",
-          "short_description":"Another fallback sample to test layout and interactions.",
-          "description":"Longer description for Project Beta demonstrating the horizontal expansion and smooth collapse of the sibling card.",
-          "image":"placeholder-2.jpg",
-          "tags":["Web","Frontend"],
-          "date":"2023-11-15",
-          "url":"#"
-        }
+        { "title":"Sample Project Alpha","short_description":"Fallback sample project to prevent empty UI.","description":"This is sample descriptive text for Project Alpha. Replace with your projects.json data.","image":"placeholder-1.jpg","tags":["UI","Design"],"date":"2024-07-01","url":"#" },
+        { "title":"Sample Project Beta","short_description":"Another fallback sample to test layout and interactions.","description":"Longer description for Project Beta demonstrating the horizontal expansion and smooth collapse of the sibling card.","image":"placeholder-2.jpg","tags":["Web","Frontend"],"date":"2023-11-15","url":"#" }
       ];
     }
   }
 
-  // small HTML helpers
   function escapeHtml(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
   function slug(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
-  function formatDate(d){
-    try {
-      const dt = new Date(d);
-      if(isNaN(dt)) return '';
-      return dt.toLocaleDateString(undefined, {year:'numeric', month:'short'});
-    } catch(e){ return d||''; }
-  }
+  function formatDate(d){ try{ const dt=new Date(d); if(isNaN(dt)) return ''; return dt.toLocaleDateString(undefined,{year:'numeric',month:'short'});}catch(e){ return d||''; } }
 
-  // create a single card element
-  function createCard(project, side){ // side: 'left' or 'right'
-    const card = document.createElement('article');
-    card.className = 'card ' + side;
+  function createCard(project,side){
+    const card=document.createElement('article');
+    card.className='card '+side;
     card.setAttribute('tabindex','0');
     card.setAttribute('role','article');
-    card.dataset.title = project.title || '';
-    card.innerHTML = `
+    card.dataset.title=project.title||'';
+    card.innerHTML=`
       <div class="media" aria-hidden="true">
-        <img loading="lazy" src="../assets/images/projects/${encodeURIComponent(project.image || 'placeholder-1.jpg')}" alt="${escapeHtml(project.title || '')}">
+        <img loading="lazy" src="../assets/images/projects/${encodeURIComponent(project.image||'placeholder-1.jpg')}" alt="${escapeHtml(project.title||'')}">
       </div>
       <div class="info">
         <h3 class="title" id="title-${slug(project.title||Math.random().toString(36).slice(2,7))}">${escapeHtml(project.title)}</h3>
@@ -486,156 +393,70 @@ html,body{
           <div style="flex:1"></div>
           <div style="color:var(--muted-2);font-size:0.85rem;">${project.date?formatDate(project.date):''}</div>
         </div>
-
-        <p class="short">${escapeHtml(project.short_description || '')}</p>
-
+        <p class="short">${escapeHtml(project.short_description||'')}</p>
         <div class="actions">
           <button class="btn primary btn-expand" aria-expanded="false" type="button">Read more</button>
           <button class="btn ghost btn-open" type="button">Open</button>
         </div>
-
-        <div class="extra" aria-hidden="true">${escapeHtml(project.description || '')}</div>
+        <div class="extra" aria-hidden="true">${escapeHtml(project.description||'')}</div>
       </div>
     `;
-    // attach project data for open link
-    card._proj = project;
+    card._proj=project;
     return card;
   }
 
-  // render projects into rows of two
   function renderRows(projects){
-    container.innerHTML = '';
+    container.innerHTML='';
     for(let i=0;i<projects.length;i+=2){
-      const row = document.createElement('div');
-      row.className = 'row';
-      const left = createCard(projects[i], 'left');
+      const row=document.createElement('div');
+      row.className='row';
+      const left=createCard(projects[i],'left');
       row.appendChild(left);
-      if(i+1 < projects.length){
-        const right = createCard(projects[i+1], 'right');
-        row.appendChild(right);
-      } else {
-        row.classList.add('single');
-      }
+      if(i+1<projects.length){ const right=createCard(projects[i+1],'right'); row.appendChild(right);}
+      else{ row.classList.add('single'); }
       bindRowInteractions(row);
       container.appendChild(row);
     }
   }
 
-  // bind interactions for a row (handles sibling collapse/expand behavior)
   function bindRowInteractions(row){
-    const left = row.querySelector('.card.left');
-    const right = row.querySelector('.card.right');
-
-    // helper to collapse row
+    const left=row.querySelector('.card.left');
+    const right=row.querySelector('.card.right');
     function collapseRow(){
       row.classList.remove('expanded-left','expanded-right');
-      if(left){
-        left.setAttribute('aria-expanded','false');
-        left.querySelector('.btn-expand').setAttribute('aria-expanded','false');
-        left.querySelector('.extra').setAttribute('aria-hidden','true');
-        left.querySelector('.btn-expand').textContent = 'Read more';
-      }
-      if(right){
-        right.setAttribute('aria-expanded','false');
-        right.querySelector('.btn-expand').setAttribute('aria-expanded','false');
-        right.querySelector('.extra').setAttribute('aria-hidden','true');
-        right.querySelector('.btn-expand').textContent = 'Read more';
-      }
+      if(left){ left.setAttribute('aria-expanded','false'); left.querySelector('.btn-expand').setAttribute('aria-expanded','false'); left.querySelector('.extra').setAttribute('aria-hidden','true'); left.querySelector('.btn-expand').textContent='Read more'; }
+      if(right){ right.setAttribute('aria-expanded','false'); right.querySelector('.btn-expand').setAttribute('aria-expanded','false'); right.querySelector('.extra').setAttribute('aria-hidden','true'); right.querySelector('.btn-expand').textContent='Read more'; }
     }
-
-    // expand left card
     function expandLeft(){
       if(!left) return;
-      row.classList.remove('expanded-right');
-      row.classList.add('expanded-left');
-      left.setAttribute('aria-expanded','true');
-      left.querySelector('.btn-expand').setAttribute('aria-expanded','true');
-      left.querySelector('.extra').setAttribute('aria-hidden','false');
-      left.querySelector('.btn-expand').textContent = 'Show less';
-      if(right){
-        right.setAttribute('aria-expanded','false');
-        right.querySelector('.btn-expand').setAttribute('aria-expanded','false');
-        right.querySelector('.extra').setAttribute('aria-hidden','true');
-        right.querySelector('.btn-expand').textContent = 'Read more';
-      }
+      row.classList.remove('expanded-right'); row.classList.add('expanded-left');
+      left.setAttribute('aria-expanded','true'); left.querySelector('.btn-expand').setAttribute('aria-expanded','true'); left.querySelector('.extra').setAttribute('aria-hidden','false'); left.querySelector('.btn-expand').textContent='Show less';
+      if(right){ right.setAttribute('aria-expanded','false'); right.querySelector('.btn-expand').setAttribute('aria-expanded','false'); right.querySelector('.extra').setAttribute('aria-hidden','true'); right.querySelector('.btn-expand').textContent='Read more'; }
     }
-
-    // expand right card
     function expandRight(){
       if(!right) return;
-      row.classList.remove('expanded-left');
-      row.classList.add('expanded-right');
-      right.setAttribute('aria-expanded','true');
-      right.querySelector('.btn-expand').setAttribute('aria-expanded','true');
-      right.querySelector('.extra').setAttribute('aria-hidden','false');
-      right.querySelector('.btn-expand').textContent = 'Show less';
-      if(left){
-        left.setAttribute('aria-expanded','false');
-        left.querySelector('.btn-expand').setAttribute('aria-expanded','false');
-        left.querySelector('.extra').setAttribute('aria-hidden','true');
-        left.querySelector('.btn-expand').textContent = 'Read more';
-      }
+      row.classList.remove('expanded-left'); row.classList.add('expanded-right');
+      right.setAttribute('aria-expanded','true'); right.querySelector('.btn-expand').setAttribute('aria-expanded','true'); right.querySelector('.extra').setAttribute('aria-hidden','false'); right.querySelector('.btn-expand').textContent='Show less';
+      if(left){ left.setAttribute('aria-expanded','false'); left.querySelector('.btn-expand').setAttribute('aria-expanded','false'); left.querySelector('.extra').setAttribute('aria-hidden','true'); left.querySelector('.btn-expand').textContent='Read more'; }
     }
-
-    // add listeners
     if(left){
-      const btn = left.querySelector('.btn-expand');
-      btn.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        if(row.classList.contains('expanded-left')) collapseRow();
-        else expandLeft();
-      });
-      left.addEventListener('keydown',(ev)=>{
-        if(ev.key === 'Enter' || ev.key === ' '){
-          ev.preventDefault();
-          if(row.classList.contains('expanded-left')) collapseRow(); else expandLeft();
-        } else if(ev.key === 'Escape'){
-          collapseRow();
-        }
-      });
-      const openBtn = left.querySelector('.btn-open');
-      openBtn.addEventListener('click',(e)=>{
-        e.stopPropagation();
-        const url = left._proj && left._proj.url;
-        if(url) window.open(url,'_blank','noopener');
-        else expandLeft();
-      });
+      const btn=left.querySelector('.btn-expand');
+      btn.addEventListener('click',e=>{ e.stopPropagation(); if(row.classList.contains('expanded-left')) collapseRow(); else expandLeft(); });
+      left.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); if(row.classList.contains('expanded-left')) collapseRow(); else expandLeft(); } else if(ev.key==='Escape'){ collapseRow(); }});
+      const openBtn=left.querySelector('.btn-open');
+      openBtn.addEventListener('click',e=>{ e.stopPropagation(); const url=left._proj&&left._proj.url; if(url) window.open(url,'_blank','noopener'); else expandLeft(); });
     }
-
     if(right){
-      const btn = right.querySelector('.btn-expand');
-      btn.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        if(row.classList.contains('expanded-right')) collapseRow();
-        else expandRight();
-      });
-      right.addEventListener('keydown',(ev)=>{
-        if(ev.key === 'Enter' || ev.key === ' '){
-          ev.preventDefault();
-          if(row.classList.contains('expanded-right')) collapseRow(); else expandRight();
-        } else if(ev.key === 'Escape'){
-          collapseRow();
-        }
-      });
-      const openBtn = right.querySelector('.btn-open');
-      openBtn.addEventListener('click',(e)=>{
-        e.stopPropagation();
-        const url = right._proj && right._proj.url;
-        if(url) window.open(url,'_blank','noopener');
-        else expandRight();
-      });
+      const btn=right.querySelector('.btn-expand');
+      btn.addEventListener('click',e=>{ e.stopPropagation(); if(row.classList.contains('expanded-right')) collapseRow(); else expandRight(); });
+      right.addEventListener('keydown',ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); if(row.classList.contains('expanded-right')) collapseRow(); else expandRight(); } else if(ev.key==='Escape'){ collapseRow(); }});
+      const openBtn=right.querySelector('.btn-open');
+      openBtn.addEventListener('click',e=>{ e.stopPropagation(); const url=right._proj&&right._proj.url; if(url) window.open(url,'_blank','noopener'); else expandRight(); });
     }
-
-    // clicking outside collapses that row (optional)
-    row.addEventListener('click',(e)=>{
-      // clicking empty space when expanded does nothing - keep behavior simple
-    });
   }
 
-  // initialize
-  const projects = await fetchProjects();
+  const projects=await fetchProjects();
   renderRows(projects);
-
 })();
 </script>
 
