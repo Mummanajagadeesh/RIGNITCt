@@ -63,6 +63,7 @@ html,body{
   align-items:flex-start;
   margin-bottom:60px;
   gap:30px;
+  flex-wrap: wrap; /* allow stack+project to wrap on small screens */
 }
 
 /* STACK small title */
@@ -71,6 +72,7 @@ html,body{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
+  max-width:100%; /* prevent horizontal overflow */
 }
 .stack-title {
   font-family:'Pricedown', sans-serif !important;
@@ -82,8 +84,10 @@ html,body{
 /* STACK icons horizontal */
 .stack-icons {
   display:flex;
-  flex-wrap:wrap;
+  flex-wrap:wrap; /* wrap icons to new line if needed */
   gap:16px;
+  max-width:100%;
+  overflow:hidden; /* prevent overflow on mobile */
 }
 .stack-icons img {
   height:30px;
@@ -95,7 +99,7 @@ html,body{
 
 /* PROJECTS big title */
 .site-title {
-  flex:1;
+  flex:1 1 100%; /* full width when wrapped */
   margin:0;
   font-family:'Pricedown', sans-serif !important;
   font-size:5rem;
@@ -103,6 +107,7 @@ html,body{
   letter-spacing:1px;
   position:relative;
   padding-bottom:12px;
+  word-break: break-word; /* wrap long titles */
 }
 .site-title::after {
   content:"";
@@ -273,6 +278,9 @@ html,body{
 
 /* responsive */
 @media(max-width:880px){
+  .title-wrapper { flex-direction: column; align-items:flex-start; gap:16px; }
+  .stack-section{ width:100%; }
+  .site-title{ text-align:left; font-size:3rem; margin-top:12px; }
   .row{ flex-direction:column; gap:16px; }
   .media{ width:100%; min-height:160px; }
   .card{ min-height:160px; }
@@ -283,6 +291,8 @@ html,body{
 }
 .row.single .card{ flex:1 1 0%; }
 @media(max-width:600px){
+  .stack-icons img{ height:28px; }
+  .site-title{ font-size:2.4rem; }
   .card{ flex-direction:column!important; align-items:stretch!important; overflow:visible!important; padding:12px!important; min-height:auto!important; }
   .media{ width:100%!important; min-height:160px!important; height:auto!important; border-radius:12px!important; overflow:hidden!important; display:block!important; }
   .media img{ width:100%!important; height:auto!important; object-fit:cover!important; display:block!important; }
@@ -298,6 +308,7 @@ html,body{
   .projects-container{ padding-left:16px!important; padding-right:16px!important; }
 }
 </style>
+
 </head>
 <body>
 
