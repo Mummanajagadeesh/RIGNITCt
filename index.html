@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>RIGNITC | Robotics Interest Group</title>
 
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: blob: gap: https:; frame-ancestors *;">
+
+    
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Tan+Memories&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -231,7 +234,8 @@ h1,
     #about {
       background: #111;
       color: #fff;
-  font-family: "Pricedown", sans-serif;      margin: 0;
+      font-family: "Pricedown", sans-serif;
+      margin: 0;
     }
 
     #about .about-container {
@@ -243,8 +247,7 @@ h1,
       gap: 50px;
       flex-wrap: wrap;
       overflow: hidden;
-           border-top: 2px solid #ccc;
-
+      border-top: 2px solid #ccc;
     }
 
     #about .about-text,
@@ -345,63 +348,88 @@ h1,
       border-radius: 20px;
     }
 
-/* Button styling */
-#about .about-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Sora", "Inter", sans-serif;
-  font-weight: bold;                               
-  font-size: 2rem;                                 
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 28px;
-  border: 2px solid #fff;
-  border-radius: 50px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  margin-top: 20px;
-}
+    /* Button styling */
+    #about .about-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Sora", "Inter", sans-serif;
+      font-weight: bold;                               
+      font-size: 2rem;                                 
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border: 2px solid #fff;
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      margin-top: 20px;
+    }
 
-#about .about-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.2)
-  );
-  transform: skewX(-25deg);
-  transition: all 0.5s ease;
-}
+    #about .about-link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.2)
+      );
+      transform: skewX(-25deg);
+      transition: all 0.5s ease;
+    }
 
-#about .about-link:hover::before {
-  left: 200%;
-}
+    #about .about-link:hover::before {
+      left: 200%;
+    }
 
-#about .about-link:hover {
-  color: #000;
-  background: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-  transform: scale(1.05);
-}
+    #about .about-link:hover {
+      color: #000;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
 
-#about .about-link span {
-  margin-left: 8px;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
+    #about .about-link span {
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
 
-#about .about-link:hover span {
-  transform: translateX(6px);
-}
+    #about .about-link:hover span {
+      transform: translateX(6px);
+    }
 
+    /* Stats Counter Styling */
+    #about .stats {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    #about .stat {
+      flex: 1 1 200px;
+      text-align: center;
+    }
+
+    #about .stat-number {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    #about .stat-label {
+      font-size: 1.4rem;
+      color: #ddd;
+      margin-top: 10px;
+    }
 
     @media (max-width: 900px) {
       #about .about-container {
@@ -417,34 +445,38 @@ h1,
       }
       #about .card-overlay h2 { font-size: 1.8rem; }
       #about .card-overlay p { font-size: 0.95rem; }
+      #about .stats {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     #about p {
-  font-size: 1rem; /* smaller than default */
-  line-height: 1.5;  /* keeps it readable */
-}
+      font-size: 1rem; /* smaller than default */
+      line-height: 1.5;  /* keeps it readable */
+    }
 
-@media (max-width: 900px) {
-  #about .about-container {
-    padding: 100px 20px 60px;
-  }
+    @media (max-width: 900px) {
+      #about .about-container {
+        padding: 100px 20px 60px;
+      }
 
-  #about .about-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
+      #about .about-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+      }
 
-  #about .about-text h1 {
-    font-size: 2.2rem;
-  }
+      #about .about-text h1 {
+        font-size: 2.2rem;
+      }
 
-  /* Smaller image card on mobile */
-  #about .card-wrap {
-    width: 100%;
-    max-width: 340px;
-    aspect-ratio: 1 / 1;   /* ✅ square on phones */
-  }
-}
+      /* Smaller image card on mobile */
+      #about .card-wrap {
+        width: 100%;
+        max-width: 340px;
+        aspect-ratio: 1 / 1;   /* ✅ square on phones */
+      }
+    }
   </style>
 
   <div class="about-container">
@@ -462,6 +494,23 @@ h1,
         Join us to explore the world of robotics, collaborate on exciting projects, 
         and push the boundaries of technology.
       </p>
+
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number" data-target="30">0</div>
+          <div class="stat-label">Technical Workshops</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-target="15">0</div>
+          <div class="stat-label">Research Publications</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">Industry Grade Projects</div>
+        </div>
+      </div>
+
       <a href="about/" class="about-link">Know More<span>→</span></a>
     </div>
 
@@ -525,8 +574,36 @@ h1,
       wrap.addEventListener('mouseleave', reset);
       wrap.addEventListener('touchend', reset);
     })();
+
+    // ---------- Counter Animation ----------
+    const counters = document.querySelectorAll('#about .stat-number');
+    const speed = 200; // lower is faster
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / speed);
+            if (count < target) {
+              counter.innerText = count + increment;
+              setTimeout(updateCount, 30);
+            } else {
+              counter.innerText = target + "+"; // add "+" at end
+            }
+          };
+          updateCount();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
   </script>
 </section>
+
 
 <section id="projects"> 
   <style>
