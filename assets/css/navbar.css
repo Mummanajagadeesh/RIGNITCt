@@ -86,6 +86,13 @@ a, button, .btn-sponsor {
   transform: translateY(-2px);
 }
 
+      @font-face {
+    font-family: 'Pricedown';
+    src: url('../assets/fonts/Pricedown Bl.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* SPONSOR BUTTON (PREMIUM SILVER) */
 .btn-sponsor {
   background: linear-gradient(135deg, #2a2a2a, #111); /* deep black-to-dark-gray */
@@ -93,8 +100,9 @@ a, button, .btn-sponsor {
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 12px;
   padding: 11px 28px;
+  font-family: 'Pricedown', sans-serif;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.8rem;
   cursor: pointer;
   position: relative;
   text-decoration: none;

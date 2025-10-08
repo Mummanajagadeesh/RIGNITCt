@@ -62,7 +62,6 @@
       font-weight: 700;
       letter-spacing: 3px;
       margin-bottom: 1rem;
-      text-shadow: 0 0 25px rgba(255,255,255,0.7);
     }
 
     .subtitle {
@@ -148,6 +147,25 @@
   }
 }
 
+@font-face {
+    font-family: 'Pricedown';
+    src: url('assets/fonts/Pricedown Bl.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font to all headings and title classes */
+.title,
+h1,
+.projects-header,
+.people-header,
+.startup-header,
+.about-link,
+.project-link {
+    font-family: 'Pricedown', sans-serif !important;
+}
+
+
   </style>
 </head>
 <body>
@@ -193,12 +211,13 @@
 
 
   <div class="text-block" style="position: relative; z-index: 1;margin-top: 40px;transform: translateY(80px);">
-    <div class="title">RIGNITC</div>
+<div class="title" style="font-size: 128px;">RIGNITC</div>
     <p style="font-family: Sora, 'Inter', sans-serif;">
-      <span style="font-size: 1.8em; font-weight: 600;">Robotics Interest Group @ NIT Calicut</span>
-      <br><br>
-      <em>We build robots. We test ideas. We grow. We innovate.</em><br>
-      <em>We fail, and we rebuild stronger. We are RIGNITC.</em>
+<span style="font-family: 'Pricedown', sans-serif; font-size: 3em; font-weight: 600;">
+  Robotics Interest Group
+</span>      
+      <!-- <em>We build robots. We test ideas. We grow. We innovate.</em><br>
+      <em>We fail, and we rebuild stronger. We are RIGNITC.</em> -->
     </p>
   </div>
   <img id="slideshow" alt="slideshow" style="position: relative; z-index: 1;">
@@ -212,7 +231,7 @@
     #about {
       background: #111;
       color: #fff;
-  font-family: "Orbitron", sans-serif;      margin: 0;
+  font-family: "Pricedown", sans-serif;      margin: 0;
     }
 
     #about .about-container {
@@ -627,7 +646,7 @@
     .project-link {
       align-self: flex-start;
   font-family: "Sora", "Inter", sans-serif;
-      font-size: 1.2rem;
+      font-size: 2rem;
       color: #fff;
       text-decoration: none;
       padding: 10px 22px;
