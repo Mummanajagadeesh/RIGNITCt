@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Anagha M V",
+    "photo": "assets/images/team/image.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/anaghamv/"
+      }
+    ]
+  },
+  {
+    "name": "Kartikeya Kulkarni",
+    "photo": "assets/images/team/b20/karthikeya-kulkarni.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/kartikeyak/"
+      }
+    ]
+  },  
+  {
+    "name": "ASWIN SEKHAR C S",
+    "photo": "assets/images/team/b20/aswin-sekhar-cs.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/aswinsekhar/"
+      }
+    ]
+  }, 
+  {
+    "name": "Vivek Pankaj",
+    "photo": "assets/images/team/b20/vivek-pankaj.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/vivek-pankaj/"
+      }
+    ]
+  },
+  {
+    "name": "Sparsh Agarwal",
+    "photo": "assets/images/team/b20/sparsh-agarwal.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/sparsh-agarwal-83b496205/"
+      }
+    ]
+  },
+  {
+    "name": "MOHAMMED THASHREEF A",
+    "photo": "assets/images/team/b20/mohammed-thashreef-a.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/thashreef812/"
+      }
+    ]
+  }
+]
