@@ -1,26 +1,15 @@
 [
-  {
-    "name": "Anagha M V",
-    "photo": "assets/images/team/image.webp",
+{
+    "name": "Eldho Kuriakose",
+    "photo": "assets/images/team/b20/eldho-kuriakose.webp",
     "role": "Team Member",
     "socials": [
       {
         "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/anaghamv/"
+        "url": "https://www.linkedin.com/in/~eldhokuriakose/"
       }
     ]
-  },
-  {
-    "name": "Kartikeya Kulkarni",
-    "photo": "assets/images/team/b20/karthikeya-kulkarni.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/kartikeyak/"
-      }
-    ]
-  },  
+  }, 
   {
     "name": "ASWIN SEKHAR C S",
     "photo": "assets/images/team/b20/aswin-sekhar-cs.webp",
@@ -44,17 +33,6 @@
     ]
   },
   {
-    "name": "Sparsh Agarwal",
-    "photo": "assets/images/team/b20/sparsh-agarwal.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/sparsh-agarwal-83b496205/"
-      }
-    ]
-  },
-  {
     "name": "MOHAMMED THASHREEF A",
     "photo": "assets/images/team/b20/mohammed-thashreef-a.webp",
     "role": "Team Member",
@@ -62,6 +40,50 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/thashreef812/"
+      }
+    ]
+  },
+  {
+    "name": "Arjun kandel",
+    "photo": "assets/images/team/b20/arjun-kandel.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/arjun-kandel/"
+      }
+    ]
+  },
+{
+    "name": "John Scott",
+    "photo": "assets/images/team/b20/john-scott.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/john-scott-jsw/"
+      }
+    ]
+  },
+  {
+    "name": "Nikhil Shindikar",
+    "photo": "assets/images/team/b20/nikhil-shindikar.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/nikhil-shindikar/"
+      }
+    ]
+  },
+  {
+    "name": "Sreesankar T M",
+    "photo": "assets/images/team/b20/sreesankar-tm.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/sreesankar-t-m-a015a2153"
       }
     ]
   }
