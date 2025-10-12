@@ -1,17 +1,17 @@
 [
   {
     "title": "ORIGO Workshop",
-    "description": "Flagship workshop conducted every year for freshers. A two-day hands-on workshop introducing robotics to first-year students of NIT Calicut.",
+    "description": "A two-day annual flagship workshop for NIT Calicut freshers, offering a hands-on introduction to robotics. The sessions cover coding, CAD modeling, electronics, and AI fundamentals, helping students design, build, and train their first robots",
     "photo": "assets/images/activities/origo.webp"
   },
   {
     "title": "M.Tech Mechatronics Workshop",
-    "description": "Annual workshop for M.Tech students with lectures and sessions in the Mechatronics Lab, focusing on advanced robotics concepts.",
+    "description": "An annual workshop for M.Tech students, featuring lectures and hands-on sessions in the Mechatronics Lab. The program focuses on advanced robotics concepts including ROS (Robot Operating System), robot simulation, control systems, and sensor integration, offering participants practical exposure to research-level robotics.",
     "photo": "assets/images/activities/mtech.png"
   },
   {
     "title": "UL Space Club Lecture",
-    "description": "Conducted a one-day lecture on robotics followed by a mini expo for school students in UL Cyber Park.",
+    "description": "Conducted a one-day session on robotics at UL Cyber Park, which included an interactive lecture and a mini expo for school students. The event introduced them to basic robotics concepts, simple coding, and hands-on demonstrations, encouraging curiosity and interest in science and technology",
     "photo": "assets/images/activities/ul-space.png"
   }
 ]
