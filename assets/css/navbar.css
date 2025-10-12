@@ -419,7 +419,7 @@ body::-webkit-scrollbar {
     /* hamburger animation */
     .hamburger-menu.open {
         transform: rotate(180deg);
-        color: #ff6b6b;
+        color: #ffffff;
     }
 
     /* remove old pseudo-element hamburger */

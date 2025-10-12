@@ -223,12 +223,54 @@ h1,
 
 
   <div class="text-block" style="position: relative; z-index: 1;margin-top: 40px;transform: translateY(80px);">
-<div class="title" style="font-size: clamp(48px, 12vw, 128px); font-weight: bold;">
+<div class="title">
   RIGNITC
-</div>    <!-- <p style="font-family: Sora, 'Inter', sans-serif;"> -->
-<span style="font-family: 'Pricedown', sans-serif; font-size: clamp(24px, 5vw, 48px); font-weight: 600;">
+</div>
+
+<style>
+.title {
+  font-size: clamp(48px, 12vw, 128px);
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 3px white;
+  text-shadow: 10px -10px 0px white;
+  text-align: left;
+}
+
+/* On smaller screens: remove translated shadow and use black outline */
+@media (max-width: 768px) {
+  .title {
+    color: white;
+    -webkit-text-stroke: 2px black;
+    text-shadow: none;
+    text-align: center;
+  }
+}
+</style>
+
+  <!-- <p style="font-family: Sora, 'Inter', sans-serif;"> -->
+<span class="subtitle">
   Robotics Interest Group
 </span>
+
+<style>
+.subtitle {
+  font-family: 'Pricedown', sans-serif;
+  font-size: clamp(24px, 5vw, 48px);
+  font-weight: 600;
+  color: white;
+  text-align: left;
+  display: inline-block;
+}
+
+/* On mobile: add black outline */
+@media (max-width: 768px) {
+  .subtitle {
+    -webkit-text-stroke: 1.5px black;
+  }
+}
+</style>
+
      
       <!-- <em>We build robots. We test ideas. We grow. We innovate.</em><br>
       <em>We fail, and we rebuild stronger. We are RIGNITC.</em> -->
@@ -683,7 +725,6 @@ h1,
       width: 100%;
       height: 240px;
       overflow: hidden;
-      filter: invert(1);
     }
 
     .project-image img {
@@ -699,7 +740,6 @@ h1,
       top: 0;
       left: 0;
       opacity: 0;
-      filter: invert(1);
     }
 
     .project-card:hover .project-image img.default-img {
@@ -752,6 +792,7 @@ h1,
     }
 
     .view-all {
+      font-family: 'Pricedown', sans-serif !important;
       display: flex;
       justify-content: right;
       opacity: 0;
@@ -766,8 +807,7 @@ h1,
     }
 
     .view-all a {
-  font-family: "Sora", "Inter", sans-serif;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       color: #fff;
       text-decoration: none;
       border-bottom: 1px solid #fff;
@@ -840,8 +880,8 @@ h1,
       <!-- Project 1 -->
       <div class="project-card">
         <div class="project-image">
-          <img src="assets/images/projects/rigguH.webp" alt="Riggu Robot" class="default-img">
-          <img src="assets/images/projects/riggu.webp" alt="Riggu Robot Hover" class="hover-img">
+          <img src="assets/images/projects/riggu-realH.webp" alt="Riggu Robot" class="default-img">
+          <img src="assets/images/projects/riggu-real.jpg" alt="Riggu Robot Hover" class="hover-img">
         </div>
         <div class="project-content">
           <h2><strong>RIGGU</strong></h2>
@@ -966,7 +1006,7 @@ h1,
 }
 
 #people .startup-grid img {
-  height: 180px;              /* make logos big */
+  height: 100px;              /* make logos big */
   max-width: 280px;
   object-fit: contain;
   filter: none !important;    /* colored logos */
