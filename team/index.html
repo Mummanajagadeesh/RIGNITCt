@@ -167,6 +167,33 @@ h1 {
     font-size: 5em;
 }
 
+/* Mobile optimization */
+@media only screen and (max-width: 768px) {
+  main {
+    padding-left: 10px; /* push content slightly to the left */
+    padding-right: 10px; /* optional to avoid clipping */
+  }
+
+  .year-switcher {
+    display: flex;
+    flex-wrap: wrap; /* wrap buttons to multiple lines if needed */
+    justify-content: flex-start; /* push buttons to left */
+    gap: 5px; /* small gap between buttons */
+    margin-bottom: 15px; /* optional spacing below buttons */
+  }
+
+  .year-btn {
+    flex: 0 0 auto; /* keep button size consistent */
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* one column only for small screens */
+    gap: 10px;
+  }
+}
+
+
   </style>
 </head>
 <body>
