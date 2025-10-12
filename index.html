@@ -43,6 +43,15 @@
       color: #fff;
     }
 
+
+    @font-face {
+    font-family: 'Pricedown';
+    src: url('assets/fonts/Pricedown Bl.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
     /* HERO (first section) */
     .hero {
       margin-top: 120px; /* leave room for navbar */
@@ -159,12 +168,6 @@
   }
 }
 
-@font-face {
-    font-family: 'Pricedown';
-    src: url('assets/fonts/Pricedown Bl.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* Apply the font to all headings and title classes */
 .title,
@@ -227,17 +230,29 @@ h1,
   RIGNITC
 </div>
 
+<span class="subtitle">
+  Robotics Interest Group
+</span>
+
 <style>
-.title {
-  font-size: clamp(48px, 12vw, 128px);
-  font-weight: bold;
-  color: transparent;
-  -webkit-text-stroke: 3px white;
-  text-shadow: 10px -10px 0px white;
-  text-align: left;
+.title,
+.subtitle {
+  font-family: 'Pricedown', sans-serif;
+  font-weight: normal;        /* force same glyphs */
+  font-style: normal;
 }
 
-/* On smaller screens: remove translated shadow and use black outline */
+.title {
+  font-size: clamp(48px, 12vw, 165px);
+  /* color: transparent;
+  -webkit-text-stroke: 2px white; /* thinner to prevent distortion */
+  /* text-shadow: 10px -10px 0 white; */ 
+  text-align: left;
+  margin:0;
+  margin-bottom: 0 !important;
+  line-height: 0.9;
+}
+
 @media (max-width: 768px) {
   .title {
     color: white;
@@ -246,29 +261,23 @@ h1,
     text-align: center;
   }
 }
-</style>
 
-  <!-- <p style="font-family: Sora, 'Inter', sans-serif;"> -->
-<span class="subtitle">
-  Robotics Interest Group
-</span>
-
-<style>
 .subtitle {
-  font-family: 'Pricedown', sans-serif;
   font-size: clamp(24px, 5vw, 48px);
-  font-weight: 600;
-  color: white;
+  color: #cfcfcf;
   text-align: left;
   display: inline-block;
+  margin:0;
+  margin-top: 0 !important;
+  line-height: 1;
 }
 
-/* On mobile: add black outline */
 @media (max-width: 768px) {
   .subtitle {
     -webkit-text-stroke: 1.5px black;
   }
 }
+
 </style>
 
      
