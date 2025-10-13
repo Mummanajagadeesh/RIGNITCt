@@ -270,24 +270,47 @@ h1,
   <!-- Sections -->
 <section id="about">
   <style>
-    #about {
-      background: #111;
-      color: #fff;
-      font-family: "Pricedown", sans-serif;
-      margin: 0;
-    }
+#about {
+  position: relative; /* allow pseudo-element overlay */
+  background: #111;
+  color: #fff;
+  font-family: "Pricedown", sans-serif;
+  margin: 0;
+  overflow: hidden; /* clip pseudo-element */
+}
 
-    #about .about-container {
-      padding: 120px 50px 100px; /* top padding = navbar height */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 100vh;
-      gap: 50px;
-      flex-wrap: wrap;
-      overflow: hidden;
-      border-top: 2px solid #ccc;
-    }
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: 
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+   background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15; /* make it subtle */
+  pointer-events: none; /* don’t block clicks */
+  z-index: 0;
+}
+
+#about .about-container {
+  position: relative; /* stay above pseudo-element */
+  z-index: 1;
+  padding: 120px 50px 100px; /* top padding = navbar height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  gap: 50px;
+  flex-wrap: wrap;
+  border-top: 2px solid #ccc;
+}
+
 
     #about .about-text,
     #about .about-image {
@@ -647,21 +670,46 @@ h1,
 
 <section id="projects"> 
   <style>
-    #projects {
-      background: #111;
-      color: #fff;
-  font-family: "Orbitron", sans-serif;      margin: 0;
-    }
+#projects {
+  position: relative; /* allow pseudo-element overlay */
+  background: #111;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  overflow: hidden; /* clip pseudo-element */
+}
 
-    .projects-container {
-      padding: 120px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      min-height: 100vh;
-      width: 100%;
-    }
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: 
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+   background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15; /* subtle dot grid */
+  pointer-events: none; /* don’t block clicks */
+  z-index: 0;
+}
+
+.projects-container {
+  position: relative; /* sit above the dot grid */
+  z-index: 1;
+  padding: 120px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+  width: 100%;
+}
+
 
     .projects-header {
       font-size: 3.5rem;
@@ -926,19 +974,40 @@ h1,
   
 <section id="people">
   <style>
-    #people {
-      background: #111;
-      color: #fff;
-      font-family: "Orbitron", sans-serif;
-      margin: 0;
-      padding: 100px 0px !important;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      height: auto !important;
-    }
+#people {
+  position: relative; /* allow pseudo-element overlay */
+  background: #111;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 100px 0 !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  height: auto !important;
+}
+
+#people::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: 
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+   background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15; /* subtle dot grid */
+  pointer-events: none; /* allow clicks through */
+  z-index: 0;
+}
+
 
     #people .people-header {
       font-size: 2.5rem;
@@ -1063,6 +1132,7 @@ h1,
     const companyImages = [
       "assets/images/companies/ti.webp",
       "assets/images/companies/qualcomm.webp",
+      "assets/images/companies/dell.webp",
       "assets/images/companies/nvidia.webp",
       "assets/images/companies/isro.webp",
       "assets/images/companies/samsung.webp",
@@ -1131,19 +1201,40 @@ startups.forEach(startup => {
 
 <section id="gallery">
 <style>
-  #gallery {
-    background: #111;
-    color: #fff;
-  font-family: "Orbitron", sans-serif;    margin: 0;
-    padding: 120px 50px 50px;
-    display: flex;
-    justify-content: flex-start; /* align items to the left */
-    align-items: flex-start;
-    flex-wrap: nowrap; /* keep them side by side */
-    gap: 50px;
-    position: relative;
-    overflow: hidden;
-  }
+#gallery {
+  position: relative; /* allow pseudo-element overlay */
+  background: #111;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 120px 50px 50px;
+  display: flex;
+  justify-content: flex-start; /* keep items left-aligned */
+  align-items: flex-start;
+  flex-wrap: nowrap; /* keep them side by side */
+  gap: 50px;
+  overflow: hidden; /* ensure pseudo-element is clipped */
+}
+
+#gallery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: 
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+   background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15; /* subtle white dot grid */
+  pointer-events: none; /* allow clicks through */
+  z-index: 0;
+}
+
 
   /* Header / title on the right */
   #gallery h1 {
@@ -1487,20 +1578,41 @@ document.getElementById('help').onclick = () => {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    #footer {
-      background: #000;
-      color: #fff;
-      font-family: "Orbitron", sans-serif;
-      margin: 0;
-      padding: 15px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      min-height: auto !important;
-      height: auto !important;
-      padding: 30px 0;
-    }
+#footer {
+  position: relative; /* allow pseudo-element overlay */
+  background: #000;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: auto !important;
+  height: auto !important;
+  overflow: hidden; /* clip pseudo-element */
+}
+
+#footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: 
+    radial-gradient(circle, #fff 2px, transparent 2px),
+    radial-gradient(circle, #fff 2px, transparent 2px);
+   background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+
+  opacity: 0.15; /* subtle white dot grid */
+  pointer-events: none; /* allow clicks through */
+  z-index: 0;
+}
+
 
     #footer .socials {
       display: flex;
