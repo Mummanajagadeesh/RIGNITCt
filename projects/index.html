@@ -334,28 +334,94 @@ html,body{
 
   <!-- Title wrapper with STACK (left) and PROJECTS (right) -->
   <div class="title-wrapper">
-    <div class="stack-section">
-      <h2 class="stack-title">STACK</h2>
-      <div class="stack-icons">
-        <img src="../assets/images/stack/ros.svg" alt="Robot Operating System (ROS)">
-        <img src="../assets/images/stack/ros2.svg" alt="Robot Operating System 2 (ROS 2)">
-        <img src="../assets/images/stack/tux.png" alt="Linux mascot Tux">
-        <img src="../assets/images/stack/c++.svg" alt="C++ programming language">
-        <img src="../assets/images/stack/python.svg" alt="Python programming language">
-        <img src="../assets/images/stack/gazebo.svg" alt="Gazebo simulator">
-        <img src="../assets/images/stack/webots.png" alt="Webots simulator">
-        <img src="../assets/images/stack/mission-planner.png" alt="Mission Planner software">
-        <img src="../assets/images/stack/rviz.svg" alt="RViz visualization tool">
-        <img src="../assets/images/stack/nav2.svg" alt="Navigation 2 (Nav2) framework">
-        <img src="../assets/images/stack/ignition.svg" alt="Ignition robotics simulator">
-        <img src="../assets/images/stack/solidworks.png" alt="SolidWorks CAD software">
-        <img src="../assets/images/stack/fusion.png" alt="Autodesk Fusion 360 CAD software">
-        <img src="../assets/images/stack/creo.png" alt="Creo CAD software">
-        <img src="../assets/images/stack/opencv.svg" alt="OpenCV computer vision library">
-        <img src="../assets/images/stack/raspberry.svg" alt="Raspberry Pi single-board computer">
+<div class="stack-section">
+  <h2 class="stack-title">STACK</h2>
+  <div class="stack-icons" id="stack-icons"></div>
+</div>
 
-    </div>
-    </div>
+<script>
+  fetch('stack.json')
+    .then(response => response.json())
+    .then(data => {
+      const stackContainer = document.getElementById('stack-icons');
+
+      Object.values(data.stack).forEach(category => {
+        const groupDiv = document.createElement('div');
+        groupDiv.classList.add('stack-group');
+
+        category.forEach(item => {
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.alt;
+          groupDiv.appendChild(img);
+        });
+
+        stackContainer.appendChild(groupDiv);
+      });
+    })
+    .catch(err => console.error("Error loading stack.json:", err));
+</script>
+
+<style>
+  .stack-icons {
+    display: flex;
+    flex-wrap: nowrap; /* keep all groups in a single row */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stack-group {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid rgba(0,0,0,0.15); /* subtle separator */
+    padding: 0 0.5rem; /* only inside padding */
+  }
+
+  .stack-group:first-child {
+    border-left: none; /* no border for the first group */
+    padding-left: 0;
+  }
+
+  .stack-group img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain;
+    margin: 0 0.3rem; /* small space between logos inside group */
+    transition: transform 0.2s ease;
+  }
+
+  .stack-group img:hover {
+    transform: scale(1.1);
+  }
+
+/* Mobile view: stack groups vertically, centered */
+@media (max-width: 768px) {
+  .stack-icons {
+    flex-direction: column;
+    align-items: center; /* center the stacked groups */
+  }
+
+  .stack-group {
+    display: flex;        /* logos stay in a row inside group */
+    flex-wrap: wrap;      /* allow wrapping if needed */
+    justify-content: center;
+    align-items: center;
+
+    border-left: none;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    padding: 0.6rem 0;
+    margin: 0.5rem 0;
+
+    width: auto;          /* ✅ shrink to fit logos, don’t stretch */
+  }
+
+  .stack-group:first-child {
+    border-top: none;
+  }
+}
+
+</style>
+
     <h1 class="site-title">PROJECTS</h1>
   </div>
 
