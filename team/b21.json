@@ -118,6 +118,30 @@
     ]
   },
   {
+    "name": "Vishakha",
+    "photo": "assets/images/team/b21/vishakha.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/vishakha--sharma/"
+      }
+    ]
+  },
+
+  {
+    "name": "Shibin Fazil",
+    "photo": "assets/images/team/b21/shibin-fazil.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/shibin-fazil/"
+      }
+    ]
+  },
+
+  {
     "name": "Aftaab Ahamed",
     "photo": "assets/images/team/b21/aftaab-ahamed.webp",
     "role": "Team Member",
@@ -125,12 +149,7 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/aftaab-ahamed-058b9b221/"
-      },
-      {
-        "platform": "site",
-        "url": "https://aftaabdev.fr.to/"
       }
     ]
   }
 ]
-
