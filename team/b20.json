@@ -1,5 +1,16 @@
 [
 {
+    "name": "John Scott",
+    "photo": "assets/images/team/b20/john-scott.webp",
+    "role": "Team Lead",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/john-scott-jsw/"
+      }
+    ]
+  },
+  {
     "name": "Eldho Kuriakose",
     "photo": "assets/images/team/b20/eldho-kuriakose.webp",
     "role": "Team Member",
@@ -51,17 +62,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/arjun-kandel/"
-      }
-    ]
-  },
-{
-    "name": "John Scott",
-    "photo": "assets/images/team/b20/john-scott.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/john-scott-jsw/"
       }
     ]
   },
