@@ -20,9 +20,14 @@
     "photo": "assets/images/achievements/competitions/ROBOCON.webp"
   },
   {
-    "title": "FESTO Innovation Challenge",
-    "description": "Won 1st prize in FESTO Innovation Challenge",
+    "title": "FESTO International Productivity Contest",
+    "description": "(Mr Ajith A.M. , 2015 B.Tech Mech Engg) won Third prize for FESTO’s International Productivity Contest for the development of the Wall Climbing Robot (Germany 2015). This was with a fully sponsored trip to Hannover Messe, Germany. 2015 ",
     "photo": "assets/images/achievements/competitions/festo.png"
+  },
+  {
+    "title": "Janatics Automation Skill Challenge 2024",
+    "description": "(Mr. Arnav Mishra, 2026 B.tech Mech Engg) Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation.",
+    "photo": "assets/images/achievements/competitions/janatics.png"
   },
   {
     "title": "Swasraya Bharath Innovation Challenge",
@@ -30,9 +35,13 @@
     "photo": "assets/images/achievements/competitions/swasraya.png"
   },
   {
-    "title": "Janatics Automation Skill Challenge 2024",
-    "description": "Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation.",
-    "photo": "assets/images/achievements/competitions/janatics.png"
+    "title": "Robocon'24",
+    "description": "Advanced to the second round of Robocon'24",
+    "photo": "assets/images/achievements/competitions/robocon24.png"
+  },
+  {
+    "title": "Eyantra'22",
+    "description": "All India Rank 7 in Eyantra'22 robotics competition organized by IIT Bombay"
   },
   {
     "title": "Eyantra'23",
@@ -49,9 +58,5 @@
   {
     "title": "ISRO Rover Challenge",
     "description": "Qualified for the second round of the ISRO Rover Challenge competition, with submissions for the second round due on May 15th."
-  },
-  {
-    "title": "Robocon'24",
-    "description": "Advanced to the second round of Robocon'24, and are currently engaged in the second stage of submissions."
   }
 ]
