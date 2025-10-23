@@ -3,25 +3,36 @@
     "title": "ISRO Robotics Challenge (IRoCU 2025)",
     "description": "Made it to the qualification round and secured a place among the top 24 teams across India.",
     "photo": "assets/images/achievements/competitions/ISRO.webp"
-},
+  },
   {
     "title": "LAM Research Challenge 2024",
     "description": "Participated with a cross-disciplinary project demonstrating firmware, hardware, systems engineering, and business acumen.",
     "photo": "assets/images/achievements/competitions/LAM.webp"
-},
+  },
   {
     "title": "Mathworks Mini Drone Challenge 2024",
     "description": "Participated in the MathWorks Mini Drone Challenge 2024, showcasing drone design, control, and simulation skills using MATLAB and Simulink for real-world problem solving.",
     "photo": "assets/images/achievements/competitions/MINIDRONE.webp"
-},
- {
+  },
+  {
     "title": "Robocon'23",
     "description": "Took part in Robocon'23, an international robotics competition, and secured among the top position defeating all other NITs or IITs.",
     "photo": "assets/images/achievements/competitions/ROBOCON.webp"
-},
+  },
+  {
+    "title": "FESTO Innovation Challenge",
+    "description": "Won 1st prize in FESTO Innovation Challenge",
+    "photo": "assets/images/achievements/competitions/festo.png"
+  },
+  {
+    "title": "Swasraya Bharath Innovation Challenge",
+    "description": "Won 1st prize in Swasraya Bharath Innovation Challenge",
+    "photo": "assets/images/achievements/competitions/swasraya.png"
+  },
   {
     "title": "Janatics Automation Skill Challenge 2024",
-    "description": "Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation."
+    "description": "Secured a top position in the Janatics Automation Skill Challenge 2024 by demonstrating excellence in automation system design, control strategies, and practical implementation.",
+    "photo": "assets/images/achievements/competitions/janatics.png"
   },
   {
     "title": "Eyantra'23",

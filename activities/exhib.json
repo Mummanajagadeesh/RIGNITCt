@@ -5,6 +5,11 @@
     "image": "assets/images/activities/inventiv.png"
   },
   {
+    "title": "Professors visit from Oxford Brookes University",
+    "description": "We had the opportunity to be visited by esteemed professors from the Oxford Brookes University, United Kingdom.",
+    "image": "assets/images/activities/oxfordprof.png"
+  }, 
+  {
     "title": "KTX Expo",
     "description": "Showcased AVIBOT, one of RIG's flagship projects, at the KTX Global, aiming to attract industry partnerships to make the product market-ready.",
     "image": "assets/images/activities/ktx.png"
@@ -18,7 +23,7 @@
     "title": "Malabar Innovation Fest",
     "description": "Exhibited RIG projects at the Malabar Innovation Fest held at the Regional Science Centre Calicut, organized by the Government of Kerala.",
     "image": "assets/images/activities/malabar.png"
-  },
+  }, 
   {
     "title": "Exhibition at KMCT College of Engineering for Women",
     "description": "Displayed robotic projects at KMCT College of Engineering for Women, highlighting RIG's innovations.",
@@ -30,13 +35,28 @@
     "image": "assets/images/activities/ksm.png"
   },
   {
+    "title": "Exhibition at Govt Polytechnic College Kasaragode",
+    "description": "Exhibited RIG projects at the Government Polytechnic College in Kasaragode, engaging with students and faculty.",
+    "image": "assets/images/activities/govtpoly.png"
+  }, 
+  {
+    "title": "Stall at Ente Keralam Exhibition Kozhikode",
+    "description": "We had the honour to put up a stall in the exhibition conducted by Ente Keralam exhibition at Calicut beach",
+    "image": "assets/images/activities/ente.png"
+  }, 
+  {
     "title": "Exhibition at Vidya Academy of Science and Technology",
     "description": "Exhibited robotic projects at Vidya Academy of Science and Technology, engaging with students and faculty.",
     "image": "assets/images/activities/vast.png"
   },
   {
+    "title": "Prof Maruthi Ram Akella Visit",
+    "description": "Demonstrated all RIG Project to Prof Maruthi Ram Akella an alumnus of NIT Calicut, who is currently Aerospace Engg Professor at University of Texas at Austin.",
+    "image": "assets/images/activities/lab-visits.webp"
+  },
+  {
     "title": "Lab Visits",
     "description": "Held several lab visits for school students, showcasing robotic technologies and ongoing projects in RIG.",
-    "image": "assets/images/activities/lab-visits.webp"
+    "image": "assets/images/activities/lab.png"
   }
 ]

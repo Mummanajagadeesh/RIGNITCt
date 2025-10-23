@@ -10,8 +10,18 @@
     "photo": "assets/images/activities/mtech.png"
   },
   {
+    "title": "National Workshop on Robotics and Control",
+    "description": "A national workshop on Robotics and Control was organized by the Mechanical Engineering Department in association with the Robotics Society of India",
+    "photo": "assets/images/activities/natwork.png"
+  },
+  {
     "title": "UL Space Club Lecture",
     "description": "Conducted a one-day session on robotics at UL Cyber Park, which included an interactive lecture and a mini expo for school students. The event introduced them to basic robotics concepts, simple coding, and hands-on demonstrations, encouraging curiosity and interest in science and technology",
     "photo": "assets/images/activities/ul-space.png"
+  },
+  {
+    "title": "Feroke GHSS 3-day Robotics Workshop",
+    "description": "We conducted a 3-day workshop for the young students of Government HSS Feroke where we taught them basics of 3D printing, MIT App inventor, Scratch, CAD Modelling, Arduino, etc.",
+    "image": "assets/images/activities/feroke.png"
   }
 ]
