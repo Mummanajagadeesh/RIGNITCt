@@ -107,17 +107,6 @@
     ]
   },
   {
-    "name": "Raghul Krishna S",
-    "photo": "assets/images/team/b23/raghul-krishna-s.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://in.linkedin.com/in/raghul-krishna-s"
-      }
-    ]
-  },
-  {
     "name": "Aswin Hari",
     "photo": "assets/images/team/b23/aswin-hari.webp",
     "role": "Team Member",
@@ -235,17 +224,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/anand-das-570a5a286"
-      }
-    ]
-  },
-  {
-    "name": "Anu Shibaani",
-    "photo": "assets/images/team/b23/anu-shibaani.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/anu-shibaani-r-615434287"
       }
     ]
   }

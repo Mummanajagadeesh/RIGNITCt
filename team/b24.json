@@ -33,17 +33,6 @@
     ]
   },
   {
-    "name": "JOE J THANNICKAMATTAM",
-    "photo": "assets/images/team/b24/joe-j-thannickamattam.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/joe-j-thannickamattam-b9216537b/"
-      }
-    ]
-  },
-  {
     "name": "Adithya R",
     "photo": "assets/images/team/b24/adithya-r.webp",
     "role": "Team Member",
@@ -106,17 +95,6 @@
       {
         "platform": "linkedin",
         "url": "https://www.linkedin.com/in/sara-shameen-06b2a8322"
-      }
-    ]
-  },
-  {
-    "name": "Saurav Mohan",
-    "photo": "assets/images/team/b24/saurav-mohan.webp",
-    "role": "Team Member",
-    "socials": [
-      {
-        "platform": "linkedin",
-        "url": "https://www.linkedin.com/in/saurav-mohan-45a94837b/"
       }
     ]
   },
