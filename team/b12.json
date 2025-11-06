@@ -1,0 +1,99 @@
+[
+    {
+        "name": "JOVIN SAVIO",
+        "photo": "assets/images/team/b12/JOVIN-SAVIO.jpeg",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/jovin-savio-a1037a8b/"
+        }
+        ]
+    },
+    {
+        "name": "RAMAKRISHNA REDDY.K",
+        "photo": "assets/images/team/b12/RAMAKRISHNA-REDDY.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/ramakrishna308/"
+        }
+        ]
+    },
+    {
+        "name": "ASWIN PK",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+        }
+        ]
+
+    },
+    {
+        "name": "RAHUL M",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+        }
+        ]
+
+    },
+    {
+        "name": "S SREEJIT",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+        }
+        ]
+
+    },
+    {
+        "name": "AKHIL VISAKH M",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+        }
+        ]
+
+    },
+    {
+        "name": "VIJIN A V",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+
+        }
+        ]
+
+    },
+    {
+        "name": "ANJALI K",
+        "photo": "assets/images/team/b12/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+
+        }
+        ]
+
+    }
+    
+]

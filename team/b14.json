@@ -1,116 +1,107 @@
 [
     {
-        "name": "NITHIN THOMAS",
-        "photo": "assets/images/team/founders/NITHIN-THOMAS.jpeg",
-        "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": "https://www.linkedin.com/in/nithin-thomas-automation-engineer/"
-        }
-        ]
-    },
-    {
-        "name": "GEORGE V JOSEPH",
-        "photo": "assets/images/team/founders/GEORGE-V-JOSEPH.jpeg",
-        "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": "https://www.linkedin.com/in/georgevj/"
-        }
-        ]
-    },
-    {
-        "name": "ARAVIND E VIJAYAN",
-        "photo": "assets/images/team/founders/ARAVIND-E-VIJAYAN.jpeg",
-        "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": "https://www.linkedin.com/in/evaravind/"
 
-        }
-        ]
-
-    },
-    {
-        "name": "JIBIN RAJAN",
-        "photo": "assets/images/team/founders/JIBIN-RAJAN.jpeg",
-        "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": "https://www.linkedin.com/in/jibinrajan/"
-
-        }
-        ]
-
-    },
-    {
-        "name": "HARISH NARAYANASWAMY",
-        "photo": "assets/images/team/founders/logo.png",
+        "name": "Amar Nath H",
+        "photo": "assets/images/team/b14/logo.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": ""
-
         }
         ]
-
     },
     {
-        "name": "RATAN SADANANDAN",
-        "photo": "assets/images/team/founders/logo.png",
+
+        "name": "B R Guru Teja",
+        "photo": "assets/images/team/b14/logo.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": ""
-
         }
         ]
-
     },
     {
-        "name": "SAFVAN P",
-        "photo": "assets/images/team/founders/logo.png",
+
+        "name": "G Vijay Vamsi",
+        "photo": "assets/images/team/b14/logo.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": ""
-
         }
         ]
-
     },
     {
-        "name": "HARI P",
-        "photo": "assets/images/team/founders/logo.png",
+        "name": "Karthik P Moothedath ",
+        "photo": "assets/images/team/b14/karthik.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/karthikpmoothedath/"
+        }
+        ]
+    },
+    {
+        "name": "Arun M ",
+        "photo": "assets/images/team/b14/arun-m.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/arun-m-54b49218a/"
+        }
+        ]
+    },
+    {
+
+        "name": "P Chandana",
+        "photo": "assets/images/team/b14/logo.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": ""
-
         }
         ]
-
     },
     {
-        "name": "AJITH AM",
-        "photo": "assets/images/team/founders/logo.png",
+
+        "name": "Rodrigues Neil Francis",
+        "photo": "assets/images/team/b14/logo.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": ""
-
         }
         ]
+    },
+    {
 
+        "name": "Shruti",
+        "photo": "assets/images/team/b14/logo.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": ""
+        }
+        ]
+    },
+    {
+        "name": "N M S Vyshnavi ",
+        "photo": "assets/images/team/b14/n-m-s-vyshnavi.png",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/monika-sri-vyshnavi-nagalla-169540100/"
+        }
+        ]
     }
-    
 ]
