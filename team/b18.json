@@ -2,10 +2,9 @@
     {
 
         "name": "Amal Pavithran ",
-        "photo": "assets/images/team/b18/amal-pavithran.webp",
+        "photo": "assets/images/logo.webp",
         "socials": [
         {
-            "platform": "linkedin",
             "platform": "linkedin",
             "url": "https://www.linkedin.com/in/amalpavithran/"
         }
@@ -26,7 +25,7 @@
     {
 
         "name": "Harikrishna S Menon ",
-        "photo": "assets/images/team/b18/harikrishna.webp",
+        "photo": "assets/images/logo.webp",
         "role": "Team Member",
         "socials": [
         {
@@ -50,7 +49,7 @@
     {
 
         "name": "Thejonath Mamidi",
-        "photo": "assets/images/team/image.webp",
+        "photo": "assets/images/logo.webp",
         "role": "Team Member",
         "socials": [
         {
@@ -62,7 +61,7 @@
     {
       
         "name": "MIRIYALA KISHAN ",
-        "photo": "assets/images/team/image.webp",
+        "photo": "assets/images/logo.webp",
         "role": "Team Member",
         "socials": [
         {
