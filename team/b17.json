@@ -1,0 +1,61 @@
+[
+    {
+        "name": "Abhinav Jangir",
+        "photo": "assets/images/team/image.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/sqweeks0p/"
+        }
+        ]
+    },
+    {
+        "name": "Satya Ashok Dowluri ",
+        "photo": "assets/images/team/b17/satya-ashok-dowluri.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/satyaashokdowluri/"
+        }
+        ]
+    },
+    {
+        "name": "Justine Devasia ",
+        "photo": "assets/images/team/b17/justine-devasia.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/justine-p-devasia/"
+        }
+        ]
+    },
+    
+    {
+
+        "name": "Nikesh Krishnan",
+        "photo": "assets/images/team/b17/nikesh-krishnan.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/nikesh-krishnan-794493169/"
+        }
+        ]
+    },
+    {
+
+        "name": "Vijaya Krishna Verisetty",
+        "photo": "assets/images/team/b17/vijaya-krishna-veerisetty.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/vijaya-krishna-veerisetty-723063182/"
+        }
+        ]
+    }
+    
+]

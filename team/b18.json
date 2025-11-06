@@ -1,0 +1,124 @@
+[
+    {
+
+        "name": "Amal Pavithran ",
+        "photo": "assets/images/team/b18/amal-pavithran.webp",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/amalpavithran/"
+        }
+        ]
+    },
+    {
+
+        "name": "Hareendran V R",
+        "photo": "assets/images/team/b18/hareendran-v-r.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/hareendranvr/"
+        }
+        ]
+    },
+    {
+
+        "name": "Harikrishna S Menon ",
+        "photo": "assets/images/team/b18/harikrishna.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/hksm/"
+        }
+        ]
+    },
+    {
+
+        "name": "Madhava Ketha ",
+        "photo": "assets/images/team/b18/madhava-ketha.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/madhava-ketha-0724021ab/"
+        }
+        ]
+    },
+    {
+
+        "name": "Thejonath Mamidi",
+        "photo": "assets/images/team/image.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/thejonath-mamidi-74b35119b/"
+        }
+        ]
+    },
+    {
+      
+        "name": "MIRIYALA KISHAN ",
+        "photo": "assets/images/team/image.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/kishan-miriyala/"
+        }
+        ]  
+    },
+    {
+      
+        "name": "Rohith Poola",
+        "photo": "assets/images/team/b18/rohith-poola.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/rohith-poola/"
+        }
+        ]  
+    },
+    {
+      
+        "name": "Dheeraj Reddy Puchakayala",
+        "photo": "assets/images/team/b18/dheeraj-reddy.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/dheeraj-reddy-puchakayala-67b842178/"
+        }
+        ]  
+    },
+    {
+      
+        "name": "Roshan Madipalli",
+        "photo": "assets/images/team/b18/roshan-madipalli.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/roshan-madipalli-9948b51a8/"
+        }
+        ]  
+    },
+    {
+      
+        "name": "Raj Harshit Srirangam ",
+        "photo": "assets/images/team/b18/raj-harshit-srirangam.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/raj-harshit-srirangam-7879071b4/"
+        }
+        ]
+    }
+
+
+]
