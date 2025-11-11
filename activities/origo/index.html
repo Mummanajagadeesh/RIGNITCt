@@ -146,7 +146,6 @@ nav.dark .logo img{display:block;max-width:60px;height:auto;filter:invert(1);}
 
 /* Responsive */
 @media (max-width:760px){
-  nav.dark{flex-direction:column;gap:8px;}
   .hero{flex-direction:column;text-align:center;}
   .hero-title{flex-direction:column;}
   .panel{max-width:100%;align-items:flex-start;text-align:left;}
@@ -157,6 +156,12 @@ nav.dark .logo img{display:block;max-width:60px;height:auto;filter:invert(1);}
 @media (max-width:480px){
   .hero-title img{width:80px;}
   .panel{padding:16px;}
+}
+
+@media (max-width: 760px) {
+  .hero {
+    margin-top: 40px; /* adds space below navbar only on mobile */
+  }
 }
 </style>
 </head>
