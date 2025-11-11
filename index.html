@@ -180,6 +180,91 @@ h1,
     </a>
   </nav>
 
+
+<!-- SCROLLING ANNOUNCEMENT BANNER (below navbar) -->
+<div class="scroll-banner">
+  <div class="scroll-track">
+    <div class="scroll-content">
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+    </div>
+    <div class="scroll-content">
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* --- Scrolling Banner Styles --- */
+  .scroll-banner {
+    background: #fff;
+    color: #000;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    z-index: 10;
+    margin-top: 80px; /* adjust for navbar height */
+  }
+
+  .scroll-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 25s linear infinite;
+  }
+
+  .scroll-content {
+    display: inline-block;
+  }
+
+  .scroll-content a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+
+  .scroll-content a:hover {
+    text-decoration: none;
+    color: #333;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .scroll-banner {
+      margin-top: 70px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+
+
   <!-- HERO -->
 <div class="hero" style="position: relative; background: black; color: white; overflow: hidden;">
 <img src="assets/images/main/labxxlhb.png" 
