@@ -49,12 +49,12 @@
     },
     {
         "name": "HARISH NARAYANASWAMY",
-        "photo": "assets/images/team/founders/logo.png",
+        "photo": "assets/images/team/founders/harish-n.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/harish-narayan/"
 
         }
         ]
@@ -87,26 +87,26 @@
 
     },
     {
-        "name": "HARI P",
-        "photo": "assets/images/team/founders/logo.png",
+        "name": "Hari Prasanth",
+        "photo": "assets/images/team/founders/hari-p.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/hariscorner"
 
         }
         ]
 
     },
     {
-        "name": "AJITH AM",
-        "photo": "assets/images/team/founders/logo.png",
+        "name": "Ajith Anil Meera",
+        "photo": "assets/images/team/founders/ajith-am.png",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/ajitham1994"
 
         }
         ]

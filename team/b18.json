@@ -2,7 +2,7 @@
     {
 
         "name": "Amal Pavithran ",
-        "photo": "assets/images/logo.webp",
+        "photo": "assets/images/team/b18/amal-pavithran.webp",
         "socials": [
         {
             "platform": "linkedin",
@@ -25,7 +25,7 @@
     {
 
         "name": "Harikrishna S Menon ",
-        "photo": "assets/images/logo.webp",
+        "photo": "assets/images/team/b18/harikrishna-s-menon.webp",
         "role": "Team Member",
         "socials": [
         {
@@ -60,7 +60,7 @@
     },
     {
       
-        "name": "MIRIYALA KISHAN ",
+        "name": "MIRIYALA KISHAN",
         "photo": "assets/images/logo.webp",
         "role": "Team Member",
         "socials": [

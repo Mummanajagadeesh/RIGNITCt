@@ -75,12 +75,12 @@
     },
     {
         "name": "MAHESH ULIGADE",
-        "photo": "assets/images/team/b13/logo.png",
+        "photo": "assets/images/team/b13/mahesh-u.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/maheshuligade"
 
         }
         ]
@@ -88,12 +88,12 @@
     },
     {
         "name": "SAI GURU RAGHAVENDRA",
-        "photo": "assets/images/team/b13/logo.png",
+        "photo": "assets/images/team/b13/g-sai-guru-raghavendra.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/gurugudipati/"
 
         }
         ]
@@ -101,7 +101,7 @@
     },
     {
         "name": "SUBIN E K",
-        "photo": "assets/images/team/b13/logo.png",
+        "photo": "assets/images/team/b13/logo.webp",
         "role": "Team Member",
         "socials": [
         {
@@ -114,7 +114,7 @@
     },
     {
         "name": "Y SIVA PRASAD REDDY",
-        "photo": "assets/images/team/b13/logo.png",
+        "photo": "assets/images/team/b13/logo.webp",
         "role": "Team Member",
         "socials": [
         {
