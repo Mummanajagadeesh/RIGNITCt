@@ -119,5 +119,16 @@
         "url": "https://www.linkedin.com/in/praneetha-sompalli-688690212/"
       }
     ]
+  },
+  {
+    "name": "tarala Trilokesh",
+    "photo": "assets/images/team/b19/tarala-trilokesh.webp",
+    "role": "Team Member",
+    "socials": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/taralatrilokesh"
+      }
+    ]
   }
 ]
