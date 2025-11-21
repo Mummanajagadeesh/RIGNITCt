@@ -349,16 +349,70 @@
       outline-offset: 3px;
     }
 
+    /* --- Mobile Stack Banner Styles --- */
+    .mobile-stack-banner {
+      display: none;
+      width: 100%;
+      overflow: scroll;
+      position: relative;
+      margin-bottom: 30px;
+      padding: 15px 0;
+    }
+    
+    .mobile-stack-banner::before,
+    .mobile-stack-banner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      z-index: 2;
+    }
+    
+    .mobile-stack-banner::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    
+    .mobile-stack-banner::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+    
+    .mobile-stack-banner .stack-scroll {
+      display: flex;
+      gap: 30px;
+      animation: scroll-stack 10s linear infinite;
+    }
+    
+    .mobile-stack-banner .stack-scroll img {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+    
+    @keyframes scroll-stack {
+      0% { transform: translateX(0); }
+      /* Changed from -50% to -100% for seamless loop */
+      100% { transform: translateX(-100%); }
+    }
+
     /* responsive */
     @media(max-width:880px) {
-
-      /* hide STACK entirely on smaller screens */
+      /* Hide desktop stack on smaller screens */
       .stack-section {
         display: none !important;
       }
 
       .stack-icons {
         display: none !important;
+      }
+
+      /* Show mobile stack banner */
+      .mobile-stack-banner {
+        display: block;
       }
 
       .title-wrapper {
@@ -655,7 +709,7 @@ body, a, button, .year-btn, .socials a {
             margin: 0.5rem 0;
 
             width: auto;
-            /* ✅ shrink to fit logos, don’t stretch */
+            /* ✅ shrink to fit logos, don't stretch */
           }
 
           .stack-group:first-child {
@@ -665,6 +719,11 @@ body, a, button, .year-btn, .socials a {
       </style>
 
       <h1 class="site-title">PROJECTS</h1>
+    </div>
+
+    <!-- Mobile Stack Banner (hidden on desktop) -->
+    <div class="mobile-stack-banner" id="mobile-stack-banner">
+      <div class="stack-scroll" id="mobile-stack-scroll"></div>
     </div>
 
     <div class="projects-container" id="projects-container" aria-live="polite">
@@ -779,6 +838,45 @@ body, a, button, .year-btn, .socials a {
       renderRows(projects);
     })();
   </script>
+
+  <!-- Mobile Stack Banner Script -->
+  <script>
+    // Load stack data and create mobile scrolling banner
+    fetch('stack.json')
+      .then(response => response.json())
+      .then(data => {
+        const mobileScrollContainer = document.getElementById('mobile-stack-scroll');
+        
+        // Collect all stack items
+        const allStackItems = [];
+        Object.values(data.stack).forEach(category => {
+          category.forEach(item => {
+            allStackItems.push(item);
+          });
+        });
+        
+        // Create the scrolling content - DUPLICATE for seamless loop
+        const createStackImages = () => {
+          const fragment = document.createDocumentFragment();
+          
+          // Create TWO identical sets for seamless looping
+          for (let i = 0; i < 2; i++) {
+            allStackItems.forEach(item => {
+              const img = document.createElement('img');
+              img.src = item.src;
+              img.alt = item.alt;
+              fragment.appendChild(img);
+            });
+          }
+          
+          return fragment;
+        };
+        
+        mobileScrollContainer.appendChild(createStackImages());
+      })
+      .catch(err => console.error("Error loading stack.json for mobile banner:", err));
+  </script>
+
   <div class="cursor"></div>
 
 <script>
