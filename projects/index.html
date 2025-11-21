@@ -349,16 +349,70 @@
       outline-offset: 3px;
     }
 
+    /* --- Mobile Stack Banner Styles --- */
+    .mobile-stack-banner {
+      display: none;
+      width: 100%;
+      overflow: scroll;
+      position: relative;
+      margin-bottom: 30px;
+      padding: 15px 0;
+    }
+    
+    .mobile-stack-banner::before,
+    .mobile-stack-banner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      z-index: 2;
+    }
+    
+    .mobile-stack-banner::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    
+    .mobile-stack-banner::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+    
+    .mobile-stack-banner .stack-scroll {
+      display: flex;
+      gap: 30px;
+      animation: scroll-stack 10s linear infinite;
+    }
+    
+    .mobile-stack-banner .stack-scroll img {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      flex-shrink: 0;
+    }
+    
+    @keyframes scroll-stack {
+      0% { transform: translateX(0); }
+      /* Changed from -50% to -100% for seamless loop */
+      100% { transform: translateX(-100%); }
+    }
+
     /* responsive */
     @media(max-width:880px) {
-
-      /* hide STACK entirely on smaller screens */
+      /* Hide desktop stack on smaller screens */
       .stack-section {
         display: none !important;
       }
 
       .stack-icons {
         display: none !important;
+      }
+
+      /* Show mobile stack banner */
+      .mobile-stack-banner {
+        display: block;
       }
 
       .title-wrapper {
@@ -512,6 +566,33 @@
         padding-right: 16px !important;
       }
     }
+
+    /* --- Custom Cursor Styles for Inverse Effect --- */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  
+  /* Solid white background for clean inversion */
+  background: #fff; 
+  /* Applies the visual inversion/difference blend effect */
+  mix-blend-mode: difference; 
+  
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2000;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.cursor.hovered {
+  transform: translate(-50%, -50%) scale(1.6);
+  /* Use a bright box-shadow since the background is dark */
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* Hide the default cursor */
+body, a, button, .year-btn, .socials a { 
+    cursor: none !important; 
+}
   </style>
 
 </head>
@@ -628,7 +709,7 @@
             margin: 0.5rem 0;
 
             width: auto;
-            /* ✅ shrink to fit logos, don’t stretch */
+            /* ✅ shrink to fit logos, don't stretch */
           }
 
           .stack-group:first-child {
@@ -638,6 +719,11 @@
       </style>
 
       <h1 class="site-title">PROJECTS</h1>
+    </div>
+
+    <!-- Mobile Stack Banner (hidden on desktop) -->
+    <div class="mobile-stack-banner" id="mobile-stack-banner">
+      <div class="stack-scroll" id="mobile-stack-scroll"></div>
     </div>
 
     <div class="projects-container" id="projects-container" aria-live="polite">
@@ -752,7 +838,81 @@
       renderRows(projects);
     })();
   </script>
+
+  <!-- Mobile Stack Banner Script -->
+  <script>
+    // Load stack data and create mobile scrolling banner
+    fetch('stack.json')
+      .then(response => response.json())
+      .then(data => {
+        const mobileScrollContainer = document.getElementById('mobile-stack-scroll');
+        
+        // Collect all stack items
+        const allStackItems = [];
+        Object.values(data.stack).forEach(category => {
+          category.forEach(item => {
+            allStackItems.push(item);
+          });
+        });
+        
+        // Create the scrolling content - DUPLICATE for seamless loop
+        const createStackImages = () => {
+          const fragment = document.createDocumentFragment();
+          
+          // Create TWO identical sets for seamless looping
+          for (let i = 0; i < 2; i++) {
+            allStackItems.forEach(item => {
+              const img = document.createElement('img');
+              img.src = item.src;
+              img.alt = item.alt;
+              fragment.appendChild(img);
+            });
+          }
+          
+          return fragment;
+        };
+        
+        mobileScrollContainer.appendChild(createStackImages());
+      })
+      .catch(err => console.error("Error loading stack.json for mobile banner:", err));
+  </script>
+
+  <div class="cursor"></div>
+
+<script>
+  /* ---------- Custom Cursor (CSS-driven Difference Effect) ---------- */
+  (function() {
+    // Only proceed if the cursor element exists
+    const cursor = document.querySelector(".cursor");
+    if (!cursor) return;
+
+    // Select all interactive elements: a, button, year-btn, and the specific social links
+    const hoverables = document.querySelectorAll("a, button, .year-btn, .socials a"); 
+
+    // Hover effect (scaling)
+    hoverables.forEach(el => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+    });
+
+    // Position tracking
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+  })();
+</script>
   <script src="../assets/js/mobile-navbar.js"></script>
+  <div id="footer-placeholder"></div>
+<script>
+    const p = document.getElementById('footer-placeholder');
+    const f = '/footer.html';
+    
+    fetch(f)
+        .then(r => r.text())
+        .then(d => p.innerHTML = d)
+        .catch(e => console.error('Footer import failed:', e));
+</script>
 </body>
 
 </html>
