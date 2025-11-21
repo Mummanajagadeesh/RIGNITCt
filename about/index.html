@@ -647,5 +647,15 @@ body, a, button, .year-btn, .socials a {
             })();
         </script>
         <script src="../assets/js/mobile-navbar.js"></script>
+        <div id="footer-placeholder"></div>
+<script>
+    const p = document.getElementById('footer-placeholder');
+    const f = '/footer.html';
+    
+    fetch(f)
+        .then(r => r.text())
+        .then(d => p.innerHTML = d)
+        .catch(e => console.error('Footer import failed:', e));
+</script>
     </body>
 </html>
