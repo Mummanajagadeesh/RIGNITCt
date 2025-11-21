@@ -149,6 +149,32 @@
     font-family: 'Pricedown', sans-serif !important;
 }
 
+/* --- Custom Cursor Styles for Inverse Effect --- */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  
+  /* Solid white background for clean inversion */
+  background: #fff; 
+  /* Applies the visual inversion/difference blend effect */
+  mix-blend-mode: difference; 
+  
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2000;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.cursor.hovered {
+  transform: translate(-50%, -50%) scale(1.6);
+  /* Use a bright box-shadow since the background is dark */
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* Hide the default cursor */
+body, a, button, .year-btn, .socials a { 
+    cursor: none !important; 
+}
   </style>
 </head>
 <body>
@@ -328,6 +354,31 @@ function escapeHtml(str=''){
 loadAchievements('competitions','competitions.json','achievements','empty-placeholder','view-more-achievements');
 loadAchievements('startups','startups.json','startups','startups-empty');
 loadAchievements('research','research.json','research','research-empty','view-more-research');
+</script>
+<div class="cursor"></div>
+
+<script>
+  /* ---------- Custom Cursor (CSS-driven Difference Effect) ---------- */
+  (function() {
+    // Only proceed if the cursor element exists
+    const cursor = document.querySelector(".cursor");
+    if (!cursor) return;
+
+    // Select all interactive elements: a, button, year-btn, and the specific social links
+    const hoverables = document.querySelectorAll("a, button, .year-btn, .socials a"); 
+
+    // Hover effect (scaling)
+    hoverables.forEach(el => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
+    });
+
+    // Position tracking
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+  })();
 </script>
 <script src="../assets/js/mobile-navbar.js"></script>
 </body>

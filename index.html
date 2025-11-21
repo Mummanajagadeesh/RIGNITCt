@@ -96,12 +96,17 @@
       position: fixed; top: 0; left: 0;
       width: 18px; height: 18px;
       border-radius: 50%;
-      background: #111; /* will auto-switch to white on dark backgrounds */
+
+      background: #fff; 
+      /* inverse blend effect */
+      mix-blend-mode: difference; 
+      
       transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: 2000;
       transition: transform 0.2s ease, background 0.2s ease;
     }
+
     .cursor.hovered {
       transform: translate(-50%, -50%) scale(1.6);
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
@@ -1795,11 +1800,10 @@ document.getElementById('help').onclick = () => {
   <div class="cursor"></div>
 
   <script>
-    /* ---------- Custom Cursor (with background-aware color) ---------- */
+    /* ---------- Custom Cursor ---------- */
     (function() {
       const cursor = document.querySelector(".cursor");
       const hoverables = document.querySelectorAll("a, button, img");
-
       hoverables.forEach(el => {
         el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
         el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
@@ -1808,35 +1812,6 @@ document.getElementById('help').onclick = () => {
       document.addEventListener("mousemove", e => {
         cursor.style.top = e.clientY + "px";
         cursor.style.left = e.clientX + "px";
-
-        // Temporarily hide cursor to read element under pointer
-        cursor.style.display = "none";
-        const el = document.elementFromPoint(e.clientX, e.clientY);
-        cursor.style.display = "block";
-        if (!el) return;
-
-        // Walk up DOM to find non-transparent background
-        let bgEl = el;
-        let bg = getComputedStyle(bgEl).backgroundColor;
-        while (bg === "rgba(0, 0, 0, 0)" && bgEl.parentElement) {
-          bgEl = bgEl.parentElement;
-          bg = getComputedStyle(bgEl).backgroundColor;
-        }
-
-        // Decide white/black for visibility
-        const rgb = bg.match(/\d+/g);
-        if (rgb) {
-          const r = +rgb[0], g = +rgb[1], b = +rgb[2];
-          const brightness = (0.299*r + 0.587*g + 0.114*b) / 255;
-          cursor.style.background = brightness > 0.6 ? "#111" : "#fff";
-        } else {
-          cursor.style.background = "#fff";
-        }
-        if (el.id === "slideshow" || el.classList.contains("lab-bg") || el.closest(".hero")) {
-          cursor.style.background = "#fff";
-          cursor.classList.remove("hovered");
-          return;
-        }
       });
     })();
 
