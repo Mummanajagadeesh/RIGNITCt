@@ -628,7 +628,7 @@ body, a, button, .year-btn, .socials a {
       </div>
 
       <script>
-        fetch('stack.json')
+        fetch('../data/projects/stack.json')
           .then(response => response.json())
           .then(data => {
             const stackContainer = document.getElementById('stack-icons');
@@ -737,7 +737,7 @@ body, a, button, .year-btn, .socials a {
 
       async function fetchProjects() {
         try {
-          const r = await fetch('projects.json', { cache: 'no-cache' });
+          const r = await fetch('../data/projects/projects.json', { cache: 'no-cache' });
           if (!r.ok) throw new Error('projects.json load failed');
           const data = await r.json();
           if (!Array.isArray(data)) throw new Error('projects.json must be array');
@@ -842,7 +842,7 @@ body, a, button, .year-btn, .socials a {
   <!-- Mobile Stack Banner Script -->
   <script>
     // Load stack data and create mobile scrolling banner
-    fetch('stack.json')
+    fetch('../data/projects/stack.json')
       .then(response => response.json())
       .then(data => {
         const mobileScrollContainer = document.getElementById('mobile-stack-scroll');
