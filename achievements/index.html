@@ -325,9 +325,9 @@ function escapeHtml(str=''){
   return String(str).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#39;");
 }
 
-loadAchievements('competitions','../data/achievements/competitions.json','achievements','empty-placeholder','view-more-achievements');
-loadAchievements('startups','../data/achievements/startups.json','startups','startups-empty');
-loadAchievements('research','../data/achievements/research.json','research','research-empty','view-more-research');
+loadAchievements('competitions','competitions.json','achievements','empty-placeholder','view-more-achievements');
+loadAchievements('startups','startups.json','startups','startups-empty');
+loadAchievements('research','research.json','research','research-empty','view-more-research');
 </script>
 <div class="cursor"></div>
 <script src="../src/scripts/cursor.js"></script>
