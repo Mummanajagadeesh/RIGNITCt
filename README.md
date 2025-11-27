@@ -40,19 +40,18 @@ C:.
 
 ## Current Status
 
-* **Main Page:** Done
+* **Refactoring of codebase:** Done
 
-  * Needs more company logos and updated social links.
-  * Add photos to the gallery.
-  * Be careful when editing layout – spline scenes may be affected.
+  * Easier to maintain
+  * Clear separation of JS and CSS
+  * Component based system
+  * Common footer in all pages
+  * Mobile navbar now consistent
 
-* **Contact Page:** Done
+* **Team:** In-Progress
 
-  * Update social/contact links.
-  * Form uses Formspree ID.
-  * Can directly provide a URL with pre-filled fields in the form
-
-* **Activities** Main priority now
+  * Collect all details of all seniors
+  * Update the respective `.json` files
 
 ---
 
@@ -92,7 +91,9 @@ C:.
 * Complete the Activities page.
 * Keep all `.json` files modular and easy to update.
 * Optimize page loading speed.
-* **Enhance mobile optimization:** make the layout and elements (like navbar and closing buttons) fully responsive on all devices.
 * Improve meta tags for SEO.
 * Maintain a black-and-white theme only and improve the overall UI.
 * Ensure accessibility: provide proper alt text for images, maintain sufficient contrast, and use semantic HTML.
+* Delete all pngs and jpgs, switch to webp.
+* Try cleaning up the CSS to make it minimal
+* Find better font, make it consistent site-wide.
