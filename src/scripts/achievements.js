@@ -1,28 +1,28 @@
-async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
-  const container=document.getElementById(containerId);
-  const empty=document.getElementById(emptyId);
-  const viewMoreBtn=viewMoreBtnId?document.getElementById(viewMoreBtnId):null;
-  if(!container||!empty)return;
+async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId) {
+  const container = document.getElementById(containerId);
+  const empty = document.getElementById(emptyId);
+  const viewMoreBtn = viewMoreBtnId ? document.getElementById(viewMoreBtnId) : null;
+  if (!container || !empty) return;
 
-  if(type==='research'){container.classList.add('research-list')}else{container.classList.remove('research-list')}
+  if (type === 'research') { container.classList.add('research-list') } else { container.classList.remove('research-list') }
 
-  try{
-    container.innerHTML='';
-    empty.style.display='none';
-    const resp=await fetch(url,{cache:"no-cache"});
-    if(!resp.ok) throw new Error('Network error '+resp.status);
-    const data=await resp.json();
-    if(!Array.isArray(data)||data.length===0){empty.style.display='block';return}
+  try {
+    container.innerHTML = '';
+    empty.style.display = 'none';
+    const resp = await fetch(url, { cache: "no-cache" });
+    if (!resp.ok) throw new Error('Network error ' + resp.status);
+    const data = await resp.json();
+    if (!Array.isArray(data) || data.length === 0) { empty.style.display = 'block'; return }
 
-    data.forEach((item,idx)=>{
+    data.forEach((item, idx) => {
       let card;
-      if(type==='research'){
-        card=document.createElement('article');
-        card.className='achievement-card horizontal';
-        card.setAttribute('tabindex','0');
-        card.innerHTML=`
+      if (type === 'research') {
+        card = document.createElement('article');
+        card.className = 'achievement-card horizontal';
+        card.setAttribute('tabindex', '0');
+        card.innerHTML = `
           <div class="badge-col">
-            <div class="achievement-badge">#${item.badge??(idx+1)}</div>
+            <div class="achievement-badge">#${item.badge ?? (idx + 1)}</div>
           </div>
           <div class="card-content">
             <div class="achievement-title">${escapeHtml(item.title)}</div>
@@ -30,24 +30,24 @@ async function loadAchievements(type, url, containerId, emptyId, viewMoreBtnId){
           </div>
         `;
       }
-      else if(type==='competitions'){
-        card=document.createElement('article');
-        card.className='achievement-card';
-        card.setAttribute('tabindex','0');
-        const photoPath=item.photo?`/${item.photo}`:'';
-        card.innerHTML=`
+      else if (type === 'competitions') {
+        card = document.createElement('article');
+        card.className = 'achievement-card';
+        card.setAttribute('tabindex', '0');
+        const photoPath = item.photo ? `/${item.photo}` : '';
+        card.innerHTML = `
           <div>
-            ${item.photo?`<div class="achievement-photo"><img src="${escapeHtml(photoPath)}" alt="${escapeHtml(item.title)}"></div>`:''}
-            <div class="achievement-badge">#${item.badge??(idx+1)}</div>
+            ${item.photo ? `<div class="achievement-photo"><img src="${escapeHtml(photoPath)}" alt="${escapeHtml(item.title)}"></div>` : ''}
+            <div class="achievement-badge">#${item.badge ?? (idx + 1)}</div>
             <div class="achievement-title">${escapeHtml(item.title)}</div>
             <div class="achievement-description">${escapeHtml(item.description)}</div>
           </div>
         `;
       }
-else if(type==='startups'){
-  card = document.createElement('article');
-  card.className = 'startup-card';
-  card.innerHTML = `
+      else if (type === 'startups') {
+        card = document.createElement('article');
+        card.className = 'startup-card';
+        card.innerHTML = `
     <img src="/${escapeHtml(item.image)}" alt="${escapeHtml(item.title)} main image" class="startup-image">
     <div class="startup-info">
       <div class="startup-header">
@@ -74,41 +74,41 @@ else if(type==='startups'){
       <div class="startup-desc">${escapeHtml(item.desc)}</div>
     </div>
   `;
-}
+      }
 
-      if(type!=='startups'){
-        if(idx>=4){card.style.display='none';card.classList.add('hidden-card')}
-        else{card.style.display='flex'}
+      if (type !== 'startups') {
+        if (idx >= 4) { card.style.display = 'none'; card.classList.add('hidden-card') }
+        else { card.style.display = 'flex' }
       }
 
       container.appendChild(card);
-      setTimeout(()=>card.classList.add('show'),90*idx);
+      setTimeout(() => card.classList.add('show'), 90 * idx);
     });
 
-    if(type!=='startups' && data.length>4&&viewMoreBtn){
-      viewMoreBtn.style.display='inline-block';
+    if (type !== 'startups' && data.length > 4 && viewMoreBtn) {
+      viewMoreBtn.style.display = 'inline-block';
       viewMoreBtn.replaceWith(viewMoreBtn.cloneNode(true));
-      const newBtn=document.getElementById(viewMoreBtnId);
-      newBtn.addEventListener('click',()=>{
-        container.querySelectorAll('.hidden-card').forEach(card=>{
-          card.style.display='flex';
-          setTimeout(()=>card.classList.add('show'),60);
+      const newBtn = document.getElementById(viewMoreBtnId);
+      newBtn.addEventListener('click', () => {
+        container.querySelectorAll('.hidden-card').forEach(card => {
+          card.style.display = 'flex';
+          setTimeout(() => card.classList.add('show'), 60);
           card.classList.remove('hidden-card');
         });
-        newBtn.style.display='none';
+        newBtn.style.display = 'none';
       });
-    } else if(viewMoreBtn){viewMoreBtn.style.display='none'}
-  }catch(err){
-    console.error('Error',err);
-    empty.style.display='block';
-    empty.textContent='Could not load '+url;
+    } else if (viewMoreBtn) { viewMoreBtn.style.display = 'none' }
+  } catch (err) {
+    console.error('Error', err);
+    empty.style.display = 'block';
+    empty.textContent = 'Could not load ' + url;
   }
 }
 
-function escapeHtml(str=''){
-  return String(str).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#39;");
+function escapeHtml(str = '') {
+  return String(str).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", "&#39;");
 }
 
-loadAchievements('competitions','/src/data/achievements/competitions.json','achievements','empty-placeholder','view-more-achievements');
-loadAchievements('startups','/src/data/achievements/startups.json','startups','startups-empty');
-loadAchievements('research','/src/data/achievements/research.json','research','research-empty','view-more-research');
+loadAchievements('competitions', '/src/data/achievements/competitions.json', 'achievements', 'empty-placeholder', 'view-more-achievements');
+loadAchievements('startups', '/src/data/achievements/startups.json', 'startups', 'startups-empty');
+loadAchievements('research', '/src/data/achievements/research.json', 'research', 'research-empty', 'view-more-research');

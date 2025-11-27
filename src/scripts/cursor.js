@@ -1,11 +1,11 @@
 /* ---------- Custom Cursor (CSS-driven Difference Effect) ---------- */
-(function() {
+(function () {
   // Only proceed if the cursor element exists
   const cursor = document.querySelector(".cursor");
   if (!cursor) return;
 
   // Select all interactive elements: a, button, year-btn, and the specific social links
-  const hoverables = document.querySelectorAll("a, button, .year-btn, .socials a"); 
+  const hoverables = document.querySelectorAll("a, button, .year-btn, .socials a");
 
   // Hover effect (scaling)
   hoverables.forEach(el => {
