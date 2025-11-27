@@ -1,23 +1,22 @@
-/**
- * Mobile Navbar Functionality
- * Handles hamburger menu toggle and responsive behavior
- */
+function initMobileNavbar(navElement) {
+  console.log("MobileNavbar: initMobileNavbar called with element:", navElement);
 
-document.addEventListener("DOMContentLoaded", function () {
-  initMobileNavbar();
-});
+  // The function now expects the actual <nav> element to be passed as 'navElement'
+  const nav = navElement;
+  const navLinks = nav ? nav.querySelector(".nav-links") : null;
 
-function initMobileNavbar() {
-  console.log("MobileNavbar: initMobileNavbar called");
-  const nav = document.querySelector("nav");
-  const navLinks = document.querySelector(".nav-links");
-  const navLinksOriginalParent = nav;
-  const navLinksNextSibling = navLinks.nextSibling;
+  // Get the placeholder ID to re-use its parentNode for mobile menu expansion
+  const navPlaceholder = document.getElementById('navbar-placeholder');
 
-  if (!nav || !navLinks) return;
+  // Preserve the next sibling reference relative to the actual <nav> element
+  const navLinksNextSibling = navLinks ? navLinks.nextSibling : null;
 
-  // Create hamburger button if it doesn't exist
-  let hamburger = document.querySelector(".hamburger-menu");
+  if (!nav || !navLinks) {
+    console.error("MobileNavbar: Required <nav> or .nav-links element not found during init.");
+    return;
+  }
+
+  let hamburger = nav.querySelector(".hamburger-menu");
 
   if (!hamburger) {
     hamburger = document.createElement("button");
@@ -34,8 +33,6 @@ function initMobileNavbar() {
       nav.appendChild(hamburger);
     }
   }
-
-  // Sponsor will be cloned when opening mobile menu
 
   // Handle hamburger menu toggle
   hamburger.addEventListener("click", function (e) {
@@ -91,6 +88,7 @@ function initMobileNavbar() {
     hamburger.classList.add("open");
     hamburger.setAttribute("aria-expanded", "true");
     hamburger.innerHTML = "✕";
+
     // Clone sponsor button into mobile dropdown
     const originalSponsor = nav.querySelector(".btn-sponsor");
     if (originalSponsor) {
@@ -99,9 +97,10 @@ function initMobileNavbar() {
       navLinks.appendChild(clonedSponsor);
     }
 
-    // Force display for mobile: detach navLinks and insert after nav
+    // Force display for mobile: detach navLinks and insert after navPlaceholder
     if (window.innerWidth <= 768) {
-      nav.parentNode.insertBefore(navLinks, nav.nextSibling);
+      // Use navPlaceholder's parent for insertion into the main document flow
+      navPlaceholder.parentNode.insertBefore(navLinks, navPlaceholder.nextSibling);
       navLinks.style.display = "flex";
     }
 
@@ -124,6 +123,7 @@ function initMobileNavbar() {
 
     // Update accessibility
     navLinks.setAttribute("aria-hidden", "true");
+
     // Restore navLinks into original position inside nav
     if (window.innerWidth <= 768) {
       nav.insertBefore(navLinks, navLinksNextSibling);
@@ -133,7 +133,6 @@ function initMobileNavbar() {
     if (mobileSponsor) {
       mobileSponsor.remove();
     }
-    // duplicate style reset removed
   }
 
   // Initialize accessibility attributes
@@ -147,8 +146,36 @@ function isMobile() {
   return window.innerWidth <= 768;
 }
 
-// Export functions for external use if needed
+// Export functions for external use
 window.MobileNavbar = {
   init: initMobileNavbar,
   isMobile: isMobile,
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const placeholder = document.getElementById('navbar-placeholder');
+  if (!placeholder) {
+    console.error("MobileNavbar: Placeholder #navbar-placeholder not found in DOM.");
+    return;
+  }
+
+  const observer = new MutationObserver(function (mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      // Check if nodes were added (i.e., the fetch completed and injected the HTML)
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        // The expected injected element is the <nav> element
+        const navElement = placeholder.querySelector('nav');
+
+        if (navElement && window.MobileNavbar && window.MobileNavbar.init) {
+          // The navbar is loaded! Run the initialization.
+          window.MobileNavbar.init(navElement);
+          // Stop observing since we only need to initialize once
+          observer.disconnect();
+        }
+      }
+    }
+  });
+
+  // Start observing the placeholder for when its children list changes
+  observer.observe(placeholder, { childList: true });
+});
