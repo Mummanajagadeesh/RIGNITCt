@@ -1,14 +1,17 @@
 /* --- Custom Cursor Styles for Inverse Effect --- */
 .cursor {
-  position: fixed; top: 0; left: 0;
-  width: 18px; height: 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  
+
   /* Solid white background for clean inversion */
-  background: #fff; 
+  background: #fff;
   /* Applies the visual inversion/difference blend effect */
-  mix-blend-mode: difference; 
-  
+  mix-blend-mode: difference;
+
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 2000;
@@ -17,10 +20,14 @@
 .cursor.hovered {
   transform: translate(-50%, -50%) scale(1.6);
   /* Use a bright box-shadow since the background is dark */
-  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 /* Hide the default cursor by overriding the default browser cursor */
-body, a, button, .year-btn, .socials a { 
-    cursor: none !important; 
+body,
+a,
+button,
+.year-btn,
+.socials a {
+  cursor: none !important;
 }
