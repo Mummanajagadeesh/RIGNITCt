@@ -12,7 +12,7 @@ async function loadActivities(type, url, containerId, emptyId) {
         data.forEach((item, idx) => {
             const card = document.createElement('article');
             card.className = 'activity-card';
-            const photoPath = item.photo || item.image ? `../${item.photo || item.image}` : '';
+            const photoPath = item.photo || item.image ? `/${item.photo || item.image}` : '';
 
             card.innerHTML = `
             ${photoPath ? `<div class="activity-photo"><img src="${photoPath}" alt="${item.title}"></div>` : ''}
@@ -32,5 +32,5 @@ async function loadActivities(type, url, containerId, emptyId) {
     }
 }
 
-loadActivities('workshops', '../src/data/activities/workshops.json', 'workshops', 'workshops-empty');
-loadActivities('exhibitions', '../src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');
+loadActivities('workshops', '/src/data/activities/workshops.json', 'workshops', 'workshops-empty');
+loadActivities('exhibitions', '/src/data/activities/exhib.json', 'exhibitions', 'exhibitions-empty');
