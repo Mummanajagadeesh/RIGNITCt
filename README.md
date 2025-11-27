@@ -8,55 +8,50 @@ This repository contains the source code for a multi-page website with sections 
 
 ```
 C:.
-├───about
-├───achievements
-├───activities
-├───assets
-│   ├───css
-│   └───images
-│       ├───about
-│       ├───achievements
-│       │   └───competitions
-│       ├───activities
-│       ├───companies
-│       ├───gallery
-│       ├───main
-│       ├───projects
-│       ├───startups
-│       └───team
-│           ├───b19
-│           ├───b21
-│           ├───b22
-│           ├───b23
-│           ├───b24
-│           └───dev
-├───bs # use this for testing
-├───contact
-├───projects
-└───team
+├── assets
+│   └── fonts
+│   └── images
+├── src
+│   ├── components
+│   ├── data
+│   │   ├── achievements
+│   │   ├── activities
+│   │   ├── projects
+│   │   └── team
+│   ├── pages
+│   │   ├── about
+│   │   ├── achievements
+│   │   ├── activities
+│   │   │   └── origo
+│   │   ├── contact
+│   │   ├── projects
+│   │   └── team
+│   ├── scripts
+│   └── styles
+├── test
+└── utils
 ```
 
 * **Each folder contains its own `index.html`**.
-* **`bs/`** is for testing small features, experimental code, or transitions.
+* **`test/`** is for testing small features, experimental code, or transitions.
 * **`assets/`** contains CSS and image assets, organized by purpose.
 
 ---
 
 ## Current Status
 
-* **Main Page:** Done
+* **Refactoring of codebase:** Done
 
-  * Needs more company logos and updated social links.
-  * Add photos to the gallery.
-  * Be careful when editing layout – spline scenes may be affected.
+  * Easier to maintain
+  * Clear separation of JS and CSS
+  * Component based system
+  * Common footer in all pages
+  * Mobile navbar now consistent
 
-* **Contact Page:** Done
+* **Team:** In-Progress
 
-  * Update social/contact links.
-  * Form uses Formspree ID.
-  * Can directly provide a URL with pre-filled fields in the form
-
-* **Activities** Main priority now
+  * Collect all details of all seniors
+  * Update the respective `.json` files
 
 ---
 
@@ -64,18 +59,17 @@ C:.
 
 ### Adding New Companies
 
-* Add images to `assets/images/companies/`.
+* Add images to `/assets/images/companies/`.
 * Update the main page HTML to reference these images.
 * Avoid hardcoding paths multiple times; keep it consistent.
 
 ### Projects Management
 
-* Maintain `.json` files neatly.
+* Maintain `.json` files in `/src/data` neatly.
 * Ensure new projs are added consistently.
 
 ### UI/UX Guidelines
 
-* Navbar CSS is located in `assets/css/navbar.css`.
 * Improve UI where needed; remove anything that feels “cringe”.
 * Maintain consistency with colors and layout, especially for spline scenes.
 * Hidden watermarks have been masked with background colors—avoid disturbing this.
@@ -84,8 +78,8 @@ C:.
 
 ## Notes
 
-* All images are in `assets/images/`; refer only to these paths.
-* Small experiments, UI prototypes, and feature tests should go in `bs/`.
+* All images are in `/assets/images/`; refer only to these paths.
+* Small experiments, UI prototypes, and feature tests should go in `test/`.
 * Keep the repository modular and maintainable.
 
 ---
@@ -97,7 +91,9 @@ C:.
 * Complete the Activities page.
 * Keep all `.json` files modular and easy to update.
 * Optimize page loading speed.
-* **Enhance mobile optimization:** make the layout and elements (like navbar and closing buttons) fully responsive on all devices.
 * Improve meta tags for SEO.
 * Maintain a black-and-white theme only and improve the overall UI.
 * Ensure accessibility: provide proper alt text for images, maintain sufficient contrast, and use semantic HTML.
+* Delete all pngs and jpgs, switch to webp.
+* Try cleaning up the CSS to make it minimal
+* Find better font, make it consistent site-wide.

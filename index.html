@@ -1,1874 +1,216 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta name="google-site-verification" content="egNQUefR6KkaBjS5mn4bl_yncx1GNncswQOhK4S36cI" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJEWZN4WSN"></script>
+
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JJEWZN4WSN');
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JJEWZN4WSN');
   </script>
-
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>RIGNITC | Robotics Interest Group</title>
 
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Tan+Memories&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
-<!-- HEAD -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+  <!-- HEAD -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="assets/images/logog.webp">
 
-<link href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow" rel="stylesheet" type="text/css"/>
-<link rel="icon" type="image/png" href="assets/images/logog.webp">
+  <link rel="stylesheet" href="src/styles/navbar.css">
+  <link rel="stylesheet" href="src/styles/footer.css">
+  <link rel="stylesheet" href="src/styles/cursor.css">
 
-<link rel="stylesheet" href="assets/css/navbar.css">
+  <link rel="stylesheet" href="src/styles/main_gallery.css">
+  <link rel="stylesheet" href="src/styles/main_body.css">
+  <link rel="stylesheet" href="src/styles/main_alumni.css">
+  <link rel="stylesheet" href="src/styles/main_projects.css">
+  <link rel="stylesheet" href="src/styles/main_about.css">
+  <link rel="stylesheet" href="src/styles/main_hero.css">
 
-  <style>
-    html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
-      font-family: "Orbitron", sans-serif;
-      cursor: none !important;
-      overflow-x: hidden;
-      background: #000;
-      color: #fff;
-    }
-
-
-    @font-face {
-    font-family: 'Pricedown';
-    src: url('assets/fonts/Pricedown Bl.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-    /* HERO (first section) */
-    .hero {
-      margin-top: 120px; /* leave room for navbar */
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      text-align: left;
-      padding: 2rem;
-      gap: 3rem;
-      /* border-bottom: 2px solid #ccc; divider for first section */
-    }
-
-    #slideshow {
-      filter: grayscale(1) invert(1);
-      background-color: #fff;
-      transition: opacity 0.6s ease-in-out;
-      width: 500px;
-      height: 500px;
-      object-fit: contain;
-      border-radius: 1rem;
-      flex-shrink: 0;
-      opacity: 1;
-    }
-
-    .text-block { max-width: 600px; }
-
-
-
-    /* Section styling + dividers */
-    section {
-      min-height: 100vh;
-      display: flex; justify-content: center; align-items: center;
-      font-size: 3rem; font-weight: bold;
-      background: #f5f5f5; color: #111;
-      border-bottom: 2px solid #ccc; /* divider for all sections */
-    }
-    /* Explicit divider for #about too (redundant but ensures consistency) */
-    #about { border-bottom: 2px solid #ccc; }
-
-    /* Custom cursor (restored behavior) */
-    .cursor {
-      position: fixed; top: 0; left: 0;
-      width: 18px; height: 18px;
-      border-radius: 50%;
-
-      background: #fff; 
-      /* inverse blend effect */
-      mix-blend-mode: difference; 
-      
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 2000;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .cursor.hovered {
-      transform: translate(-50%, -50%) scale(1.6);
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    a, button, img { cursor: none !important; }
-
-    @media (max-width: 768px) {
-  /* Disable custom cursor */
-  html, body, a, button, img {
-    cursor: default !important;
-  }
-  .cursor { display: none !important; }
-
-  /* Hero layout stack */
-  .hero {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    gap: 2rem;
-    margin-top: 80px;   /* reduced for navbar */
-    padding: 1.5rem 1rem;
-  }
-
-  /* Slideshow fixed box */
-  #slideshow {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 1 / 1;     /* ✅ stable height */
-    border-radius: 0.75rem;
-    object-fit: contain;
-    background: transparent !important; /* ✅ no white box */
-  }
-
-
-
-  /* Sections smaller */
-  section {
-    font-size: 1.8rem;
-    padding: 2rem 1rem;
-  }
-}
-
-
-/* Apply the font to all headings and title classes */
-h1,
-.projects-header,
-.people-header,
-.startup-header,
-.about-link,
-.project-link {
-    font-family: 'Pricedown', sans-serif !important;
-}
-
-
-  </style>
 </head>
+<div id="navbar-placeholder"></div>
+
 <body>
-
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <a href="../" class="logo">
-      <img src="assets/images/logo.webp" alt="Logo" style="filter: grayscale(1) invert(1);">
-    </a>
-    <div class="nav-links">
-      <a href="about/">About Us</a>
-      <a href="projects/">Projects</a>
-      <a href="achievements/">Achievements</a>
-      <a href="activities/">Activities</a>
-      <a href="team/">Team</a>
-      <a href="contact/">Contact</a>
-    </div>
-    <a class="btn-sponsor" href="contact/?name=Your%20name%20%2F%20organization&email=contact%40company.com&message=Interested%20in%20discussing%20partnership%20or%20sponsorship%20possibilities%2E
-">
-      Sponsor Us
-    </a>
-  </nav>
-
-
-<!-- SCROLLING ANNOUNCEMENT BANNER (below navbar) -->
-<div class="scroll-banner">
-  <div class="scroll-track">
-    <div class="scroll-content">
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-    </div>
-    <div class="scroll-content">
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      🚀 Check out the new <a href="activities/origo/" target="_blank">ORIGO Robotics Challenge!!</a>
-    </div>
-  </div>
-</div>
-
-<style>
-  /* --- Scrolling Banner Styles --- */
-  .scroll-banner {
-    background: #fff;
-    color: #000;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 8px 0;
-    font-family: 'Sora', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    position: relative;
-    z-index: 10;
-    margin-top: 80px; /* adjust for navbar height */
-  }
-
-  .scroll-track {
-    display: flex;
-    width: max-content;
-    animation: scroll-left 25s linear infinite;
-  }
-
-  .scroll-content {
-    display: inline-block;
-  }
-
-  .scroll-content a {
-    color: #000;
-    text-decoration: underline;
-    font-weight: 700;
-  }
-
-  .scroll-content a:hover {
-    text-decoration: none;
-    color: #333;
-  }
-
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .scroll-banner {
-      margin-top: 70px;
-      font-size: 0.9rem;
-    }
-  }
-</style>
-
-
-
   <!-- HERO -->
-<div class="hero" style="position: relative; background: black; color: white; overflow: hidden;">
-<img src="assets/images/main/labxxlhb.png" 
-     alt="lab background" 
-     class="lab-bg" 
-     style="position: absolute; top: 55%; left: 33%; width: 60%; height: 100%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(1) brightness(1); mix-blend-mode: screen; opacity: 0.6; z-index: 0;">
+  <div class="hero" style="position: relative; background: black; color: white; overflow: hidden;">
+    <img src="assets/images/main/labxxlhb.png" alt="lab background" class="lab-bg"
+      style="position: absolute; top: 55%; left: 33%; width: 60%; height: 100%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(1) brightness(1); mix-blend-mode: screen; opacity: 0.6; z-index: 0;">
 
-<style>
-  /* Mobile only styles (max-width 768px) */
-  @media (max-width: 768px) {
-    .lab-bg {
-      /* top: 30% !important;
-      left: 50% !important;
-      width: 120% !important;
-      height: auto !important;
-      transform: translate(-50%, -50%) !important;
-      filter: invert(1) contrast(4) brightness(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.15)) !important; */
-      display: none !important; /* hide on mobile for simplicity */
-    }
-  }
-</style>
-
-
-  <div class="text-block" style="position: relative; z-index: 1;margin-top: 40px;transform: translateY(80px);">
-<div class="title">
-  RIGNITC
-</div>
-
-<span class="subtitle">
-  Robotics Interest Group
-</span>
-
-<style>
-.title,
-.subtitle {
-  font-family: 'Pricedown', sans-serif;
-  font-weight: normal;        /* force same glyphs */
-  font-style: normal;
-}
-
-.title {
-  font-size: clamp(48px, 12vw, 165px);
-  /* color: transparent;
-  -webkit-text-stroke: 2px white; /* thinner to prevent distortion */
-  /* text-shadow: 10px -10px 0 white; */ 
-  text-align: left;
-  margin:0;
-  margin-bottom: 0 !important;
-  line-height: 1.2;
-}
-
-@media (max-width: 768px) {
-  .title {
-    color: white;
-    -webkit-text-stroke: 2px black;
-    text-shadow: none;
-    text-align: center;
-  }
-}
-
-.subtitle {
-  font-size: clamp(24px, 5vw, 48px);
-  color: #cfcfcf;
-  text-align: left;
-  display: inline-block;
-  margin:0;
-  margin-top: 0 !important;
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .subtitle {
-    -webkit-text-stroke: 1.5px black;
-  }
-}
-
-</style>
-
-     
-      <!-- <em>We build robots. We test ideas. We grow. We innovate.</em><br>
-      <em>We fail, and we rebuild stronger. We are RIGNITC.</em> -->
-    <!-- </p> -->
-  </div>
-  <img id="slideshow" alt="slideshow" style="position: relative; z-index: 1;">
-</div>
-
-
-
-  <!-- Sections -->
-<section id="about">
-  <style>
-#about {
-  position: relative; /* allow pseudo-element overlay */
-  background: #111;
-  color: #fff;
-  font-family: "Pricedown", sans-serif;
-  margin: 0;
-  overflow: hidden; /* clip pseudo-element */
-}
-
-#about::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  background-image: 
-    radial-gradient(circle, #fff 2px, transparent 2px),
-    radial-gradient(circle, #fff 2px, transparent 2px);
-   background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
-
-  opacity: 0.15; /* make it subtle */
-  pointer-events: none; /* don’t block clicks */
-  z-index: 0;
-}
-
-#about .about-container {
-  position: relative; /* stay above pseudo-element */
-  z-index: 1;
-  padding: 120px 50px 100px; /* top padding = navbar height */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
-  gap: 50px;
-  flex-wrap: wrap;
-  border-top: 2px solid #ccc;
-}
-
-
-    #about .about-text,
-    #about .about-image {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-out;
-    }
-
-    #about .about-text.show,
-    #about .about-image.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #about .about-text {
-      font-family: Sora, "Inter", sans-serif;
-      flex: 1 1 400px;
-      font-size: 1.5rem;
-      line-height: 2.2rem;
-    }
-
-    #about .about-text h1 {
-      font-family: "Orbitron", sans-serif;
-      font-size: 4rem;
-      margin-bottom: 50px;
-    }
-
-    /* ---------- 3D Card (replacement for about-image) ---------- */
-    #about .card-wrap {
-      --card-w: 520px;
-      --card-h: 360px;
-      width: var(--card-w);
-      height: var(--card-h);
-      perspective: 800px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin: 0 auto;
-      flex: 1 1 400px;
-    }
-
-    #about .card-shadow,
-    #about .card {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: transform 0.12s ease-out;
-      will-change: transform;
-      overflow: hidden;
-    }
-
-    #about .card {
-      z-index: 2;
-      background: #000 url('assets/images/about-image.jpg') center center no-repeat;
-      background-size: cover;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-      transform-style: preserve-3d;
-    }
-
-    #about .card-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 20px 30px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0));
-      text-align: left;
-    }
-
-    #about .card-overlay h2 {
-      font-size: 3.4rem;
-      margin: 0;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 2px;
-    }
-
-    #about .card-overlay p {
-      margin: 8px 0 0;
-      font-size: 2.1rem;
-      font-weight: bold;
-      color: #ddd;
-    }
-
-    #about .card-shadow {
-      z-index: 1;
-      transform: translateY(18px) scale(.88);
-      filter: blur(18px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.35));
-      opacity: 0.7;
-      border-radius: 20px;
-    }
-
-    /* Button styling */
-    #about .about-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Sora", "Inter", sans-serif;
-      font-weight: bold;                               
-      font-size: 2rem;                                 
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 28px;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      margin-top: 20px;
-    }
-
-    #about .about-link::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        120deg,
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0.2)
-      );
-      transform: skewX(-25deg);
-      transition: all 0.5s ease;
-    }
-
-    #about .about-link:hover::before {
-      left: 200%;
-    }
-
-    #about .about-link:hover {
-      color: #000;
-      background: #fff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-      transform: scale(1.05);
-    }
-
-    #about .about-link span {
-      margin-left: 8px;
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    #about .about-link:hover span {
-      transform: translateX(6px);
-    }
-
-    /* Stats Counter Styling */
-    #about .stats {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      margin-top: 50px;
-      flex-wrap: wrap;
-    }
-
-    #about .stat {
-      flex: 1 1 200px;
-      text-align: center;
-    }
-
-    #about .stat-number {
-      font-family: 'Pricedown', sans-serif !important;
-      font-size: 4rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    #about .stat-label {
-      font-size: 1.4rem;
-      color: #ddd;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 900px) {
-      #about .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      #about .about-text {
-        font-size: 1.3rem;
-      }
-      #about .card-wrap {
-        width: 340px;
-        height: 240px;
-      }
-      #about .card-overlay h2 { font-size: 1.8rem; }
-      #about .card-overlay p { font-size: 0.95rem; }
-      #about .stats {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-    #about p {
-      font-size: 1rem; /* smaller than default */
-      line-height: 1.5;  /* keeps it readable */
-    }
-
-    @media (max-width: 900px) {
-      #about .about-container {
-        padding: 100px 20px 60px;
-      }
-
-      #about .about-text {
-        font-size: 1.2rem;
-        line-height: 1.6;
-      }
-
-      #about .about-text h1 {
-        font-size: 2.2rem;
-      }
-
-      /* Smaller image card on mobile */
-      #about .card-wrap {
-        width: 100%;
-        max-width: 340px;
-        aspect-ratio: 1 / 1;   /* ✅ square on phones */
-      }
-    }
-  </style>
-
-  <div class="about-container">
-    <div class="about-text">
-      <h1>Who Are We?</h1>
-      <p>
-      The Robotics Interest Group (RIG) was founded out of a passion for robotics,
-      aiming to foster learning and research in areas like Mechatronics, Intelligent Systems,
-      and Automation. We focus on gaining hands-on experience and knowledge to keep pace with
-      evolving technologies, support industry innovation, and contribute to developing
-      practical, commercially viable solutions.
-      </p>
-
-      <p>
-        Join us to explore the world of robotics, collaborate on exciting projects, 
-        and push the boundaries of technology.
-      </p>
-
-      <!-- Stats Section -->
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-number" data-target="30">0</div>
-          <div class="stat-label">Technical Workshops</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number" data-target="15">0</div>
-          <div class="stat-label">Research Publications</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number" data-target="5">0</div>
-          <div class="stat-label">Industry Grade Projects</div>
-        </div>
+    <div class="text-block" style="position: relative; z-index: 1;margin-top: 40px;transform: translateY(80px);">
+      <div class="title">
+        RIGNITC
       </div>
 
-      <a href="about/" class="about-link">Know More<span>→</span></a>
-    </div>
+      <span class="subtitle">
+        Robotics Interest Group
+      </span>
 
-    <!-- 3D CARD REPLACEMENT -->
-    <div class="about-image">
-      <div class="card-wrap" id="cardWrap">
-        <div class="card-shadow" id="cardShadow"></div>
-        <div class="card" id="card">
-          <div class="card-overlay">
-            <h2>RIGNITC</h2>
-            <p>B21s B22s @ORIGO23</p>
+    </div>
+    <img id="slideshow" alt="slideshow" style="position: relative; z-index: 1;">
+  </div>
+
+  <!-- Sections -->
+  <section id="about">
+
+    <div class="about-container">
+      <div class="about-text">
+        <h1>Who Are We?</h1>
+        <p>
+          The Robotics Interest Group (RIG) was founded out of a passion for robotics,
+          aiming to foster learning and research in areas like Mechatronics, Intelligent Systems,
+          and Automation. We focus on gaining hands-on experience and knowledge to keep pace with
+          evolving technologies, support industry innovation, and contribute to developing
+          practical, commercially viable solutions.
+        </p>
+
+        <p>
+          Join us to explore the world of robotics, collaborate on exciting projects,
+          and push the boundaries of technology.
+        </p>
+
+        <!-- Stats Section -->
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number" data-target="30">0</div>
+            <div class="stat-label">Technical Workshops</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">Research Publications</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Industry Grade Projects</div>
+          </div>
+        </div>
+
+        <a href="/src/pages/about/" class="about-link">Know More<span>→</span></a>
+      </div>
+
+      <!-- 3D CARD REPLACEMENT -->
+      <div class="about-image">
+        <div class="card-wrap" id="cardWrap">
+          <div class="card-shadow" id="cardShadow"></div>
+          <div class="card" id="card">
+            <div class="card-overlay">
+              <h2>RIGNITC</h2>
+              <p>B21s B22s @ORIGO23</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <script>
-    // Scroll reveal for about section
-    const aboutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          aboutObserver.unobserve(entry.target); // reveal only once
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('#about .about-text, #about .about-image')
-      .forEach(el => aboutObserver.observe(el));
-
-    // ---------- 3D tilt effect ----------
-    (function(){
-      const wrap = document.getElementById('cardWrap');
-      const card = document.getElementById('card');
-      const shadow = document.getElementById('cardShadow');
-
-      function handleMove(e){
-        const rect = wrap.getBoundingClientRect();
-        const cx = rect.left + rect.width/2;
-        const cy = rect.top + rect.height/2;
-        const mouseX = (e.clientX || (e.touches && e.touches[0].clientX));
-        const mouseY = (e.clientY || (e.touches && e.touches[0].clientY));
-        const dx = (mouseX - cx) / rect.width;
-        const dy = (mouseY - cy) / rect.height;
-
-        const rotX = (-dy * 3).toFixed(2);
-        const rotY = (dx * 3).toFixed(2);
-
-        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
-        shadow.style.transform = `translateY(24px) scale(.86) translateZ(0) rotateX(${rotX/4}deg) rotateY(${rotY/4}deg)`;
-      }
-
-      function reset(){
-        card.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0px)`;
-        shadow.style.transform = `translateY(18px) scale(.88)`;
-      }
-
-      wrap.addEventListener('mousemove', handleMove);
-      wrap.addEventListener('touchmove', handleMove, {passive:true});
-      wrap.addEventListener('mouseleave', reset);
-      wrap.addEventListener('touchend', reset);
-    })();
-
-    // ---------- Counter Animation ----------
-    const counters = document.querySelectorAll('#about .stat-number');
-    const speed = 200; // lower is faster
-
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-          const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = Math.ceil(target / speed);
-            if (count < target) {
-              counter.innerText = count + increment;
-              setTimeout(updateCount, 30);
-            } else {
-              counter.innerText = target + "+"; // add "+" at end
-            }
-          };
-          updateCount();
-          observer.unobserve(counter);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
-  </script>
-</section>
+    <script src="/src/scripts/main_about.js"></script>
+  </section>
 
 
-<section id="projects"> 
-  <style>
-#projects {
-  position: relative; /* allow pseudo-element overlay */
-  background: #111;
-  color: #fff;
-  font-family: "Orbitron", sans-serif;
-  margin: 0;
-  overflow: hidden; /* clip pseudo-element */
-}
+  <section id="projects">
 
-#projects::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  background-image: 
-    radial-gradient(circle, #fff 2px, transparent 2px),
-    radial-gradient(circle, #fff 2px, transparent 2px);
-   background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
+    <div class="projects-container">
+      <h1 class="projects-header">Featured Projects</h1>
 
-  opacity: 0.15; /* subtle dot grid */
-  pointer-events: none; /* don’t block clicks */
-  z-index: 0;
-}
-
-.projects-container {
-  position: relative; /* sit above the dot grid */
-  z-index: 1;
-  padding: 120px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  min-height: 100vh;
-  width: 100%;
-}
-
-
-    .projects-header {
-      font-size: 3.5rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-
-    .projects-header.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      width: 100%;
-    }
-
-    .project-card {
-      background: #1a1a1a;
-      border: 2px solid #333;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    .project-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    }
-
-    /* --- Image Replacement Animation --- */
-    .project-image {
-      position: relative;
-      width: 100%;
-      height: 240px;
-      overflow: hidden;
-    }
-
-    .project-image img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      background: #000;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    .project-image img.hover-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-    }
-
-    .project-card:hover .project-image img.default-img {
-      opacity: 0;
-      transform: scale(1.05);
-    }
-
-    .project-card:hover .project-image img.hover-img {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-
-    /* --- Content Below Image --- */
-    .project-content {
-      padding: 2px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .project-content h2 {
-      font-size: 1.8rem;
-      margin: 0;
-    }
-
-    .project-content p {
-      font-size: 1rem;
-      line-height: 1.6rem;
-      opacity: 0.9;
-      margin: 0;
-    }
-
-    .project-link {
-      align-self: flex-start;
-  font-family: "Sora", "Inter", sans-serif;
-      font-size: 2rem;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 22px;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-
-    .project-link:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.05);
-      box-shadow: 0 0 16px rgba(255,255,255,0.5);
-    }
-
-    .view-all {
-      font-family: 'Pricedown', sans-serif !important;
-      display: flex;
-      justify-content: right;
-      opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.8s ease-out;
-      width: 100%;
-    }
-
-    .view-all.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .view-all a {
-      font-size: 2.5rem;
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid #fff;
-      padding-bottom: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .view-all a:hover {
-      color: #aaa;
-      border-color: #aaa;
-    }
-
-    @media (max-width: 768px) {
-      .projects-container {
-        padding: 80px 24px;
-      }
-      .projects-header {
-        font-size: 2.5rem;
-      }
-    }
-
-      @media (max-width: 768px) {
-    .projects-container {
-      padding: 80px 20px;
-      gap: 30px;
-    }
-
-    .projects-header {
-      font-size: 2.2rem;
-    }
-
-    .projects-grid {
-      grid-template-columns: 1fr; /* ✅ stack cards */
-      gap: 24px;
-    }
-
-    .project-image {
-      height: 180px; /* smaller image box */
-    }
-
-    .project-content h2 {
-      font-size: 1.4rem;
-    }
-
-    .project-content p {
-      font-size: 0.9rem;
-      line-height: 1.4rem;
-    }
-
-    .project-link {
-      font-size: 1rem;
-      padding: 8px 18px;
-    }
-
-    .view-all {
-      justify-content: center; /* center on mobile */
-    }
-
-    .view-all a {
-      font-size: 1.2rem;
-    }
-  }
-
-  </style>
-
-  <div class="projects-container">
-    <h1 class="projects-header">Featured Projects</h1>
-    
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/projects/riggu-realH.webp" alt="Riggu Robot" class="default-img">
-          <img src="assets/images/projects/riggu-real.jpg" alt="Riggu Robot Hover" class="hover-img">
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/riggu-realH.webp" alt="Riggu Robot" class="default-img">
+            <img src="assets/images/projects/riggu-real.jpg" alt="Riggu Robot Hover" class="hover-img">
+          </div>
+          <div class="project-content">
+            <h2><strong>RIGGU</strong></h2>
+            <p>Semi Humanoid Robot designed for interactive robotics demonstrations, combining engineering and
+              creativity to inspire learning.</p>
+            <a href="projects/riggu/" class="project-link">View Project →</a>
+          </div>
         </div>
-        <div class="project-content">
-          <h2><strong>RIGGU</strong></h2>
-          <p>Semi Humanoid Robot designed for interactive robotics demonstrations, combining engineering and creativity to inspire learning.</p>
-          <a href="projects/riggu/" class="project-link">View Project →</a>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/avibotH.webp" alt="Avibot Robot" class="default-img">
+            <img src="assets/images/projects/avibot.webp" alt="Avibot Robot Hover" class="hover-img">
+          </div>
+          <div class="project-content">
+            <h2><strong>AVIBOT</strong></h2>
+            <p>Automated Egg Collecting Farm Bot that optimizes poultry farm efficiency, ensuring faster collection and
+              reducing human labor.</p>
+            <a href="projects/avibot/" class="project-link">View Project →</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="assets/images/projects/gnss-droneH.webp" alt="GNSS Drone" class="default-img">
+            <img src="assets/images/projects/gnss-drone.webp" alt="GNSS Drone Hover" class="hover-img">
+          </div>
+          <div class="project-content">
+            <h2><strong>AUTONOMOUS DRONE</strong></h2>
+            <p>Autonomous drone built for GNSS-denied environments using SLAM and onboard sensors for precise
+              navigation.</p>
+            <a href="projects/gnss-drone/" class="project-link">View Project →</a>
+          </div>
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/projects/avibotH.webp" alt="Avibot Robot" class="default-img">
-          <img src="assets/images/projects/avibot.webp" alt="Avibot Robot Hover" class="hover-img">
-        </div>
-        <div class="project-content">
-          <h2><strong>AVIBOT</strong></h2>
-          <p>Automated Egg Collecting Farm Bot that optimizes poultry farm efficiency, ensuring faster collection and reducing human labor.</p>
-          <a href="projects/avibot/" class="project-link">View Project →</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img src="assets/images/projects/gnss-droneH.webp" alt="GNSS Drone" class="default-img">
-          <img src="assets/images/projects/gnss-drone.webp" alt="GNSS Drone Hover" class="hover-img">
-        </div>
-        <div class="project-content">
-          <h2><strong>AUTONOMOUS DRONE</strong></h2>
-          <p>Autonomous drone built for GNSS-denied environments using SLAM and onboard sensors for precise navigation.</p>
-          <a href="projects/gnss-drone/" class="project-link">View Project →</a>
-        </div>
+      <!-- View All Button -->
+      <div class="view-all">
+        <a href="/src/pages/projects/">View All Projects →</a>
       </div>
     </div>
+    <script src="/src/scripts/main_projects.js"></script>
+  </section>
 
-    <!-- View All Button -->
-    <div class="view-all">
-      <a href="projects/">View All Projects →</a>
+  <section id="people">
+    <div class="people-header">We Have Alumni in</div>
+    <div class="company-slider scroll" id="companySlider"></div>
+
+    <div class="startup-header">Startups from our Lab</div>
+    <div class="startup-grid" id="startupGrid"></div>
+
+    <script src="/src/scripts/main_alumni.js"></script>
+  </section>
+
+  <section id="gallery">
+    <h1>Gallery</h1>
+    <div class="polaroid-stage" id="polaroidStage"></div>
+
+    <div class="gallery-controls">
+      <button id="shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
+      <button id="spread" title="Spread"><i class="fas fa-expand-arrows-alt"></i></button>
+      <button id="gather" title="Gather"><i class="fas fa-compress-arrows-alt"></i></button>
+      <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
+      <button id="help" title="Help"><i class="fas fa-question"></i></button>
     </div>
-  </div>
 
-  <script>
-    const projectsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          projectsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="Expanded view">
+    </div>
+    <script src="/src/scripts/main_gallery.js"></script>
+  </section>
 
-    document.querySelectorAll('.projects-header, .project-card, .view-all')
-      .forEach(el => projectsObserver.observe(el));
-  </script>
-</section>
-  
-<section id="people">
-  <style>
-#people {
-  position: relative; /* allow pseudo-element overlay */
-  background: #111;
-  color: #fff;
-  font-family: "Orbitron", sans-serif;
-  margin: 0;
-  padding: 100px 0 !important;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  height: auto !important;
-}
-
-#people::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  background-image: 
-    radial-gradient(circle, #fff 2px, transparent 2px),
-    radial-gradient(circle, #fff 2px, transparent 2px);
-   background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
-
-  opacity: 0.15; /* subtle dot grid */
-  pointer-events: none; /* allow clicks through */
-  z-index: 0;
-}
-
-
-    #people .people-header {
-      font-size: 2.5rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-    #people .people-header.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* --- SCROLLING COMPANY SLIDER --- */
-    #people .company-slider {
-      display: flex;
-      gap: 50px;
-      white-space: nowrap;
-      align-items: center;
-    }
-    #people .company-slider img {
-      height: 50px;
-      object-fit: contain;
-      display: inline-block;
-      filter: brightness(0) invert(1); /* white logos */
-      user-select: none;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    #people .company-slider.scroll {
-      animation: scroll 40s linear infinite;
-    }
-
-/* --- STATIC STARTUP GRID --- */
-#people .startup-header {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-top: 80px;
-}
-
-#people .startup-grid {
-  display: flex;              /* use flex instead of grid */
-  justify-content: center;    /* center logos */
-  align-items: center;
-  gap: 80px;                  /* spacing between logos */
-  margin-top: 40px;
-  max-width: 1000px;
-  width: 100%;
-}
-
-#people .startup-grid img {
-  height: 100px;              /* make logos big */
-  max-width: 280px;
-  object-fit: contain;
-  filter: none !important;    /* colored logos */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#people .startup-grid img:hover {
-  transform: scale(1.15);     /* pop out effect */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-}
-
-  @media (max-width: 900px) {
-    #people {
-      padding: 60px 20px !important;
-      gap: 30px;
-    }
-
-    #people .people-header {
-      font-size: 1.8rem;
-    }
-
-    #people .company-slider {
-      gap: 25px;
-    }
-    #people .company-slider img {
-      height: 30px; /* smaller logos */
-    }
-
-    #people .startup-header {
-      font-size: 1.8rem;
-      margin-top: 50px;
-    }
-
-    #people .startup-grid {
-      gap: 30px;
-      margin-top: 25px;
-    }
-
-    #people .startup-grid img {
-      height: 100px;
-      max-width: 140px;
-    }
-  }
-  </style>
-
-  <!-- Existing Alumni Section -->
-  <div class="people-header">We Have Alumni in</div>
-  <div class="company-slider scroll" id="companySlider"></div>
-
-  <!-- NEW Static Startups Section -->
-  <div class="startup-header">Startups from our Lab</div>
-  <div class="startup-grid" id="startupGrid"></div>
-
-  <script>
-    /* Header animation */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    observer.observe(document.querySelector('#people .people-header'));
-
-    /* Alumni company logos */
-    const companySlider = document.getElementById('companySlider');
-    const companyImages = [
-      "assets/images/companies/ti.webp",
-      "assets/images/companies/qualcomm.webp",
-      "assets/images/companies/dell.webp",
-      "assets/images/companies/nvidia.webp",
-      "assets/images/companies/isro.webp",
-      "assets/images/companies/samsung.webp",
-      "assets/images/companies/nawe.webp",
-      "assets/images/companies/grafito.webp",
-      "assets/images/companies/aws.webp",
-      "assets/images/companies/intel.webp",
-      "assets/images/companies/ku.webp",
-      "assets/images/companies/purdue.webp",
-      "assets/images/companies/texas.webp",
-      "assets/images/companies/ucdavis.webp",
-      "assets/images/companies/visa.webp",
-      "assets/images/companies/dxc.webp",
-      "assets/images/companies/uidai.webp",
-      "assets/images/companies/ns.webp",
-      "assets/images/companies/kbr.webp",
-      "assets/images/companies/caterpillar.webp"
-    ];
-    const repeatTimes = 3;
-    for (let i = 0; i < repeatTimes; i++) {
-      companyImages.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        companySlider.appendChild(img);
-      });
-    }
-/* Startup logos (static, colored, with links + labels) */
-const startupGrid = document.getElementById('startupGrid');
-const startups = [
-  { src: "assets/images/startups/nawe.webp", link: "https://www.nmotion.in/", name: "NAWE ROBOTICS" },
-  { src: "assets/images/startups/grafito.webp", link: "https://www.grafito.in/", name: "GRAFITO INNOVATIONS" }
-];
-
-startups.forEach(startup => {
-  const wrapper = document.createElement('div');
-  wrapper.style.display = "flex";
-  wrapper.style.flexDirection = "column";
-  wrapper.style.alignItems = "center";
-  wrapper.style.gap = "10px";
-
-  const a = document.createElement('a');
-  a.href = startup.link;
-  a.target = "_blank"; // open in new tab
-
-  const img = document.createElement('img');
-  img.src = startup.src;
-  img.alt = startup.name;
-
-  a.appendChild(img);
-
-  const caption = document.createElement('div');
-  caption.textContent = startup.name;
-  caption.style.color = "white";
-  caption.style.fontSize = "1rem";
-  caption.style.textAlign = "center";
-
-  wrapper.appendChild(a);
-  wrapper.appendChild(caption);
-
-  startupGrid.appendChild(wrapper);
-});
-
-
-  </script>
-</section>
-
-<section id="gallery">
-<style>
-#gallery {
-  position: relative; /* allow pseudo-element overlay */
-  background: #111;
-  color: #fff;
-  font-family: "Orbitron", sans-serif;
-  margin: 0;
-  padding: 120px 50px 50px;
-  display: flex;
-  justify-content: flex-start; /* keep items left-aligned */
-  align-items: flex-start;
-  flex-wrap: nowrap; /* keep them side by side */
-  gap: 50px;
-  overflow: hidden; /* ensure pseudo-element is clipped */
-}
-
-#gallery::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-image: 
-    radial-gradient(circle, #fff 2px, transparent 2px),
-    radial-gradient(circle, #fff 2px, transparent 2px);
-   background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
-
-  opacity: 0.15; /* subtle white dot grid */
-  pointer-events: none; /* allow clicks through */
-  z-index: 0;
-}
-
-
-  /* Header / title on the right */
-  #gallery h1 {
-    flex: 0 0 auto; /* only take the space it needs */
-    font-size: 4rem;
-    margin: 0;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-    order: 2; /* move header to the right */
-  }
-
-  #gallery h1.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Gallery images on the left */
-  #gallery .polaroid-stage {
-    flex: 1 1 70%; /* take more space on the left */
-    min-width: 600px;
-    min-height: 500px;
-    position: relative;
-    order: 1; /* ensure images are first */
-  }
-
-  /* Polaroid style images */
-  #gallery .polaroid {
-    position: absolute;
-    width: 200px;
-    height: 250px; /* taller to fit the classic bottom border */
-    background: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-    border: 1px solid #fff;
-    padding: 5px 5px 45px; /* longer bottom padding for Polaroid effect */
-    transition: all 0.8s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  #gallery .polaroid img {
-    width: 100%;
-    height: auto;
-    flex-grow: 1; /* fill available space but leave bottom padding */
-    object-fit: cover;
-    display: block;
-  }
-
-  #gallery .gallery-controls {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 1.3rem;
-  }
-
-  #gallery .gallery-controls button {
-    background: #000;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 8px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  #gallery .gallery-controls button:hover {
-    background: #fff;
-    color: #000;
-  }
-
-  /* Lightbox */
-  #gallery .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    z-index: 1000;
-  }
-
-  #gallery .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border: 4px solid #fff;
-    border-radius: 12px;
-  }
-
-  #gallery .lightbox.show {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  @media (max-width: 900px) {
-    #gallery {
-      flex-direction: column;
-      text-align: center;
-    }
-    #gallery h1 {
-      font-size: 3rem;
-      order: 0; /* stack normally on mobile */
-      margin-top: 50px;
-    }
-    #gallery .polaroid-stage {
-      order: 0;
-      width: 100%;
-      min-width: auto;
-    }
-  }
-
-  #gallery .lightbox .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
-  z-index: 1001;
-  padding: 10px;
-}
-
-#gallery .lightbox .arrow.left {
-  left: 30px;   /* distance from left edge */
-}
-
-#gallery .lightbox .arrow.right {
-  right: 30px;  /* distance from right edge */
-}
-
-#gallery .lightbox .arrow:hover {
-  color: #bbb;
-}
-
-</style>
-
-
-  <h1>Gallery</h1>
-  <div class="polaroid-stage" id="polaroidStage"></div>
-
-  <div class="gallery-controls">
-    <button id="shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
-    <button id="spread" title="Spread"><i class="fas fa-expand-arrows-alt"></i></button>
-    <button id="gather" title="Gather"><i class="fas fa-compress-arrows-alt"></i></button>
-    <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
-    <button id="help" title="Help"><i class="fas fa-question"></i></button>
-  </div>
-
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="Expanded view">
-  </div>
-
-  <script>
-const galleryObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-      galleryObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-galleryObserver.observe(document.querySelector('#gallery h1'));
-
-const stage = document.getElementById('polaroidStage');
-const polaroids = [];
-const images = []; // store image URLs for lightbox navigation
-
-// Dynamically load gallery images
-(function loadImages() {
-  const exts = ['jpg', 'jpeg', 'png'];
-  const MAX_SCAN = 100;
-  let i = 1;
-
-  function tryLoad() {
-    if (i > MAX_SCAN) {
-      shuffle(); // Shuffle after all images are loaded
-      return;
-    }
-    let extIndex = 0;
-
-    function tryExt() {
-      if (extIndex >= exts.length) {
-        i++;
-        tryLoad();
-        return;
-      }
-      const img = new Image();
-      img.src = `assets/images/gallery/${i}.${exts[extIndex]}`;
-      img.onload = () => {
-        const div = document.createElement('div');
-        div.className = 'polaroid';
-        div.innerHTML = `<img src="${img.src}" alt="Gallery ${i}">`;
-        stage.appendChild(div);
-        polaroids.push(div);
-        images.push(img.src);
-
-        // Progressive shuffle
-        div.style.top = Math.random() * (stage.clientHeight - 220) + 'px';
-        div.style.left = Math.random() * (stage.clientWidth - 200) + 'px';
-        div.style.transform = `rotate(${(Math.random() - 0.5) * 60}deg)`;
-
-        i++;
-        tryLoad();
-      };
-      img.onerror = () => {
-        extIndex++;
-        tryExt();
-      };
-    }
-    tryExt();
-  }
-  tryLoad();
-})();
-
-// Layout functions
-function shuffle() {
-  polaroids.forEach(p => {
-    p.style.top = Math.random() * (stage.clientHeight - 220) + 'px';
-    p.style.left = Math.random() * (stage.clientWidth - 200) + 'px';
-    p.style.transform = `rotate(${(Math.random() - 0.5) * 60}deg)`;
-  });
-}
-
-function spread() {
-  const cols = Math.ceil(Math.sqrt(polaroids.length));
-  const rows = Math.ceil(polaroids.length / cols);
-  const w = stage.clientWidth / cols;
-  const h = stage.clientHeight / rows;
-  polaroids.forEach((p, i) => {
-    const x = (i % cols) * w + 20;
-    const y = Math.floor(i / cols) * h + 20;
-    p.style.left = x + 'px';
-    p.style.top = y + 'px';
-    p.style.transform = 'rotate(0deg)';
-  });
-}
-
-function gather() {
-  polaroids.forEach(p => {
-    p.style.top = (stage.clientHeight / 2 - 100 + Math.random() * 40 - 20) + 'px';
-    p.style.left = (stage.clientWidth / 2 - 100 + Math.random() * 40 - 20) + 'px';
-    p.style.transform = `rotate(${(Math.random() - 0.5) * 60}deg)`;
-  });
-}
-
-function arrange() {
-  polaroids.forEach((p, i) => {
-    p.style.top = '50px';
-    p.style.left = (i * 220) + 20 + 'px';
-    p.style.transform = 'rotate(0deg)';
-  });
-}
-
-// Buttons
-document.getElementById('shuffle').onclick = shuffle;
-document.getElementById('spread').onclick = spread;
-document.getElementById('gather').onclick = gather;
-document.getElementById('arrange').onclick = arrange;
-
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-lightbox.innerHTML = `
-  <div class="arrow left">&#10094;</div>
-  <img src="" alt="Expanded view">
-  <div class="arrow right">&#10095;</div>
-`;
-const lightboxImg = lightbox.querySelector('img');
-const arrowLeft = lightbox.querySelector('.left');
-const arrowRight = lightbox.querySelector('.right');
-let currentIndex = 0;
-
-function showLightbox(index) {
-  currentIndex = index;
-  lightboxImg.src = images[index];
-  lightbox.classList.add('show');
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  lightboxImg.src = images[currentIndex];
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  lightboxImg.src = images[currentIndex];
-}
-
-// Open lightbox on click
-stage.addEventListener('click', e => {
-  const imgEl = e.target.closest('.polaroid img');
-  if (imgEl) {
-    const index = images.indexOf(imgEl.src);
-    showLightbox(index);
-  }
-});
-
-// Close lightbox on clicking outside image
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox) lightbox.classList.remove('show');
-});
-
-// Arrow events
-arrowLeft.addEventListener('click', e => {
-  e.stopPropagation();
-  prevImage();
-});
-arrowRight.addEventListener('click', e => {
-  e.stopPropagation();
-  nextImage();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', e => {
-  if (!lightbox.classList.contains('show')) return;
-  if (e.key === 'ArrowLeft') prevImage();
-  if (e.key === 'ArrowRight') nextImage();
-  if (e.key === 'Escape') lightbox.classList.remove('show');
-});
-
-document.getElementById('help').onclick = () => {
-  alert('🔀 Shuffle | ⬌ Spread | ⬍ Gather | ⬜ Arrange | ◀️◀️ Lightbox arrows');
-};
-</script>
-
-
-</section>
-  
-<section id="footer">
-  <!-- Font Awesome (free CDN) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-#footer {
-  position: relative; /* allow pseudo-element overlay */
-  background: #000;
-  color: #fff;
-  font-family: "Orbitron", sans-serif;
-  margin: 0;
-  padding: 30px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  min-height: auto !important;
-  height: auto !important;
-  overflow: hidden; /* clip pseudo-element */
-}
-
-#footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-image: 
-    radial-gradient(circle, #fff 2px, transparent 2px),
-    radial-gradient(circle, #fff 2px, transparent 2px);
-   background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
-
-  opacity: 0.15; /* subtle white dot grid */
-  pointer-events: none; /* allow clicks through */
-  z-index: 0;
-}
-
-
-    #footer .socials {
-      display: flex;
-      gap: 40px;
-      font-size: 3.4rem;
-    }
-
-    #footer .socials a {
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-
-    #footer .socials a:hover {
-      color: #aaa;
-      transform: scale(1.2);
-    }
-
-    #footer .links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      font-size: 0.95rem;
-    }
-
-    #footer .links a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    #footer .links a:hover {
-      color: #aaa;
-      text-decoration: underline;
-    }
-
-    #footer .tag {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      text-align: center;
-    }
-
-    /* ====== Footer mobile optimization ====== */
-    @media (max-width:600px){
-      #footer {
-        padding: 20px 0 !important;
-        gap: 14px !important;
-      }
-
-      #footer .socials {
-        gap: 20px !important;
-        font-size: 2rem !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-      }
-
-      #footer .links {
-        gap: 12px !important;
-        font-size: 0.85rem !important;
-      }
-
-      #footer .tag {
-        font-size: 0.75rem !important;
-        line-height: 1.4 !important;
-        padding: 0 10px !important;
-      }
-    }
-  </style>
-
-  <!-- Social links -->
-  <div class="socials">
-    <a href="https://www.instagram.com/rig_nitc/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/rignitc" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/company/rignitc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.youtube.com/user/RIGNITC" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://blog.rignitc.com/" target="_blank" aria-label="Blog"><i class="fas fa-blog"></i></a>
-  </div>
-
-  <!-- Main folder links -->
-  <div class="links">
-    <a href="about/">About</a>
-    <a href="projects/">Projects</a>
-    <a href="achievements/">Achievements</a>
-    <a href="activities/">Activities</a>
-    <a href="team/">Team</a>
-    <a href="contact/">Contact</a>
-    <a href="sitemap.xml">Sitemap</a>
-  </div>
-
-  <!--tagline -->
-  <div class="tag">No Copyrights Reserved</div>
-</section>
-
-  <!-- Cursor -->
+  <div id="footer-placeholder"></div>
   <div class="cursor"></div>
+  <script src="/src/scripts/main_slideshow.js"></script>
+  <script src="/src/scripts/cursor.js"></script>
+  <script src="/src/scripts/mobile-navbar.js"></script>
+  <script src="/src/scripts/componentLoader.js"></script>
 
   <script>
-    /* ---------- Custom Cursor ---------- */
-    (function() {
-      const cursor = document.querySelector(".cursor");
-      const hoverables = document.querySelectorAll("a, button, img");
-      hoverables.forEach(el => {
-        el.addEventListener("mouseenter", () => cursor.classList.add("hovered"));
-        el.addEventListener("mouseleave", () => cursor.classList.remove("hovered"));
-      });
-
-      document.addEventListener("mousemove", e => {
-        cursor.style.top = e.clientY + "px";
-        cursor.style.left = e.clientX + "px";
-      });
-    })();
-
-    /* ---------- Robust Slideshow (preload + fade) ---------- */
-    (function() {
-const images = [
-  "assets/images/main/0.png",
-  "assets/images/main/1.webp",
-  "assets/images/main/2.webp",
-  "assets/images/main/3.webp",
-  "assets/images/main/4.webp",
-  "assets/images/main/5.webp",
-  "assets/images/main/6.webp",
-  "assets/images/main/7.webp",
-  "assets/images/main/8.webp",
-  "assets/images/main/9.webp",
-  "assets/images/main/10.webp",
-  "assets/images/main/11.webp",
-  "assets/images/main/12.webp",
-  // "assets/images/main/13.webp",
-  "assets/images/main/14.webp",
-  "assets/images/main/15.webp",
-  "assets/images/main/16.webp"
-];
-
-
-
-      const imgEl = document.getElementById("slideshow");
-      const DELAY = 4000;
-      const FADE = 300;
-
-      // Start with first image
-      let index = 0;
-      imgEl.src = images[index];
-
-      function nextImage() {
-        const nextIndex = (index + 1) % images.length;
-        const nextSrc = images[nextIndex];
-
-        // Preload the next image to avoid flashes
-        const pre = new Image();
-        pre.onload = () => {
-          imgEl.style.opacity = 0;
-          setTimeout(() => {
-            imgEl.src = nextSrc;
-            imgEl.style.opacity = 1;
-            index = nextIndex;
-            setTimeout(nextImage, DELAY);
-          }, FADE);
-        };
-        pre.src = nextSrc;
-      }
-
-      // Kick off after initial delay
-      setTimeout(nextImage, DELAY);
-    })();
+    loadComponent('navbar-placeholder', '/src/components/navbar.html');
+    loadComponent('footer-placeholder', '/src/components/footer.html');
   </script>
-<script src="./assets/js/mobile-navbar.js"></script>
 </body>
+
 </html>
