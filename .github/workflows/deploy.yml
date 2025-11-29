@@ -1,5 +1,8 @@
 name: Build and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - testdeploy # Still deploys the live site when pushed
 permissions:
   contents: write
 jobs:
@@ -18,4 +21,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          branch: testdeploy
           folder: dist # The folder the action should deploy.
+          cname:  rignitc.com
