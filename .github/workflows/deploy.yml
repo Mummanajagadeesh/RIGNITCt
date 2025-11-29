@@ -1,36 +1,21 @@
-name: Deploy Static Site
-
-on:
-  push:
-    branches:
-      - testdeploy # Your primary branch
-
+name: Build and Deploy
+on: [push]
 permissions:
-  contents: write # REQUIRED for the action to push to the gh-pages branch
-
+  contents: write
 jobs:
   build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-      
-      # Setup Node.js to run your scripts
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20' # Use a stable Node version
 
-      # Install dependencies and build
-      - name: Install dependencies and Build 🏗️
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           npm install
           npm run build
-      
-      # Deploy the contents of the 'dist' folder
-      - name: Deploy to GitHub Pages 🚀
-        uses: peaceiris/actions-gh-pages@v4
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: ${{ contains(github.ref, 'main') && 'rignitc.com' || '' }}
+          folder: dist # The folder the action should deploy.
