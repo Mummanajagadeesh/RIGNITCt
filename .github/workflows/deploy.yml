@@ -5,6 +5,9 @@ on:
     branches:
       - main # Your primary branch
 
+permissions:
+  contents: write # REQUIRED for the action to push to the gh-pages branch
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
