@@ -15,11 +15,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow"
     rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="../src/styles/navbar.css">
-  <link rel="stylesheet" href="../src/styles/footer.css">
-  <link rel="icon" type="image/png" href="../assets/images/logog.webp">
-  <link rel="stylesheet" href="../src/styles/cursor.css" />
-  <link rel="stylesheet" href="../src/styles/projects.css" />
+  <link rel="stylesheet" href="/src/styles/navbar.css">
+  <link rel="stylesheet" href="/src/styles/footer.css">
+  <link rel="icon" type="image/png" href="/assets/images/logog.webp">
+  <link rel="stylesheet" href="/src/styles/cursor.css" />
+  <link rel="stylesheet" href="/src/styles/projects.css" />
 
 </head>
 
@@ -36,7 +36,7 @@
       </div>
 
       <script>
-        fetch('../src/data/projects/stack.json')
+        fetch('/src/data/projects/stack.json')
           .then(response => response.json())
           .then(data => {
             const stackContainer = document.getElementById('stack-icons');
@@ -73,16 +73,16 @@
 
   <div id="footer-placeholder"></div>
   <div class="cursor"></div>
-  <script src="../src/scripts/cursor.js"></script>
-  <script src="../src/scripts/mobile-navbar.js"></script>
-  <script src="../src/scripts/componentLoader.js"></script>
+  <script src="/src/scripts/cursor.js"></script>
+  <script src="/src/scripts/mobile-navbar.js"></script>
+  <script src="/src/scripts/componentLoader.js"></script>
 
   <script>
-    loadComponent('navbar-placeholder', '../src/components/navbar.html');
-    loadComponent('footer-placeholder', '../src/components/footer.html');
+    loadComponent('navbar-placeholder', '/src/components/navbar.html');
+    loadComponent('footer-placeholder', '/src/components/footer.html');
   </script>
-  <script src="../src/scripts/projects.js"></script>
-  <script src="../src/scripts/mobile-stack.js"></script>
+  <script src="/src/scripts/projects.js"></script>
+  <script src="/src/scripts/mobile-stack.js"></script>
 </body>
 
 </html>
