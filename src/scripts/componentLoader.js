@@ -1,5 +1,5 @@
 /**
- * src/scripts/componentLoader.js
+ * /src/scripts/componentLoader.js
  * * Fetches and injects an HTML component into a specified placeholder element.
  * Handles client-side component fetching for static sites (e.g., python -m http.server).
  * * @param {string} placeholderId - The ID of the element where the component will be inserted (e.g., 'navbar-placeholder').

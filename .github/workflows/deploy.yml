@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - testdeploy # Runs the build when pushing to your test branch
+      - main # Runs the build when pushing to your test branch
 
 # Set permissions for the GITHUB_TOKEN to allow uploading and deploying
 permissions:

@@ -109,6 +109,6 @@ function escapeHtml(str = '') {
   return String(str).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", "&#39;");
 }
 
-loadAchievements('competitions', 'src/data/achievements/competitions.json', 'achievements', 'empty-placeholder', 'view-more-achievements');
-loadAchievements('startups', 'src/data/achievements/startups.json', 'startups', 'startups-empty');
-loadAchievements('research', 'src/data/achievements/research.json', 'research', 'research-empty', 'view-more-research');
+loadAchievements('competitions', '/src/data/achievements/competitions.json', 'achievements', 'empty-placeholder', 'view-more-achievements');
+loadAchievements('startups', '/src/data/achievements/startups.json', 'startups', 'startups-empty');
+loadAchievements('research', '/src/data/achievements/research.json', 'research', 'research-empty', 'view-more-research');

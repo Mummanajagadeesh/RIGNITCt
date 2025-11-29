@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const sourceDir = path.join(__dirname, '../distsrc/pages');
+const sourceDir = path.join(__dirname, '../dist/src/pages');
 const targetDir = path.join(__dirname, '../dist');
 
 // Function to move files/folders
