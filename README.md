@@ -47,6 +47,7 @@ C:.
   - Component based system
   - Common footer in all pages
   - Mobile navbar now consistent
+  - Proper CI/CD
 
 - **Team:** In-Progress
 
