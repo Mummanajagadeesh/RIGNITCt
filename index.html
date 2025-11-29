@@ -1,216 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta
+      name="google-site-verification"
+      content="egNQUefR6KkaBjS5mn4bl_yncx1GNncswQOhK4S36cI"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JJEWZN4WSN"
+    ></script>
 
-<head>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-JJEWZN4WSN");
+    </script>
 
-  <meta name="google-site-verification" content="egNQUefR6KkaBjS5mn4bl_yncx1GNncswQOhK4S36cI" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJEWZN4WSN"></script>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>RIGNITC | Robotics Interest Group</title>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-JJEWZN4WSN');
-  </script>
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>RIGNITC | Robotics Interest Group</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- HEAD -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="assets/images/logog.webp" />
 
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.48/build/spline-viewer.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="src/styles/navbar.css" />
+    <link rel="stylesheet" href="src/styles/footer.css" />
+    <link rel="stylesheet" href="src/styles/cursor.css" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
-  <!-- HEAD -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="icon" type="image/png" href="assets/images/logog.webp">
+    <link rel="stylesheet" href="src/styles/main_gallery.css" />
+    <link rel="stylesheet" href="src/styles/main_body.css" />
+    <link rel="stylesheet" href="src/styles/main_alumni.css" />
+    <link rel="stylesheet" href="src/styles/main_projects.css" />
+    <link rel="stylesheet" href="src/styles/main_about.css" />
+    <link rel="stylesheet" href="src/styles/main_hero.css" />
+  </head>
+  <div id="navbar-placeholder"></div>
 
-  <link rel="stylesheet" href="src/styles/navbar.css">
-  <link rel="stylesheet" href="src/styles/footer.css">
-  <link rel="stylesheet" href="src/styles/cursor.css">
+  <body>
+    <!-- HERO -->
+    <div
+      class="hero"
+      style="
+        position: relative;
+        background: black;
+        color: white;
+        overflow: hidden;
+      "
+    >
+      <img
+        src="assets/images/main/labxxlhb.png"
+        alt="lab background"
+        class="lab-bg"
+        style="
+          position: absolute;
+          top: 55%;
+          left: 33%;
+          width: 60%;
+          height: 100%;
+          object-fit: contain;
+          transform: translate(-50%, -60%);
+          filter: invert(1) contrast(1) brightness(1);
+          mix-blend-mode: screen;
+          opacity: 0.6;
+          z-index: 0;
+        "
+      />
 
-  <link rel="stylesheet" href="src/styles/main_gallery.css">
-  <link rel="stylesheet" href="src/styles/main_body.css">
-  <link rel="stylesheet" href="src/styles/main_alumni.css">
-  <link rel="stylesheet" href="src/styles/main_projects.css">
-  <link rel="stylesheet" href="src/styles/main_about.css">
-  <link rel="stylesheet" href="src/styles/main_hero.css">
+      <div
+        class="text-block"
+        style="
+          position: relative;
+          z-index: 1;
+          margin-top: 40px;
+          transform: translateY(80px);
+        "
+      >
+        <div class="title">RIGNITC</div>
 
-</head>
-<div id="navbar-placeholder"></div>
-
-<body>
-  <!-- HERO -->
-  <div class="hero" style="position: relative; background: black; color: white; overflow: hidden;">
-    <img src="assets/images/main/labxxlhb.png" alt="lab background" class="lab-bg"
-      style="position: absolute; top: 55%; left: 33%; width: 60%; height: 100%; object-fit: contain; transform: translate(-50%, -60%); filter: invert(1) contrast(1) brightness(1); mix-blend-mode: screen; opacity: 0.6; z-index: 0;">
-
-    <div class="text-block" style="position: relative; z-index: 1;margin-top: 40px;transform: translateY(80px);">
-      <div class="title">
-        RIGNITC
+        <span class="subtitle"> Robotics Interest Group </span>
       </div>
-
-      <span class="subtitle">
-        Robotics Interest Group
-      </span>
-
+      <img
+        id="slideshow"
+        alt="slideshow"
+        style="position: relative; z-index: 1"
+      />
     </div>
-    <img id="slideshow" alt="slideshow" style="position: relative; z-index: 1;">
-  </div>
 
-  <!-- Sections -->
-  <section id="about">
+    <!-- Sections -->
+    <section id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h1>Who Are We?</h1>
+          <p>
+            The Robotics Interest Group (RIG) was founded out of a passion for
+            robotics, aiming to foster learning and research in areas like
+            Mechatronics, Intelligent Systems, and Automation. We focus on
+            gaining hands-on experience and knowledge to keep pace with evolving
+            technologies, support industry innovation, and contribute to
+            developing practical, commercially viable solutions.
+          </p>
 
-    <div class="about-container">
-      <div class="about-text">
-        <h1>Who Are We?</h1>
-        <p>
-          The Robotics Interest Group (RIG) was founded out of a passion for robotics,
-          aiming to foster learning and research in areas like Mechatronics, Intelligent Systems,
-          and Automation. We focus on gaining hands-on experience and knowledge to keep pace with
-          evolving technologies, support industry innovation, and contribute to developing
-          practical, commercially viable solutions.
-        </p>
+          <p>
+            Join us to explore the world of robotics, collaborate on exciting
+            projects, and push the boundaries of technology.
+          </p>
 
-        <p>
-          Join us to explore the world of robotics, collaborate on exciting projects,
-          and push the boundaries of technology.
-        </p>
-
-        <!-- Stats Section -->
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-number" data-target="30">0</div>
-            <div class="stat-label">Technical Workshops</div>
+          <!-- Stats Section -->
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-number" data-target="30">0</div>
+              <div class="stat-label">Technical Workshops</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Research Publications</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number" data-target="5">0</div>
+              <div class="stat-label">Industry Grade Projects</div>
+            </div>
           </div>
-          <div class="stat">
-            <div class="stat-number" data-target="15">0</div>
-            <div class="stat-label">Research Publications</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number" data-target="5">0</div>
-            <div class="stat-label">Industry Grade Projects</div>
-          </div>
+
+          <a href="src/pages/about/" class="about-link"
+            >Know More<span>→</span></a
+          >
         </div>
 
-        <a href="/src/pages/about/" class="about-link">Know More<span>→</span></a>
-      </div>
-
-      <!-- 3D CARD REPLACEMENT -->
-      <div class="about-image">
-        <div class="card-wrap" id="cardWrap">
-          <div class="card-shadow" id="cardShadow"></div>
-          <div class="card" id="card">
-            <div class="card-overlay">
-              <h2>RIGNITC</h2>
-              <p>B21s B22s @ORIGO23</p>
+        <!-- 3D CARD REPLACEMENT -->
+        <div class="about-image">
+          <div class="card-wrap" id="cardWrap">
+            <div class="card-shadow" id="cardShadow"></div>
+            <div class="card" id="card">
+              <div class="card-overlay">
+                <h2>RIGNITC</h2>
+                <p>B21s B22s @ORIGO23</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <script src="/src/scripts/main_about.js"></script>
-  </section>
+      <script src="src/scripts/main_about.js"></script>
+    </section>
 
+    <section id="projects">
+      <div class="projects-container">
+        <h1 class="projects-header">Featured Projects</h1>
 
-  <section id="projects">
-
-    <div class="projects-container">
-      <h1 class="projects-header">Featured Projects</h1>
-
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="assets/images/projects/riggu-realH.webp" alt="Riggu Robot" class="default-img">
-            <img src="assets/images/projects/riggu-real.jpg" alt="Riggu Robot Hover" class="hover-img">
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/images/projects/riggu-realH.webp"
+                alt="Riggu Robot"
+                class="default-img"
+              />
+              <img
+                src="assets/images/projects/riggu-real.jpg"
+                alt="Riggu Robot Hover"
+                class="hover-img"
+              />
+            </div>
+            <div class="project-content">
+              <h2><strong>RIGGU</strong></h2>
+              <p>
+                Semi Humanoid Robot designed for interactive robotics
+                demonstrations, combining engineering and creativity to inspire
+                learning.
+              </p>
+              <a href="projects/riggu/" class="project-link">View Project →</a>
+            </div>
           </div>
-          <div class="project-content">
-            <h2><strong>RIGGU</strong></h2>
-            <p>Semi Humanoid Robot designed for interactive robotics demonstrations, combining engineering and
-              creativity to inspire learning.</p>
-            <a href="projects/riggu/" class="project-link">View Project →</a>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/images/projects/avibotH.webp"
+                alt="Avibot Robot"
+                class="default-img"
+              />
+              <img
+                src="assets/images/projects/avibot.webp"
+                alt="Avibot Robot Hover"
+                class="hover-img"
+              />
+            </div>
+            <div class="project-content">
+              <h2><strong>AVIBOT</strong></h2>
+              <p>
+                Automated Egg Collecting Farm Bot that optimizes poultry farm
+                efficiency, ensuring faster collection and reducing human labor.
+              </p>
+              <a href="projects/avibot/" class="project-link">View Project →</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="assets/images/projects/gnss-droneH.webp"
+                alt="GNSS Drone"
+                class="default-img"
+              />
+              <img
+                src="assets/images/projects/gnss-drone.webp"
+                alt="GNSS Drone Hover"
+                class="hover-img"
+              />
+            </div>
+            <div class="project-content">
+              <h2><strong>AUTONOMOUS DRONE</strong></h2>
+              <p>
+                Autonomous drone built for GNSS-denied environments using SLAM
+                and onboard sensors for precise navigation.
+              </p>
+              <a href="projects/gnss-drone/" class="project-link"
+                >View Project →</a
+              >
+            </div>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="assets/images/projects/avibotH.webp" alt="Avibot Robot" class="default-img">
-            <img src="assets/images/projects/avibot.webp" alt="Avibot Robot Hover" class="hover-img">
-          </div>
-          <div class="project-content">
-            <h2><strong>AVIBOT</strong></h2>
-            <p>Automated Egg Collecting Farm Bot that optimizes poultry farm efficiency, ensuring faster collection and
-              reducing human labor.</p>
-            <a href="projects/avibot/" class="project-link">View Project →</a>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="assets/images/projects/gnss-droneH.webp" alt="GNSS Drone" class="default-img">
-            <img src="assets/images/projects/gnss-drone.webp" alt="GNSS Drone Hover" class="hover-img">
-          </div>
-          <div class="project-content">
-            <h2><strong>AUTONOMOUS DRONE</strong></h2>
-            <p>Autonomous drone built for GNSS-denied environments using SLAM and onboard sensors for precise
-              navigation.</p>
-            <a href="projects/gnss-drone/" class="project-link">View Project →</a>
-          </div>
+        <!-- View All Button -->
+        <div class="view-all">
+          <a href="src/pages/projects/">View All Projects →</a>
         </div>
       </div>
+      <script src="src/scripts/main_projects.js"></script>
+    </section>
 
-      <!-- View All Button -->
-      <div class="view-all">
-        <a href="/src/pages/projects/">View All Projects →</a>
+    <section id="people">
+      <div class="people-header">We Have Alumni in</div>
+      <div class="company-slider scroll" id="companySlider"></div>
+
+      <div class="startup-header">Startups from our Lab</div>
+      <div class="startup-grid" id="startupGrid"></div>
+
+      <script src="src/scripts/main_alumni.js"></script>
+    </section>
+
+    <section id="gallery">
+      <h1>Gallery</h1>
+      <div class="polaroid-stage" id="polaroidStage"></div>
+
+      <div class="gallery-controls">
+        <button id="shuffle" title="Shuffle">
+          <i class="fas fa-random"></i>
+        </button>
+        <button id="spread" title="Spread">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </button>
+        <button id="gather" title="Gather">
+          <i class="fas fa-compress-arrows-alt"></i>
+        </button>
+        <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
+        <button id="help" title="Help"><i class="fas fa-question"></i></button>
       </div>
-    </div>
-    <script src="/src/scripts/main_projects.js"></script>
-  </section>
 
-  <section id="people">
-    <div class="people-header">We Have Alumni in</div>
-    <div class="company-slider scroll" id="companySlider"></div>
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Expanded view" />
+      </div>
+      <script src="src/scripts/main_gallery.js"></script>
+    </section>
 
-    <div class="startup-header">Startups from our Lab</div>
-    <div class="startup-grid" id="startupGrid"></div>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <script src="src/scripts/main_slideshow.js"></script>
+    <script src="src/scripts/cursor.js"></script>
+    <script src="src/scripts/mobile-navbar.js"></script>
+    <script src="src/scripts/componentLoader.js"></script>
 
-    <script src="/src/scripts/main_alumni.js"></script>
-  </section>
-
-  <section id="gallery">
-    <h1>Gallery</h1>
-    <div class="polaroid-stage" id="polaroidStage"></div>
-
-    <div class="gallery-controls">
-      <button id="shuffle" title="Shuffle"><i class="fas fa-random"></i></button>
-      <button id="spread" title="Spread"><i class="fas fa-expand-arrows-alt"></i></button>
-      <button id="gather" title="Gather"><i class="fas fa-compress-arrows-alt"></i></button>
-      <button id="arrange" title="Arrange"><i class="fas fa-th"></i></button>
-      <button id="help" title="Help"><i class="fas fa-question"></i></button>
-    </div>
-
-    <div class="lightbox" id="lightbox">
-      <img src="" alt="Expanded view">
-    </div>
-    <script src="/src/scripts/main_gallery.js"></script>
-  </section>
-
-  <div id="footer-placeholder"></div>
-  <div class="cursor"></div>
-  <script src="/src/scripts/main_slideshow.js"></script>
-  <script src="/src/scripts/cursor.js"></script>
-  <script src="/src/scripts/mobile-navbar.js"></script>
-  <script src="/src/scripts/componentLoader.js"></script>
-
-  <script>
-    loadComponent('navbar-placeholder', '/src/components/navbar.html');
-    loadComponent('footer-placeholder', '/src/components/footer.html');
-  </script>
-</body>
-
+    <script>
+      loadComponent("navbar-placeholder", "src/components/navbar.html");
+      loadComponent("footer-placeholder", "src/components/footer.html");
+    </script>
+  </body>
 </html>

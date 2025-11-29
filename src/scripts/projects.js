@@ -3,7 +3,7 @@
 
     async function fetchProjects() {
         try {
-            const r = await fetch('/src/data/projects/projects.json', { cache: 'no-cache' });
+            const r = await fetch('src/data/projects/projects.json', { cache: 'no-cache' });
             if (!r.ok) throw new Error('projects.json load failed');
             const data = await r.json();
             if (!Array.isArray(data)) throw new Error('projects.json must be array');

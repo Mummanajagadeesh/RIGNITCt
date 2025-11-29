@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>RIGNITC | Activities</title>
-  <link rel="stylesheet" href="/src/styles/navbar.css">
-  <link rel="stylesheet" href="/src/styles/footer.css">
-  <link rel="icon" type="image/png" href="/assets/images/logog.webp">
-  <link rel="stylesheet" href="/src/styles/cursor.css" />
-  <link rel="stylesheet" href="/src/styles/activities.css" />
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RIGNITC | Activities</title>
+    <link rel="stylesheet" href="src/styles/navbar.css" />
+    <link rel="stylesheet" href="src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+    <link rel="stylesheet" href="src/styles/cursor.css" />
+    <link rel="stylesheet" href="src/styles/activities.css" />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&family=Libre+Caslon+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <!-- Workshops -->
+      <section class="hero" aria-labelledby="workshop-head">
+        <div class="left">
+          <h1 id="workshop-head">Workshops</h1>
+          <div class="tagline">We learn, we share, we grow together</div>
+        </div>
+      </section>
 
-</head>
-<body>
-  <div id="navbar-placeholder"></div>
-  <main>
-
-    <!-- Workshops -->
-    <section class="hero" aria-labelledby="workshop-head">
-      <div class="left">
-        <h1 id="workshop-head">Workshops</h1>
-        <div class="tagline">We learn, we share, we grow together</div>
+      <div id="workshops">
+        <div class="empty" id="workshops-empty" style="display: none">
+          No workshops found.
+        </div>
       </div>
-    </section>
 
-    <div id="workshops">
-      <div class="empty" id="workshops-empty" style="display:none;">No workshops found.</div>
-    </div>
+      <!-- Exhibitions -->
+      <section class="hero" aria-labelledby="exhib-head">
+        <div class="left">
+          <h1 id="exhib-head">Exhibitions</h1>
+          <div class="tagline">Showcasing our innovations to the world</div>
+        </div>
+      </section>
 
-    <!-- Exhibitions -->
-    <section class="hero" aria-labelledby="exhib-head">
-      <div class="left">
-        <h1 id="exhib-head">Exhibitions</h1>
-        <div class="tagline">Showcasing our innovations to the world</div>
+      <div id="exhibitions">
+        <div class="empty" id="exhibitions-empty" style="display: none">
+          No exhibitions found.
+        </div>
       </div>
-    </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <script src="src/scripts/cursor.js"></script>
+    <script src="src/scripts/mobile-navbar.js"></script>
+    <script src="src/scripts/componentLoader.js"></script>
 
-    <div id="exhibitions">
-      <div class="empty" id="exhibitions-empty" style="display:none;">No exhibitions found.</div>
-    </div>
-
-  </main>
-  <div id="footer-placeholder"></div>
-  <div class="cursor"></div>
-  <script src="/src/scripts/cursor.js"></script>
-  <script src="/src/scripts/mobile-navbar.js"></script>
-  <script src="/src/scripts/componentLoader.js"></script>
-
-  <script>
-    loadComponent('navbar-placeholder', '/src/components/navbar.html');
-    loadComponent('footer-placeholder', '/src/components/footer.html');
-  </script>
-  <script src="/src/scripts/activities.js"></script>
-</body>
+    <script>
+      loadComponent("navbar-placeholder", "src/components/navbar.html");
+      loadComponent("footer-placeholder", "src/components/footer.html");
+    </script>
+    <script src="src/scripts/activities.js"></script>
+  </body>
 </html>

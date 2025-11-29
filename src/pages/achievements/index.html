@@ -1,79 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RIGNITC | Achievements</title>
+    <link rel="stylesheet" href="src/styles/navbar.css" />
+    <link rel="stylesheet" href="src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+    <link rel="stylesheet" href="src/styles/cursor.css" />
+    <link rel="stylesheet" href="src/styles/achievements.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RIGNITC | Achievements</title>
-  <link rel="stylesheet" href="/src/styles/navbar.css">
-  <link rel="stylesheet" href="/src/styles/footer.css">
-  <link rel="icon" type="image/png" href="/assets/images/logog.webp">
-  <link rel="stylesheet" href="/src/styles/cursor.css" />
-  <link rel="stylesheet" href="/src/styles/achievements.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <body>
+    <div id="navbar-placeholder"></div>
+    <main>
+      <!-- Competitions -->
+      <section class="hero" aria-labelledby="ach-head">
+        <div class="left">
+          <h1 id="ach-head">Competitions</h1>
+          <div class="tagline">
+            We don't always take first place, but we never give up
+          </div>
+        </div>
+      </section>
 
-</head>
-
-<body>
-  <div id="navbar-placeholder"></div>
-  <main>
-    <!-- Competitions -->
-    <section class="hero" aria-labelledby="ach-head">
-      <div class="left">
-        <h1 id="ach-head">Competitions</h1>
-        <div class="tagline">We don't always take first place, but we never give up</div>
+      <div class="achievements" id="achievements" aria-live="polite">
+        <div class="empty" id="empty-placeholder" style="display: none">
+          No achievements found.
+        </div>
       </div>
-    </section>
-
-    <div class="achievements" id="achievements" aria-live="polite">
-      <div class="empty" id="empty-placeholder" style="display:none;">No achievements found.</div>
-    </div>
-    <div style="text-align:center;margin-top:20px;"><button id="view-more-achievements" class="view-more-btn"
-        style="display:none;">View More</button></div>
-
-    <br><br><br><br>
-
-    <!-- Startups -->
-    <section class="hero" aria-labelledby="startup-head">
-      <div class="left">
-        <h1 id="startup-head">Startups</h1>
-        <div class="tagline">Innovations that grew into real-world ventures</div>
+      <div style="text-align: center; margin-top: 20px">
+        <button
+          id="view-more-achievements"
+          class="view-more-btn"
+          style="display: none"
+        >
+          View More
+        </button>
       </div>
-    </section>
 
-    <div class="startups-list" id="startups" aria-live="polite">
-      <div class="empty" id="startups-empty" style="display:none;">No startups found.</div>
-    </div>
+      <br /><br /><br /><br />
 
-    <br><br><br><br>
+      <!-- Startups -->
+      <section class="hero" aria-labelledby="startup-head">
+        <div class="left">
+          <h1 id="startup-head">Startups</h1>
+          <div class="tagline">
+            Innovations that grew into real-world ventures
+          </div>
+        </div>
+      </section>
 
-    <!-- Research -->
-    <section class="hero" aria-labelledby="res-head">
-      <div class="left">
-        <h1 id="res-head">Research</h1>
-        <div class="tagline">Exploring, innovating, and publishing our findings</div>
+      <div class="startups-list" id="startups" aria-live="polite">
+        <div class="empty" id="startups-empty" style="display: none">
+          No startups found.
+        </div>
       </div>
-    </section>
 
-    <div class="achievements" id="research" aria-live="polite">
-      <div class="empty" id="research-empty" style="display:none;">No research found.</div>
-    </div>
-    <div style="text-align:center;margin-top:20px;"><button id="view-more-research" class="view-more-btn"
-        style="display:none;">View More</button></div>
-  </main>
-  <div id="footer-placeholder"></div>
-  <div class="cursor"></div>
-  <script src="/src/scripts/cursor.js"></script>
-  <script src="/src/scripts/mobile-navbar.js"></script>
-  <script src="/src/scripts/componentLoader.js"></script>
+      <br /><br /><br /><br />
 
-  <script>
-    loadComponent('navbar-placeholder', '/src/components/navbar.html');
-    loadComponent('footer-placeholder', '/src/components/footer.html');
-  </script>
-  <script src="/src/scripts/achievements.js"></script>
-</body>
+      <!-- Research -->
+      <section class="hero" aria-labelledby="res-head">
+        <div class="left">
+          <h1 id="res-head">Research</h1>
+          <div class="tagline">
+            Exploring, innovating, and publishing our findings
+          </div>
+        </div>
+      </section>
 
+      <div class="achievements" id="research" aria-live="polite">
+        <div class="empty" id="research-empty" style="display: none">
+          No research found.
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px">
+        <button
+          id="view-more-research"
+          class="view-more-btn"
+          style="display: none"
+        >
+          View More
+        </button>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <script src="src/scripts/cursor.js"></script>
+    <script src="src/scripts/mobile-navbar.js"></script>
+    <script src="src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "src/components/navbar.html");
+      loadComponent("footer-placeholder", "src/components/footer.html");
+    </script>
+    <script src="src/scripts/achievements.js"></script>
+  </body>
 </html>

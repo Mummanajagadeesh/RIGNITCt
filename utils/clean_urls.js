@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const sourceDir = path.join(__dirname, '../dist/src/pages');
+const sourceDir = path.join(__dirname, '../distsrc/pages');
 const targetDir = path.join(__dirname, '../dist');
 
 // Function to move files/folders
@@ -26,7 +26,7 @@ function moveDirectoryContents(src, dest) {
                 // This is a page directory (e.g., 'about', 'activities'). 
                 // Move it to the root of 'dist' to create the clean URL.
                 console.log(`Moving directory: ${item} to ${destPath}`);
-                // Move the entire folder (e.g., /dist/src/pages/activities -> /dist/activities)
+                // Move the entire folder (e.g., /distsrc/pages/activities -> /dist/activities)
                 fs.renameSync(srcPath, destPath); 
             } else {
                 // If it's a sub-folder without index.html, we might ignore it or handle it differently.

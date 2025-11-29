@@ -1,88 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Projects</title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects</title>
+    <!-- Fonts & Icons (kept) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;600;800&family=Poppins:wght@100;200;400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="src/styles/navbar.css" />
+    <link rel="stylesheet" href="src/styles/footer.css" />
+    <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+    <link rel="stylesheet" href="src/styles/cursor.css" />
+    <link rel="stylesheet" href="src/styles/projects.css" />
+  </head>
 
-  <!-- Fonts & Icons (kept) -->
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;600;800&family=Poppins:wght@100;200;400;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://db.onlinewebfonts.com/c/f39c9c54bc3f4f701ca3b18d675dde06?family=F3D+Techno+W00+Shadow"
-    rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="/src/styles/navbar.css">
-  <link rel="stylesheet" href="/src/styles/footer.css">
-  <link rel="icon" type="image/png" href="/assets/images/logog.webp">
-  <link rel="stylesheet" href="/src/styles/cursor.css" />
-  <link rel="stylesheet" href="/src/styles/projects.css" />
+  <body>
+    <div id="navbar-placeholder"></div>
 
-</head>
+    <div class="page">
+      <!-- Title wrapper with STACK (left) and PROJECTS (right) -->
+      <div class="title-wrapper">
+        <div class="stack-section">
+          <h2 class="stack-title">STACK</h2>
+          <div class="stack-icons" id="stack-icons"></div>
+        </div>
 
-<body>
-  <div id="navbar-placeholder"></div>
+        <script>
+          fetch("src/data/projects/stack.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const stackContainer = document.getElementById("stack-icons");
 
-  <div class="page">
+              Object.values(data.stack).forEach((category) => {
+                const groupDiv = document.createElement("div");
+                groupDiv.classList.add("stack-group");
 
-    <!-- Title wrapper with STACK (left) and PROJECTS (right) -->
-    <div class="title-wrapper">
-      <div class="stack-section">
-        <h2 class="stack-title">STACK</h2>
-        <div class="stack-icons" id="stack-icons"></div>
+                category.forEach((item) => {
+                  const img = document.createElement("img");
+                  img.src = item.src;
+                  img.alt = item.alt;
+                  groupDiv.appendChild(img);
+                });
+
+                stackContainer.appendChild(groupDiv);
+              });
+            })
+            .catch((err) => console.error("Error loading stack.json:", err));
+        </script>
+
+        <h1 class="site-title">PROJECTS</h1>
       </div>
 
-      <script>
-        fetch('/src/data/projects/stack.json')
-          .then(response => response.json())
-          .then(data => {
-            const stackContainer = document.getElementById('stack-icons');
+      <!-- Mobile Stack Banner (hidden on desktop) -->
+      <div class="mobile-stack-banner" id="mobile-stack-banner">
+        <div class="stack-scroll" id="mobile-stack-scroll"></div>
+      </div>
 
-            Object.values(data.stack).forEach(category => {
-              const groupDiv = document.createElement('div');
-              groupDiv.classList.add('stack-group');
-
-              category.forEach(item => {
-                const img = document.createElement('img');
-                img.src = item.src;
-                img.alt = item.alt;
-                groupDiv.appendChild(img);
-              });
-
-              stackContainer.appendChild(groupDiv);
-            });
-          })
-          .catch(err => console.error("Error loading stack.json:", err));
-      </script>
-
-      <h1 class="site-title">PROJECTS</h1>
+      <div
+        class="projects-container"
+        id="projects-container"
+        aria-live="polite"
+      >
+        <!-- JS will create .row elements containing up to 2 .card elements each -->
+      </div>
     </div>
 
-    <!-- Mobile Stack Banner (hidden on desktop) -->
-    <div class="mobile-stack-banner" id="mobile-stack-banner">
-      <div class="stack-scroll" id="mobile-stack-scroll"></div>
-    </div>
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+    <script src="src/scripts/cursor.js"></script>
+    <script src="src/scripts/mobile-navbar.js"></script>
+    <script src="src/scripts/componentLoader.js"></script>
 
-    <div class="projects-container" id="projects-container" aria-live="polite">
-      <!-- JS will create .row elements containing up to 2 .card elements each -->
-    </div>
-  </div>
-
-  <div id="footer-placeholder"></div>
-  <div class="cursor"></div>
-  <script src="/src/scripts/cursor.js"></script>
-  <script src="/src/scripts/mobile-navbar.js"></script>
-  <script src="/src/scripts/componentLoader.js"></script>
-
-  <script>
-    loadComponent('navbar-placeholder', '/src/components/navbar.html');
-    loadComponent('footer-placeholder', '/src/components/footer.html');
-  </script>
-  <script src="/src/scripts/projects.js"></script>
-  <script src="/src/scripts/mobile-stack.js"></script>
-</body>
-
+    <script>
+      loadComponent("navbar-placeholder", "src/components/navbar.html");
+      loadComponent("footer-placeholder", "src/components/footer.html");
+    </script>
+    <script src="src/scripts/projects.js"></script>
+    <script src="src/scripts/mobile-stack.js"></script>
+  </body>
 </html>

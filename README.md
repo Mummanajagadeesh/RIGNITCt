@@ -32,26 +32,26 @@ C:.
 └── utils
 ```
 
-* **Each folder contains its own `index.html`**.
-* **`test/`** is for testing small features, experimental code, or transitions.
-* **`assets/`** contains CSS and image assets, organized by purpose.
+- **Each folder contains its own `index.html`**.
+- **`test/`** is for testing small features, experimental code, or transitions.
+- **`assets/`** contains CSS and image assets, organized by purpose.
 
 ---
 
 ## Current Status
 
-* **Refactoring of codebase:** Done
+- **Refactoring of codebase:** Done
 
-  * Easier to maintain
-  * Clear separation of JS and CSS
-  * Component based system
-  * Common footer in all pages
-  * Mobile navbar now consistent
+  - Easier to maintain
+  - Clear separation of JS and CSS
+  - Component based system
+  - Common footer in all pages
+  - Mobile navbar now consistent
 
-* **Team:** In-Progress
+- **Team:** In-Progress
 
-  * Collect all details of all seniors
-  * Update the respective `.json` files
+  - Collect all details of all seniors
+  - Update the respective `.json` files
 
 ---
 
@@ -59,41 +59,41 @@ C:.
 
 ### Adding New Companies
 
-* Add images to `/assets/images/companies/`.
-* Update the main page HTML to reference these images.
-* Avoid hardcoding paths multiple times; keep it consistent.
+- Add images to `/assets/images/companies/`.
+- Update the main page HTML to reference these images.
+- Avoid hardcoding paths multiple times; keep it consistent.
 
 ### Projects Management
 
-* Maintain `.json` files in `/src/data` neatly.
-* Ensure new projs are added consistently.
+- Maintain `.json` files in `src/data` neatly.
+- Ensure new projs are added consistently.
 
 ### UI/UX Guidelines
 
-* Improve UI where needed; remove anything that feels “cringe”.
-* Maintain consistency with colors and layout, especially for spline scenes.
-* Hidden watermarks have been masked with background colors—avoid disturbing this.
+- Improve UI where needed; remove anything that feels “cringe”.
+- Maintain consistency with colors and layout, especially for spline scenes.
+- Hidden watermarks have been masked with background colors—avoid disturbing this.
 
 ---
 
 ## Notes
 
-* All images are in `/assets/images/`; refer only to these paths.
-* Small experiments, UI prototypes, and feature tests should go in `test/`.
-* Keep the repository modular and maintainable.
+- All images are in `/assets/images/`; refer only to these paths.
+- Small experiments, UI prototypes, and feature tests should go in `test/`.
+- Keep the repository modular and maintainable.
 
 ---
 
 ## Future Work
 
-* Improve the main page.
-* Add more company logos and gallery photos.
-* Complete the Activities page.
-* Keep all `.json` files modular and easy to update.
-* Optimize page loading speed.
-* Improve meta tags for SEO.
-* Maintain a black-and-white theme only and improve the overall UI.
-* Ensure accessibility: provide proper alt text for images, maintain sufficient contrast, and use semantic HTML.
-* Delete all pngs and jpgs, switch to webp.
-* Try cleaning up the CSS to make it minimal
-* Find better font, make it consistent site-wide.
+- Improve the main page.
+- Add more company logos and gallery photos.
+- Complete the Activities page.
+- Keep all `.json` files modular and easy to update.
+- Optimize page loading speed.
+- Improve meta tags for SEO.
+- Maintain a black-and-white theme only and improve the overall UI.
+- Ensure accessibility: provide proper alt text for images, maintain sufficient contrast, and use semantic HTML.
+- Delete all pngs and jpgs, switch to webp.
+- Try cleaning up the CSS to make it minimal
+- Find better font, make it consistent site-wide.
