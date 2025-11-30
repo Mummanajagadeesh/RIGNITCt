@@ -98,4 +98,3 @@ C:.
 - Delete all pngs and jpgs, switch to webp.
 - Try cleaning up the CSS to make it minimal
 - Find better font, make it consistent site-wide.
-
