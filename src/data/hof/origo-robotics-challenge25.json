@@ -1,16 +1,67 @@
 [
   {
     "title": "Draw and Collect",
-    "thumbnail": "",
-       "person": "Sharath P Prajith",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "Sharath P Prajith",
+    "winner": true,
     "roll_no": "B250494CS",
     "category": "AI/ YOLO/ MEDIAPIPE",
     "desc": "I have made an interactive physics game that combines...nd physics simulation. The player uses their finger movements,",
     "youtube": "https://youtu.be/HWySGEWj4Bs"
   },
+ {
+    "title": "HoloRig",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "Joshua Jacob Thomas",
+    "winner": true,
+    "roll_no": "B250906CS",
+    "category": "AI/ YOLO/ MEDIAPIPE",
+    "desc": "HoloRig is a real-time gesture-controlled holographic interaction system using MediaPipe hand tracking, geometric gesture logic, and 3D/IK simulation to create an intuitive touch-free interface.",
+    "youtube": "https://youtu.be/KTrfagf33zE"
+  },
+  {
+    "title": "AT-AT Walker",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "Ujjwal Nagar",
+    "winner": true,
+    "roll_no": "B250540CS",
+    "category": "CAD",
+    "desc": "A mechanical design of a 4-legged walker inspired by the Star Wars AT-AT, featuring worm gears, improved leg linkage for natural foot motion, and an attempted universal-joint based turning mechanism, modeled in Onshape.",
+    "youtube": "https://youtu.be/axNsn14iZOk"
+  },
+    {
+    "title": "Light Pattern Based Locker",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "Vinayak R",
+    "winner": true,
+    "roll_no": "B251308EE",
+    "category": "Electronics Simulation",
+    "desc": "A locker system that uses a specific light pattern sensed by photoresistors as a verification mechanism. Voltage drops across the sensors are read through Arduino analog pins, with LEDs indicating correctness, an LCD for user interaction, and a button to initiate or lock the system.",
+    "youtube": "https://youtu.be/HHswT3RpOHM"
+  },
+  {
+    "title": "Smart Cricket Stumps",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "Kadhirnilan Thirumaran",
+    "winner": true,
+    "roll_no": "B251404EC",
+    "category": "PCB Design",
+    "desc": "An automated bail-detection system using an LDR sensor, ATmega328P, LEDs, buzzer, and Bluetooth, all integrated into a compact two-layer PCB that fits inside cricket stumps/bails. Detects bail movement in under 50 ms with 10-hour battery life and 15 m wireless range.",
+    "youtube": "https://youtu.be/bTTyusuEwNI"
+  },
+  {
+    "title": "ESP-Assisted Typing Guide",
+    "thumbnail": "assets/images/logo.webp",
+    "person": "H R Soorya Dev",
+    "winner": true,
+    "roll_no": "B250244CS",
+    "category": "Programming",
+    "desc": "An ESP8266-based typing assistant where the microcontroller connects over Wi-Fi to a Python curses interface. Each character typed in the interactive shell sends a corresponding signal to the ESP, enabling a hardware-linked typing guide system.",
+    "youtube": "https://youtu.be/0UrTfsksWhc"
+  },
   {
     "title": "Neon Gesture Game",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Krishna Kumar Jha",
     "roll_no": "B250946EC",
     "category": "AI/ YOLO/ MEDIAPIPE",
@@ -19,7 +70,7 @@
   },
   {
     "title": "ID Card Verfication System",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Prabhu E S",
     "roll_no": "B251113EC",
     "category": "AI/ YOLO/ MEDIAPIPE",
@@ -27,17 +78,8 @@
     "youtube": "https://youtu.be/vyCyWB_d57A"
   },
   {
-    "title": "HoloRig",
-    "thumbnail": "",
-    "person": "Joshua Jacob Thomas",
-    "roll_no": "B250906CS",
-    "category": "AI/ YOLO/ MEDIAPIPE",
-    "desc": "HoloRig is a real-time gesture-controlled holographic interaction system using MediaPipe hand tracking, geometric gesture logic, and 3D/IK simulation to create an intuitive touch-free interface.",
-    "youtube": "https://youtu.be/KTrfagf33zE"
-  },
-  {
     "title": "Robotic Arm",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Parth Rahate",
     "roll_no": "B251095PE",
     "category": "CAD",
@@ -46,7 +88,7 @@
   },
   {
     "title": "Torque Titan",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Tejas L",
     "roll_no": "B251267EE",
     "category": "CAD",
@@ -55,7 +97,7 @@
   },
   {
     "title": "Robotic Arm",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Mudunuri Harshitha",
     "roll_no": "B251013ME",
     "category": "CAD",
@@ -63,17 +105,8 @@
     "youtube": "https://youtu.be/eCxAQthc5jk"
   },
   {
-    "title": "AT-AT Walker",
-    "thumbnail": "",
-    "person": "Ujjwal Nagar",
-    "roll_no": "B250540CS",
-    "category": "CAD",
-    "desc": "A mechanical design of a 4-legged walker inspired by the Star Wars AT-AT, featuring worm gears, improved leg linkage for natural foot motion, and an attempted universal-joint based turning mechanism, modeled in Onshape.",
-    "youtube": "https://youtu.be/axNsn14iZOk"
-  },
-  {
     "title": "Metal Fusion x JoJo's Beyblade",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Suraj Kaarthi S",
     "roll_no": "B251172EE",
     "category": "CAD",
@@ -82,7 +115,7 @@
   },
   {
     "title": "Robotic Arm",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Harshan Kumar S",
     "roll_no": "B250866ME",
     "category": "CAD",
@@ -90,26 +123,8 @@
     "youtube": "https://youtu.be/UPgMo0hU63U"
   },
   {
-    "title": "Light Pattern Based Locker Security System",
-    "thumbnail": "",
-    "person": "Vinayak R",
-    "roll_no": "B251308EE",
-    "category": "Electronics Simulation",
-    "desc": "A locker system that uses a specific light pattern sensed by photoresistors as a verification mechanism. Voltage drops across the sensors are read through Arduino analog pins, with LEDs indicating correctness, an LCD for user interaction, and a button to initiate or lock the system.",
-    "youtube": "https://youtu.be/HHswT3RpOHM"
-  },
-  {
-    "title": "Smart Cricket Stumps",
-    "thumbnail": "",
-    "person": "Kadhirnilan Thirumaran",
-    "roll_no": "B251404EC",
-    "category": "PCB Design",
-    "desc": "An automated bail-detection system using an LDR sensor, ATmega328P, LEDs, buzzer, and Bluetooth, all integrated into a compact two-layer PCB that fits inside cricket stumps/bails. Detects bail movement in under 50 ms with 10-hour battery life and 15 m wireless range.",
-    "youtube": "https://youtu.be/bTTyusuEwNI"
-  },
-  {
     "title": "PCB for Drones",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Alento George Rajesh",
     "roll_no": "B250092PE",
     "category": "PCB Design",
@@ -117,17 +132,8 @@
     "youtube": "https://youtu.be/OGhGIEOKoA0"
   },
   {
-    "title": "ESP-Assisted Typing Guide",
-    "thumbnail": "",
-    "person": "H R Soorya Dev",
-    "roll_no": "B250244CS",
-    "category": "Programming",
-    "desc": "An ESP8266-based typing assistant where the microcontroller connects over Wi-Fi to a Python curses interface. Each character typed in the interactive shell sends a corresponding signal to the ESP, enabling a hardware-linked typing guide system.",
-    "youtube": "https://youtu.be/0UrTfsksWhc"
-  },
-  {
     "title": "Tic-Tac-Toe Game",
-    "thumbnail": "",
+    "thumbnail": "assets/images/logo.webp",
     "person": "Merin Juby",
     "roll_no": "B250332EC",
     "category": "Programming",

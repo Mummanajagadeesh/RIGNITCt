@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RIGNITC | Hall of Fame</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/pricedown" rel="stylesheet" />
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/src/styles/navbar.css" />
+    <link rel="stylesheet" href="/src/styles/footer.css" />
+    <link rel="stylesheet" href="/src/styles/cursor.css" />
+
+    <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #0e0e0e;
+        color: #ececec;
+        margin: 0;
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 80px 20px 40px;
+      }
+
+      .page-header h1 {
+        font-family: "Pricedown", sans-serif;
+        font-size: 60px;
+        letter-spacing: 1px;
+      }
+
+      .page-header .tagline {
+        font-size: 18px;
+        opacity: 0.7;
+      }
+
+      .hof-grid {
+        width: 90%;
+        max-width: 1400px;
+        margin: 40px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+      }
+
+      .hof-card {
+        background: #151515;
+        border: 1px solid #242424;
+        border-radius: 14px;
+        padding: 20px;
+        transition: 0.25s;
+        position: relative;
+      }
+
+      .hof-card:hover {
+        transform: translateY(-6px);
+        border-color: #3a3a3a;
+      }
+
+      /* thumbnail container */
+      .hof-video-wrapper {
+        width: 100%;
+        height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 16px;
+        background: #000;
+      }
+
+      /* fallback thumbnail */
+      .hof-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      /* video iframe */
+      .hof-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      /* once loaded add class to fade in */
+      .video-loaded {
+        opacity: 1 !important;
+      }
+
+      .hof-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .podium-icon {
+        width: 18px;
+        height: 18px;
+        fill: #ffffff;
+      }
+
+      .hof-person {
+        opacity: 0.85;
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .hof-roll {
+        opacity: 0.5;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .hof-category {
+        display: inline-block;
+        padding: 4px 10px;
+        background: #1f1f1f;
+        border-radius: 6px;
+        opacity: 0.75;
+        font-size: 12px;
+        margin-bottom: 14px;
+      }
+
+      .hof-desc {
+        opacity: 0.8;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .yt-btn {
+        display: inline-flex;
+        padding: 8px 12px;
+        border: 1px solid #444;
+        border-radius: 6px;
+      }
+
+      .yt-btn svg {
+        fill: #ffffff;
+        height: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="page-header">
+      <h1>ORIGO Robotics Challenge'25</h1>
+      <p class="tagline">Showcasing creative submissions from ORIGO'25 challenge entries</p>
+    </div>
+
+    <div class="hof-grid" id="hofGrid"></div>
+
+    <div id="footer-placeholder"></div>
+    <div class="cursor"></div>
+
+    <script src="/src/scripts/cursor.js"></script>
+    <script src="/src/scripts/mobile-navbar.js"></script>
+    <script src="/src/scripts/componentLoader.js"></script>
+
+    <script>
+      loadComponent("navbar-placeholder", "/src/components/navbar.html");
+      loadComponent("footer-placeholder", "/src/components/footer.html");
+    </script>
+
+    <script>
+      function extractYouTubeID(url) {
+        if (!url) return null;
+        if (url.includes("youtu.be")) return url.split("/").pop();
+        if (url.includes("watch?v=")) return url.split("v=")[1].split("&")[0];
+        return null;
+      }
+
+      async function loadHOF() {
+        const container = document.getElementById("hofGrid");
+        const res = await fetch("/src/data/hof/origo-robotics-challenge25.json");
+        const data = await res.json();
+        const entries = Array.isArray(data) ? data : [data];
+
+        entries.forEach(item => {
+          const ytID = extractYouTubeID(item.youtube);
+
+          const card = document.createElement("div");
+          card.className = "hof-card";
+
+          const podiumSVG = `
+                <svg class="podium-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <!-- Left step -->
+                <rect x="4" y="24" width="16" height="20"/>
+                <!-- Middle (highest) step -->
+                <rect x="24" y="12" width="16" height="32"/>
+                <!-- Right step -->
+                <rect x="44" y="20" width="16" height="24"/>
+                </svg>
+          `;
+
+          card.innerHTML = `
+            <div class="hof-video-wrapper">
+              <img src="/${item.thumbnail}" class="hof-thumb" />
+
+              ${
+                ytID
+                  ? `
+                <iframe
+                  class="hof-video"
+                  src="https://www.youtube.com/embed/${ytID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${ytID}"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                ></iframe>
+              `
+                  : ""
+              }
+            </div>
+
+            <div class="hof-title">
+              ${item.winner ? podiumSVG : ""}
+              ${item.title}
+            </div>
+
+            <div class="hof-person">${item.person}</div>
+            <div class="hof-roll">${item.roll_no}</div>
+
+            <div class="hof-category">${item.category}</div>
+
+            <div class="hof-desc">${item.desc}</div>
+
+            ${
+              item.youtube
+                ? `
+                <a href="${item.youtube}" target="_blank" class="yt-btn">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.7-.8-1.5-.8-1.9-.9C17.5 2.7 12 2.7 12 2.7S6.5 2.7 3.2 3c-.4.1-1.2.1-1.9.9-.6.7-.8 2.3-.8 2.3S0 8.1 0 10v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.7.8 1.7.8 2.2.9C4.8 19.1 12 19.2 12 19.2s7.2 0 10.5-.3c.6-.1 1.5-.1 2.2-.9.6-.7.8-2.3.8-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.7 14.8V8.9l6 3-6 2.9z"/>
+                  </svg>
+                </a>`
+                : ""
+            }
+          `;
+
+          // Fade in video after it loads
+          const iframe = card.querySelector(".hof-video");
+          if (iframe) {
+            iframe.addEventListener("load", () => {
+              iframe.classList.add("video-loaded");
+            });
+          }
+
+          container.appendChild(card);
+        });
+      }
+
+      loadHOF();
+    </script>
+  </body>
+</html>
