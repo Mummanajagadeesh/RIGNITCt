@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -57,12 +57,8 @@
       }
 
       @keyframes scroll-left {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
       }
 
       .page-header {
@@ -79,6 +75,22 @@
       .page-header .tagline {
         font-size: 18px;
         opacity: 0.7;
+      }
+
+      /* 🔥 Winner note style */
+      .winner-note {
+        margin-top: 8px;
+        font-size: 15px;
+        opacity: 0.65;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+      }
+      .winner-note svg {
+        width: 18px;
+        height: 18px;
+        opacity: 0.85;
       }
 
       .hof-grid {
@@ -143,7 +155,6 @@
       .podium-icon {
         width: 18px;
         height: 18px;
-        fill: #ffffff;
       }
 
       .hof-person {
@@ -174,7 +185,6 @@
         margin-bottom: 16px;
       }
 
-      .yt-btn,
       .play-btn {
         display: inline-flex;
         padding: 8px 12px;
@@ -184,13 +194,11 @@
         cursor: pointer;
       }
 
-      .yt-btn svg,
       .play-btn svg {
-        fill: #ffffff;
         height: 20px;
+        fill: white;
       }
 
-      .yt-btn:hover,
       .play-btn:hover {
         border-color: #777;
       }
@@ -203,18 +211,30 @@
     <div class="banner-wrapper">
       <div class="scroll-banner">
         <div class="scroll-text">
-            <a href="https://rignitc.com/activities/origo/" target="_blank">
-            ORIGO Robotics Challenge'25 — View the Challenge Overview and Guidelines
-            <u>here</u>
-            </a>
+          <a href="https://rignitc.com/activities/origo/" target="_blank">
+            ORIGO Robotics Challenge'25 — View the Challenge Overview and Guidelines <u>here</u>
+          </a>
         </div>
       </div>
     </div>
 
     <div class="page-header">
       <h1>ORIGO Robotics Challenge'25</h1>
-      <p class="tagline">A curated gallery and tribute to the technical creativity and wonder that brought ORIGO'25's challenge to life.
-Dive in and be inspired</p>
+
+      <p class="tagline">
+        A curated gallery and tribute to the creativity and engineering spirit
+        behind ORIGO'25.
+      </p>
+
+      <!-- 🔥 Winner note added here -->
+      <p class="winner-note">
+        <svg viewBox="0 0 64 64">
+          <rect x="4" y="24" width="16" height="20" fill="currentColor"/>
+          <rect x="24" y="12" width="16" height="32" fill="currentColor"/>
+          <rect x="44" y="20" width="16" height="24" fill="currentColor"/>
+        </svg>
+        Indicates the winner in their respective category
+      </p>
     </div>
 
     <div class="hof-grid" id="hofGrid"></div>
@@ -245,28 +265,27 @@ Dive in and be inspired</p>
         const data = await res.json();
         const entries = Array.isArray(data) ? data : [data];
 
-        entries.forEach(item => {
+        entries.forEach((item) => {
           const ytID = extractYouTubeID(item.youtube);
 
           const card = document.createElement("div");
           card.className = "hof-card";
 
           const podiumSVG = `
-            <svg class="podium-icon" viewBox="0 0 64 64" fill="currentColor">
+            <svg class="podium-icon" viewBox="0 0 64 64" fill="currentColor" title="Winner">
               <rect x="4" y="24" width="16" height="20"/>
               <rect x="24" y="12" width="16" height="32"/>
               <rect x="44" y="20" width="16" height="24"/>
             </svg>`;
 
           card.innerHTML = `
-            <div class="hof-video-wrapper">
-            <img 
+            <div class="hof-video-wrapper" data-thumb="https://img.youtube.com/vi/${ytID}/hqdefault.jpg">
+              <img 
                 src="https://img.youtube.com/vi/${ytID}/hqdefault.jpg"
                 onerror="this.src='https://img.youtube.com/vi/${ytID}/default.jpg'"
                 class="hof-thumb"
-            />
+              />
             </div>
-
 
             <div class="hof-title">${item.winner ? podiumSVG : ""} ${item.title}</div>
 
@@ -280,11 +299,12 @@ Dive in and be inspired</p>
             ${
               item.youtube
                 ? `
-              <button class="play-btn" data-video="${ytID}">
-                <svg viewBox="0 0 24 24">
-                  <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.7-.8-1.5-.8-1.9-.9C17.5 2.7 12 2.7 12 2.7S6.5 2.7 3.2 3c-.4.1-1.2.1-1.9.9-.6.7-.8 2.3-.8 2.3S0 8.1 0 10v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.7.8 1.7.8 2.2.9C4.8 19.1 12 19.2 12 19.2s7.2 0 10.5-.3c.6-.1 1.5-.1 2.2-.9.6-.7.8-2.3.8-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.7 14.8V8.9l6 3-6 2.9z"/>
-                </svg>
-              </button>` 
+                <button class="play-btn" data-video="${ytID}" data-url="${item.youtube}">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M23.5 6.2s-.2-1.6-.8-2.3c-.7-.8-1.5-.8-1.9-.9C17.5 2.7 12 2.7 12 2.7S6.5 2.7 3.2 3c-.4.1-1.2.1-1.9.9-.6.7-.8 2.3-.8 2.3S0 8.1 0 10v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.7.8 1.7.8 2.2.9C4.8 19.1 12 19.2 12 19.2s7.2 0 10.5-.3c.6-.1 1.5-.1 2.2-.9.6-.7.8-2.3.8-2.3s.2-1.9.2-3.8V10c0-1.9-.2-3.8-.2-3.8zM9.7 14.8V8.9l6 3-6 2.9z"/>
+                  </svg>
+                </button>
+              `
                 : ""
             }
           `;
@@ -298,18 +318,24 @@ Dive in and be inspired</p>
       function attachVideoHandlers() {
         const buttons = document.querySelectorAll(".play-btn");
 
-        buttons.forEach(btn => {
-          btn.addEventListener("click", event => {
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", (event) => {
             event.preventDefault();
+
             const videoID = btn.dataset.video;
-            const wrapper = btn.closest(".hof-card").querySelector(".hof-video-wrapper");
+            const ytURL = btn.dataset.url;
+
+            // Open in new tab
+            window.open(ytURL, "_blank");
+
+            const wrapper = btn
+              .closest(".hof-card")
+              .querySelector(".hof-video-wrapper");
 
             if (currentlyPlaying && currentlyPlaying !== wrapper) {
               currentlyPlaying.innerHTML =
                 `<img src="${currentlyPlaying.dataset.thumb}" class="hof-thumb">`;
             }
-
-            wrapper.dataset.thumb = wrapper.querySelector(".hof-thumb").src;
 
             wrapper.innerHTML = `
               <iframe
