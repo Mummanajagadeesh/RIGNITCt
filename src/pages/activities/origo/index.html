@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
     <link rel="stylesheet" href="/src/styles/cursor.css" />
     <link rel="stylesheet" href="/src/styles/origo.css" />
+    <link rel="stylesheet" href="/src/styles/banner.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
@@ -17,6 +18,7 @@
 
   <body>
     <div id="navbar-placeholder"></div>
+    <div id="banner-placeholder"></div>
     <main>
       <section class="hero">
         <div class="hero-content">
@@ -446,6 +448,11 @@
     <script>
       loadComponent("navbar-placeholder", "/src/components/navbar.html");
       loadComponent("footer-placeholder", "/src/components/footer.html");
+      loadComponent("banner-placeholder", "/src/components/banner.html", {
+        link: "/hof",
+        text: "ORIGO Robotics Challenge'25 has ended! — View the submissions <u>here</u>.",
+        target: "_top"
+      });
     </script>
   </body>
 </html>
