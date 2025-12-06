@@ -101,12 +101,12 @@
     },
     {
         "name": "SUBIN E K",
-        "photo": "assets/images/team/b13/logo.webp",
+        "photo": "assets/images/team/b13/subin.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/subin-erattakulangara-ph-d-69b21598/"
 
         }
         ]
@@ -114,12 +114,12 @@
     },
     {
         "name": "Y SIVA PRASAD REDDY",
-        "photo": "assets/images/team/b13/logo.webp",
+        "photo": "assets/images/team/b13/siva-prasad.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/yettella-siva-prasad-reddy-240b57a4/"
 
         }
         ]

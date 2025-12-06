@@ -60,24 +60,24 @@
     {
 
         "name": "P Chandana",
-        "photo": "assets/images/team/b14/logo.webp",
+        "photo": "assets/images/team/b14/chandana.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/chandana-poreddy-293085bb/"
         }
         ]
     },
     {
 
         "name": "Rodrigues Neil Francis",
-        "photo": "assets/images/team/b14/logo.webp",
+        "photo": "assets/images/team/b14/neil.webp",
         "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
-            "url": ""
+            "url": "https://www.linkedin.com/in/neilrodrigues51/"
         }
         ]
     },
