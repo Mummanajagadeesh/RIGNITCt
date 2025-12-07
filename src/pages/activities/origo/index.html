@@ -3,7 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>RIGNITC | ORIGO'25</title>
+    <title>ORIGO'25 - Annual Robotics Workshop | RIGNITC</title>
+    <meta name="description" content="Join ORIGO'25, the annual robotics workshop by RIG at NIT Calicut. Learn electronics, CAD, PCB design, microcontrollers, AI, and programming through hands-on sessions. Nov 8, 9 & 15, 2025." />
+    <meta name="keywords" content="ORIGO 2025, robotics workshop, NIT Calicut, RIG NITC, robotics training, electronics workshop, CAD design, PCB design, microcontrollers, AI workshop, YOLO, fresher workshop" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="RIGNITC" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="event" />
+    <meta property="og:url" content="https://rignitc.com/origo" />
+    <meta property="og:title" content="ORIGO'25 - Annual Robotics Workshop | RIGNITC" />
+    <meta property="og:description" content="Join ORIGO'25, the annual robotics workshop by RIG at NIT Calicut. Learn electronics, CAD, PCB design, AI, and more through hands-on sessions." />
+    <meta property="og:image" content="/assets/images/activities/spider.webp" />
+    
+    <!-- Event specific Open Graph -->
+    <meta property="event:start_time" content="2025-11-08T09:00:00+05:30" />
+    <meta property="event:end_time" content="2025-11-15T18:00:00+05:30" />
+    <meta property="event:location" content="ECLHC E & F, NIT Calicut" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://rignitc.com/origo" />
+    <meta property="twitter:title" content="ORIGO'25 - Annual Robotics Workshop | RIGNITC" />
+    <meta property="twitter:description" content="Join ORIGO'25, the annual robotics workshop by RIG at NIT Calicut. Learn electronics, CAD, PCB design, AI, and more." />
+    <meta property="twitter:image" content="/assets/images/activities/spider.webp" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rignitc.com/origo" />
+    
     <link rel="stylesheet" href="/src/styles/navbar.css" />
     <link rel="stylesheet" href="/src/styles/footer.css" />
     <link rel="icon" type="image/png" href="/assets/images/logog.webp" />
@@ -14,6 +41,62 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Orbitron:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    
+    <!-- Structured Data - Event -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "ORIGO'25 - Annual Robotics Workshop",
+      "description": "ORIGO is an annual robotics workshop by the Robotics Interest Group (RIG) at NIT Calicut. It introduces freshmen to the foundations of robotics — electronics, CAD, PCB design, microcontrollers, mechanics, programming, and AI.",
+      "image": "https://rignitc.com/assets/images/activities/spider.webp",
+      "startDate": "2025-11-08T09:00:00+05:30",
+      "endDate": "2025-11-15T18:00:00+05:30",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "ECLHC E & F",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Calicut",
+          "addressRegion": "Kerala",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Robotics Interest Group (RIG), NIT Calicut",
+        "url": "https://rignitc.com"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "RIGNITC"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://rignitc.com/origo",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Robotics Interest Group (RIG), NIT Calicut",
+      "alternateName": "RIGNITC",
+      "url": "https://rignitc.com",
+      "logo": "https://rignitc.com/assets/images/logog.webp",
+      "description": "Robotics Interest Group at NIT Calicut",
+      "sameAs": [
+        "https://instagram.com/rig_nitc",
+        "https://linkedin.com/company/rig-nitc"
+      ]
+    }
+    </script>
   </head>
 
   <body>
@@ -26,13 +109,13 @@
             <h1>ORIGO'25</h1>
             <img
               src="/assets/images/activities/spider.webp"
-              alt="Spider Bot Icon"
+              alt="Spider Bot Icon for ORIGO Robotics Workshop"
             />
           </div>
-          <div class="subtitle">
+          <p class="subtitle">
             Annual Robotics Workshop — Robotics Interest Group (RIG), NIT
             Calicut
-          </div>
+          </p>
           <p class="lead">
             ORIGO is an annual robotics workshop by the Robotics Interest Group
             (RIG) at NIT Calicut. It introduces freshmen to the foundations of
@@ -43,7 +126,7 @@
         </div>
         <aside class="panel">
           <div class="meta-row">
-            <div class="meta-icon">
+            <div class="meta-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="3"
@@ -64,11 +147,15 @@
             </div>
             <div>
               <div class="meta">Dates</div>
-              <div class="meta-small">Nov 8 · Nov 9 · Nov 15</div>
+              <div class="meta-small">
+                <time datetime="2025-11-08">Nov 8</time> · 
+                <time datetime="2025-11-09">Nov 9</time> · 
+                <time datetime="2025-11-15">Nov 15</time>
+              </div>
             </div>
           </div>
           <div class="meta-row">
-            <div class="meta-icon">
+            <div class="meta-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"
@@ -86,11 +173,11 @@
             </div>
             <div>
               <div class="meta">Venue</div>
-              <div class="meta-small">ECLHC E & F</div>
+              <address class="meta-small">ECLHC E & F</address>
             </div>
           </div>
           <div class="meta-row">
-            <div class="meta-icon">
+            <div class="meta-icon" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="3.5"
@@ -119,10 +206,11 @@
       </section>
 
       <!-- Schedule -->
-      <section class="dates-grid">
+      <section class="dates-grid" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading" class="sr-only">Workshop Schedule</h2>
         <article class="date-card">
           <div class="card-head">
-            <div class="icon-circle">
+            <div class="icon-circle" aria-hidden="true">
               <svg
                 width="28"
                 height="28"
@@ -151,8 +239,8 @@
               </svg>
             </div>
             <div>
-              <div class="date">November 8</div>
-              <div class="meta-small">Intro • Setup • Basics</div>
+              <h3 class="date"><time datetime="2025-11-08">November 8</time></h3>
+              <p class="meta-small">Intro • Setup • Basics</p>
             </div>
           </div>
           <ul class="session-list">
@@ -166,7 +254,7 @@
         </article>
         <article class="date-card">
           <div class="card-head">
-            <div class="icon-circle">
+            <div class="icon-circle" aria-hidden="true">
               <svg
                 width="28"
                 height="28"
@@ -195,8 +283,8 @@
               </svg>
             </div>
             <div>
-              <div class="date">November 9</div>
-              <div class="meta-small">Programming • AI • PCB</div>
+              <h3 class="date"><time datetime="2025-11-09">November 9</time></h3>
+              <p class="meta-small">Programming • AI • PCB</p>
             </div>
           </div>
           <ul class="session-list">
@@ -209,7 +297,7 @@
         </article>
         <article class="date-card">
           <div class="card-head">
-            <div class="icon-circle">
+            <div class="icon-circle" aria-hidden="true">
               <svg
                 width="28"
                 height="28"
@@ -238,8 +326,8 @@
               </svg>
             </div>
             <div>
-              <div class="date">November 15</div>
-              <div class="meta-small">Full Hands-on</div>
+              <h3 class="date"><time datetime="2025-11-15">November 15</time></h3>
+              <p class="meta-small">Full Hands-on</p>
             </div>
           </div>
           <ul class="session-list">
@@ -252,17 +340,17 @@
       </section>
 
       <!-- Challenge -->
-      <section id="challenge">
+      <section id="challenge" aria-labelledby="challenge-heading">
         <div class="center">
-          <h2>ORIGO Robotics Challenge</h2>
+          <h2 id="challenge-heading">ORIGO Robotics Challenge</h2>
           <p>
             An <strong>individual</strong> challenge – complete it before
-            <strong>15 November</strong> using what you have learned from the
+            <strong><time datetime="2025-11-15">15 November</time></strong> using what you have learned from the
             ORIGO workshop.
           </p>
           <div class="trophy-wrap">
             <div class="trophy-box">
-              <img src="/assets/images/activities/trophy.webp" alt="Trophy" />
+              <img src="/assets/images/activities/trophy.webp" alt="Trophy for ORIGO Robotics Challenge Winners" />
             </div>
           </div>
         </div>
@@ -370,41 +458,41 @@
             Submission Methods
           </h3>
           <div class="submission-grid">
-            <div class="submission-card">
+            <article class="submission-card">
               <h4>Instagram</h4>
               <p>
                 Post your video and caption, tag <strong>@rig_nitc</strong>, and
                 make your post public.
               </p>
-            </div>
-            <div class="submission-card">
+            </article>
+            <article class="submission-card">
               <h4>LinkedIn</h4>
               <p>
                 Upload your post on LinkedIn tagging
                 <strong>Robotics Interest Group (RIG NITC)</strong> with a brief
                 project description.
               </p>
-            </div>
-            <div class="submission-card">
+            </article>
+            <article class="submission-card">
               <h4>Offline</h4>
               <p>
                 Submit your video and short write-up in person at the
                 <strong>Mechatronics Lab</strong> (same building as CAD CAM
                 Lab).
               </p>
-            </div>
+            </article>
           </div>
         </div>
 
         <div class="deadline">
           <div class="badge">
-            Deadline: <strong>14 November, 5:00 PM</strong>
+            Deadline: <strong><time datetime="2025-11-14T17:00">14 November, 5:00 PM</time></strong>
           </div>
         </div>
 
         <div class="rewards">
           <div>
-            <img src="/assets/images/activities/kit.webp" alt="Robotics Kit" />
+            <img src="/assets/images/activities/kit.webp" alt="Exclusive Robotics Kit Prize for ORIGO Challenge Winners" />
           </div>
           <div class="rewards-info">
             <h3
@@ -434,7 +522,7 @@
 
         <div class="closing">
           Keep experimenting. Keep building.<br />
-          We will see you and your creations on <strong>15 November</strong> for
+          We will see you and your creations on <strong><time datetime="2025-11-15">15 November</time></strong> for
           the final hands-on day.
         </div>
       </section>

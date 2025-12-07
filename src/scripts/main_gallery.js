@@ -14,7 +14,7 @@ const images = []; // store image URLs for lightbox navigation
 
 // Dynamically load gallery images
 (function loadImages() {
-    const exts = ['jpg', 'png','webp'];
+    const exts = ['webp'];
     const MAX_SCAN = 20;
     let i = 1;
 
