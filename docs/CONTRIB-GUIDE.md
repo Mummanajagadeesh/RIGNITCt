@@ -346,6 +346,139 @@ Submit the PR and ask a maintainer to review it.
 
 ---
 
+# 7. Other Helpful Commands
+
+These are just additional commands that might help when things break or when you are not sure what happened. Use them when needed.
+
+## Updating Your Local Clone When Repo Got New Changes
+
+If the repo has new commits and your local copy is outdated:
+
+```
+git pull origin main
+```
+
+If your local branch is not `main`, switch first:
+
+```
+git checkout main
+git pull origin main
+```
+
+## Checking Remotes
+
+To see which remote your repo is connected to:
+
+```
+git remote -v
+```
+
+If for some reason remote is missing or messed up, add it again:
+
+```
+git remote add origin https://github.com/rignitc/RIGNITC
+```
+
+Set upstream if needed:
+
+```
+git branch -u origin/main
+```
+
+## Checking What Changed
+
+Show diffs:
+
+```
+git diff
+```
+
+Show diffs of staged files:
+
+```
+git diff --staged
+```
+
+View commit history:
+
+```
+git log
+```
+
+For a cleaner one line history:
+
+```
+git log --oneline
+```
+
+## Undoing Mistakes
+
+Undo last commit but keep changes in working directory:
+
+```
+git reset --soft HEAD~1
+```
+
+Fully undo last commit and remove changes:
+
+```
+git reset --hard HEAD~1
+```
+
+Unstage a file:
+
+```
+git reset <file>
+```
+
+Restore a deleted or modified file:
+
+```
+git checkout -- <file>
+```
+
+Revert a commit with a new commit (safe for already pushed commits):
+
+```
+git revert <commit-hash>
+```
+
+## Switching Branches
+
+List branches:
+
+```
+git branch
+```
+
+Switch branches:
+
+```
+git checkout <branch>
+```
+
+Create and switch:
+
+```
+git checkout -b <new-branch>
+```
+
+## Stashing Changes
+
+If you need to switch branches but have uncommitted changes:
+
+```
+git stash
+```
+
+Bring them back later:
+
+```
+git stash pop
+```
+
+---
+
 # Final Notes
 
 This is our website and our club. Keep everything clean and well documented.  
