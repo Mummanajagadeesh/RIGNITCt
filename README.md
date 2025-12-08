@@ -11,6 +11,7 @@ C:.
 ├── assets
 │   └── fonts
 │   └── images
+├───docs
 ├── src
 │   ├── components
 │   ├── data
@@ -24,6 +25,7 @@ C:.
 │   │   ├── activities
 │   │   │   └── origo
 │   │   ├── contact
+│   │   ├───hof
 │   │   ├── projects
 │   │   └── team
 │   ├── scripts
