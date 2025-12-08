@@ -45,7 +45,7 @@ Make sure Git is installed. Then open your terminal and run:
 
 ```
 
-git clone [https://github.com/rignitc/RIGNITC](https://github.com/rignitc/RIGNITC)
+git clone https://github.com/rignitc/RIGNITC
 
 ```
 
@@ -118,7 +118,7 @@ Then open:
 
 ```
 
-[http://localhost:8000](http://localhost:8000)
+http://localhost:8000
 
 ```
 
@@ -294,7 +294,7 @@ Commit:
 
 ```
 
-git commit -m "feat: added new achievement entry"
+git commit -m "feat(contact): added reCAPTCHA verif"
 
 ```
 
