@@ -98,12 +98,7 @@
         "name": "Prahlad D",
         "photo": "assets/images/team/b15/logo.webp",
         "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": ""
-        }
-        ]
+        "socials": []
     },
     {
 

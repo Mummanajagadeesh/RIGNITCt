@@ -22,7 +22,7 @@
     "short_description": "Semi-humanoid healthcare assistant robot.",
     "description": "A semi-humanoid robot for healthcare assistance, equipped with SLAM-based navigation, a touchscreen database, facial recognition, and autonomous item retrieval. Riggu aims to support doctors by enhancing patient care and decision-making.",
     "link": "riggu",
-    "image": "real-riggu.webp"
+    "image": "riggu-real.webp"
   },
 
    {

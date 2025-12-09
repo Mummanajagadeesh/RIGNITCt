@@ -25,12 +25,7 @@
         "name": "ASWIN PK",
         "photo": "assets/images/team/b12/logo.webp",
         "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": ""
-        }
-        ]
+        "socials": []
 
     },
     {
@@ -49,24 +44,14 @@
         "name": "S SREEJIT",
         "photo": "assets/images/team/b12/logo.webp",
         "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": ""
-        }
-        ]
+        "socials": []
 
     },
     {
         "name": "AKHIL VISAKH M",
         "photo": "assets/images/team/b12/logo.webp",
         "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": ""
-        }
-        ]
+        "socials": []
 
     },
     {
@@ -86,13 +71,7 @@
         "name": "ANJALI K",
         "photo": "assets/images/team/b12/logo.webp",
         "role": "Team Member",
-        "socials": [
-        {
-            "platform": "linkedin",
-            "url": ""
-
-        }
-        ]
+        "socials": []
 
     }
     

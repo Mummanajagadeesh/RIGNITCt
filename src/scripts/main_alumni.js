@@ -33,14 +33,19 @@ const companyImages = [
     "assets/images/companies/kbr.webp",
     "assets/images/companies/caterpillar.webp"
 ];
+
+const commonAltText = "Alumni company logo"; // New common alt text
 const repeatTimes = 3;
+
 for (let i = 0; i < repeatTimes; i++) {
     companyImages.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
+        img.alt = commonAltText; // Added alt attribute
         companySlider.appendChild(img);
     });
 }
+
 /* Startup logos (static, colored, with links + labels) */
 const startupGrid = document.getElementById('startupGrid');
 const startups = [
@@ -61,7 +66,7 @@ startups.forEach(startup => {
 
     const img = document.createElement('img');
     img.src = startup.src;
-    img.alt = startup.name;
+    img.alt = startup.name; // Alt attribute already set correctly here
 
     a.appendChild(img);
 

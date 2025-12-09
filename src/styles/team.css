@@ -193,10 +193,10 @@ h1 {
 
   .year-switcher {
     display: flex;
-    flex-wrap: wrap; /* wrap buttons to multiple lines if needed */
-    justify-content: flex-start; /* push buttons to left */
-    gap: 5px; /* small gap between buttons */
-    margin-bottom: 15px; /* optional spacing below buttons */
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 40px;
   }
 
   .year-btn {

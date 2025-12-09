@@ -12,12 +12,22 @@
   /* Applies the visual inversion/difference blend effect */
   mix-blend-mode: difference;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0); /* Starts hidden and scaled down */
+  opacity: 0; /* Starts invisible */
   pointer-events: none;
   z-index: 2000;
-  transition: transform 0.2s ease, background 0.2s ease;
+  /* Increased transition time for smoother fade/scale effect on mouseenter/mouseleave */
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.2s ease;
 }
+
+/* Requirement 1: Show when mouse is over the document */
+.cursor.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 .cursor.hovered {
+  /* Note: .visible must be present for .hovered to work correctly */
   transform: translate(-50%, -50%) scale(1.6);
   /* Use a bright box-shadow since the background is dark */
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
@@ -30,4 +40,20 @@ button,
 .year-btn,
 .socials a {
   cursor: none !important;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  /* 1. Hide the custom cursor */
+  .cursor {
+    display: none !important;
+  }
+
+  /* 2. Re-enable the default system cursor on mobile/touch elements */
+  body,
+  a,
+  button,
+  .year-btn,
+  .socials a {
+    cursor: auto !important;
+  }
 }
