@@ -72,6 +72,7 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   opacity: 0;
   transform: translateY(40px);
+  padding: 10px; /* ADDED: Padding around the whole card content */
 }
 
 .project-card.show {
@@ -119,10 +120,11 @@
 
 /* --- Content Below Image --- */
 .project-content {
-  padding: 2px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  flex-grow: 1; 
 }
 
 .project-content h2 {
@@ -140,19 +142,20 @@
 .project-link {
   align-self: flex-start;
   font-family: "Sora", "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: 1.3rem; /* Adjusted size */
   color: #fff;
   text-decoration: none;
   padding: 10px 22px;
   border: 2px solid #fff;
   border-radius: 50px;
   transition: all 0.3s ease;
+  margin-top: auto; 
 }
 
 .project-link:hover {
   background: #fff;
   color: #000;
-  transform: scale(1.05);
+  transform: scale(1.03); /* Slight scale */
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
 }
 
@@ -225,6 +228,9 @@
     line-height: 1.4rem;
   }
 
+  .project-content {
+    padding: 16px;
+  }
   .project-link {
     font-size: 1rem;
     padding: 8px 18px;
@@ -239,3 +245,26 @@
     font-size: 1.2rem;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add to main_projects.css */
+
+/* No projects message */
+.projects-grid .no-featured {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* Animation delays for staggered appearance */
+.project-card:nth-child(1) { transition-delay: 0.1s; }
+.project-card:nth-child(2) { transition-delay: 0.2s; }
+.project-card:nth-child(3) { transition-delay: 0.3s; }
+.project-card:nth-child(4) { transition-delay: 0.4s; }
+.project-card:nth-child(5) { transition-delay: 0.5s; }

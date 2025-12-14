@@ -163,86 +163,30 @@
       <script src="/src/scripts/main_about.js"></script>
     </section>
 
-    <section id="projects">
-      <div class="projects-container">
-        <h1 class="projects-header">Featured Projects</h1>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/images/projects/riggu-realH.webp"
-                alt="Riggu Robot"
-                class="default-img"
-              />
-              <img
-                src="assets/images/projects/riggu-real.webp"
-                alt="Riggu Robot Hover"
-                class="hover-img"
-              />
-            </div>
-            <div class="project-content">
-              <h2><strong>RIGGU</strong></h2>
-              <p>
-                Semi Humanoid Robot designed for interactive robotics
-                demonstrations, combining engineering and creativity to inspire
-                learning.
-              </p>
-              <a href="projects/riggu/" class="project-link">View Project →</a>
-            </div>
+<!-- In your homepage's featured projects section -->
+<section id="projects">
+  <div class="projects-container">
+    <h1 class="projects-header">Featured Projects</h1>
+    
+    <div class="projects-grid">
+      <!-- This will be populated by JavaScript -->
+      <!-- Fallback content for SEO and no-JS users -->
+      <noscript>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="/assets/images/projects/riggu-realH.webp" alt="RIGGU Robot" class="default-img" />
           </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/images/projects/avibotH.webp"
-                alt="Avibot Robot"
-                class="default-img"
-              />
-              <img
-                src="assets/images/projects/avibot.webp"
-                alt="Avibot Robot Hover"
-                class="hover-img"
-              />
-            </div>
-            <div class="project-content">
-              <h2><strong>AVIBOT</strong></h2>
-              <p>
-                Automated Egg Collecting Farm Bot that optimizes poultry farm
-                efficiency, ensuring faster collection and reducing human labor.
-              </p>
-              <a href="projects/avibot/" class="project-link">View Project →</a>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="assets/images/projects/gnss-droneH.webp"
-                alt="GNSS Drone"
-                class="default-img"
-              />
-              <img
-                src="assets/images/projects/gnss-drone.webp"
-                alt="GNSS Drone Hover"
-                class="hover-img"
-              />
-            </div>
-            <div class="project-content">
-              <h2><strong>AUTONOMOUS DRONE</strong></h2>
-              <p>
-                Autonomous drone built for GNSS-denied environments using SLAM
-                and onboard sensors for precise navigation.
-              </p>
-              <a href="projects/gnss-drone/" class="project-link"
-                >View Project →</a
-              >
-            </div>
+          <div class="project-content">
+            <h2><strong>RIGGU</strong></h2>
+            <p>Semi Humanoid Robot designed for interactive robotics demonstrations.</p>
+            <a href="/projects/#riggu" class="project-link">View Project →</a>
           </div>
         </div>
+      </noscript>
+    </div>
 
         <div class="view-all">
-          <a href="/src/pages/projects/">View All Projects →</a>
+          <a href="/projects/">View All Projects →</a>
         </div>
       </div>
       <script src="/src/scripts/main_projects.js"></script>
