@@ -1,12 +1,61 @@
 [
     {
 
-        "name": "Amal Pavithran ",
+        "name": "Anusha M K",
+        "photo": "assets/images/team/b18/anusha-m-k.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/anusha-m-k-79527a178/"
+        }
+        ]
+    },
+    {
+
+        "name": "Amal Pavithran",
         "photo": "assets/images/team/b18/amal-pavithran.webp",
+        "role": "Team Member",
         "socials": [
         {
             "platform": "linkedin",
             "url": "https://www.linkedin.com/in/amalpavithran/"
+        }
+        ]
+    },
+    {
+
+        "name": "Aneesh Kumar C M",
+        "photo": "assets/images/team/b18/aneesh-kumar-c-m.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/aneesh-kumar-c-m-564296184/"
+        }
+        ]
+    },
+    {
+
+        "name": "Arpith G Naik",
+        "photo": "assets/images/team/b18/arpit-g-naik.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/arpith-g-naik/"
+        }
+        ]
+    },
+    {
+
+        "name": "Cheedella Vamsi Kishore",
+        "photo": "assets/images/team/b18/ch-vamsi-kishore.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/cheedella-vamsi-kishore/"
         }
         ]
     },
@@ -33,6 +82,13 @@
             "url": "https://www.linkedin.com/in/hksm/"
         }
         ]
+    },
+    {
+
+        "name": "MALLADI SRI VIDYA MANI MEGHANA",
+        "photo": "assets/images/logo.webp",
+        "role": "Team Member",
+        "socials": []
     },
     {
 
@@ -71,6 +127,18 @@
         ]  
     },
     {
+
+        "name": "Nikhil Karna",
+        "photo": "assets/images/logo.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "https://www.linkedin.com/in/nikhilkarna/"
+        }
+        ]
+    },
+    {
       
         "name": "Rohith Poola",
         "photo": "assets/images/team/b18/rohith-poola.webp",
@@ -83,6 +151,18 @@
         ]  
     },
     {
+
+        "name": "Pratima",
+        "photo": "assets/images/team/b18/prathima.webp",
+        "role": "Team Member",
+        "socials": [
+        {
+            "platform": "linkedin",
+            "url": "hhttps://www.linkedin.com/in/pratima3012"
+        }
+        ]
+    },
+    {
       
         "name": "Dheeraj Reddy Puchakayala",
         "photo": "assets/images/team/b18/dheeraj-reddy.webp",
@@ -93,6 +173,13 @@
             "url": "https://www.linkedin.com/in/dheeraj-reddy-puchakayala-67b842178/"
         }
         ]  
+    },
+    {
+      
+        "name": "R V V Manikantha Sai",
+        "photo": "assets/images/logo.webp",
+        "role": "Team Member",
+        "socials": []  
     },
     {
       
