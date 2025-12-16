@@ -131,6 +131,10 @@
       {
         "platform": "github",
         "url": "https://github.com/mohammedrashithkp"
+      },
+      {
+        "platform": "site",
+        "url": "https://mrkp-dev.netlify.app/"
       }
     ]
   }

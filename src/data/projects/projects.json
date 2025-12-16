@@ -1,7 +1,7 @@
 [
   {
     "id": "gnss-drone",
-    "title": "Autonomous Drone for GNSS-Denied Environments",
+    "title": "GNSS Denied UAV",
     "short_description": "A drone designed to operate without GNSS signals for navigation.",
     "description": "This autonomous drone is developed for GNSS-denied environments such as indoors, tunnels, or under dense canopy. It leverages onboard sensors, visual odometry, SLAM techniques, and AI-driven navigation to maintain precise positioning and stability where GPS is unavailable. Designed for applications in defense, search and rescue, and exploration.",
     "link": "gnss-drone",
