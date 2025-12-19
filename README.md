@@ -1,4 +1,4 @@
-# Website Repository 
+# Website Repository
 
 This repository contains the source code for a multi-page website with sections for **About**, **Achievements**, **Activities**, **Projects**, **Team**, and **Contact**. The website includes interactive features, animations, and modular assets.
 
