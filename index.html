@@ -87,7 +87,8 @@
       "
     >
       <img
-        src="assets/images/lab-ol-h.webp"
+        id="labImage"
+        src="assets/images/lab-ol-h1.webp"
         alt="lab background"
         class="lab-bg"
         style="
@@ -124,6 +125,22 @@
         style="position: relative; z-index: 1"
       />
     </div>
+
+    <script>
+      const images = [
+        "assets/images/lab-ol-h1.webp",
+        "assets/images/lab-ol-h2.webp"
+      ];
+
+      let index = 0;
+      const img = document.getElementById("labImage");
+
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        img.src = images[index];
+      }, 1000);
+    </script>
+
 
     <section id="about">
       <div class="about-container">
