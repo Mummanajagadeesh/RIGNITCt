@@ -27,8 +27,8 @@ main {
   padding: 0 22px;
 }
 @font-face {
-  font-family: "Pricedown";
-  src: url("/assets/fonts/Pricedown Bl.otf") format("opentype");
+  font-family: "Neue Machina";
+  src: url("/assets/fonts/Neue Machina Bl.otf") format("opentype");
 }
 
 /* Navbar fix */
@@ -74,7 +74,7 @@ nav.dark .logo img {
   margin-bottom: 10px;
 }
 .hero-title h1 {
-  font-family: "Pricedown", "Orbitron", sans-serif;
+  font-family: "Neue Machina", "Orbitron", sans-serif;
   font-size: clamp(3rem, 9vw, 5rem);
   text-transform: uppercase;
   letter-spacing: 1px;

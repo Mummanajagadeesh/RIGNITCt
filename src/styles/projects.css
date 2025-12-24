@@ -34,8 +34,8 @@ body {
 
 /* GTA font */
 @font-face {
-  font-family: 'Pricedown';
-  src: url('/assets/fonts/Pricedown Bl.otf') format('opentype');
+  font-family: 'Neue Machina';
+  src: url('/assets/fonts/Neue Machina Bl.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -60,7 +60,7 @@ body {
 }
 
 .stack-title {
-  font-family: 'Pricedown', sans-serif !important;
+  font-family: 'Neue Machina', sans-serif !important;
   font-size: 2rem;
   margin: 0 0 16px;
   color: #fff;
@@ -88,7 +88,7 @@ body {
 .site-title {
   flex: 1 1 100%;
   margin: 0;
-  font-family: 'Pricedown', sans-serif !important;
+  font-family: 'Neue Machina', sans-serif !important;
   font-size: 5rem;
   text-align: right;
   letter-spacing: 1px;

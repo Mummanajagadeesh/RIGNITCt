@@ -192,7 +192,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "Pricedown", sans-serif;
+  font-family: "Neue Machina", sans-serif;
   font-size: 3rem;
   color: #fff;
   padding: 14px 34px;
@@ -349,8 +349,8 @@ body {
 }
 
 @font-face {
-  font-family: "Pricedown";
-  src: url("/assets/fonts/Pricedown Bl.otf") format("opentype");
+  font-family: "Neue Machina";
+  src: url("/assets/fonts/Neue Machina Bl.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -359,12 +359,12 @@ body {
 h1,
 h2,
 span.social-label {
-  font-family: "Pricedown", sans-serif !important;
+  font-family: "Neue Machina", sans-serif !important;
 }
 
 .socials span {
-  font-family: "Pricedown", sans-serif;
-  /* Force Pricedown */
+  font-family: "Neue Machina", sans-serif;
+  /* Force Neue Machina */
   font-size: 2.4rem;
   letter-spacing: 1px;
   position: relative;

@@ -365,8 +365,8 @@ h1:hover:after {
 }
 
 @font-face {
-  font-family: "Pricedown";
-  src: url("/assets/fonts/Pricedown Bl.otf") format("opentype");
+  font-family: "Neue Machina";
+  src: url("/assets/fonts/Neue Machina Bl.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -374,5 +374,5 @@ h1:hover:after {
 #ach-head,
 #startup-head,
 #res-head {
-  font-family: "Pricedown", sans-serif !important;
+  font-family: "Neue Machina", sans-serif !important;
 }

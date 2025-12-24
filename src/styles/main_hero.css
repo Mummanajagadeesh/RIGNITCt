@@ -1,17 +1,17 @@
 .title,
 .subtitle {
-  font-family: "Pricedown", sans-serif;
-  font-weight: normal;
-  /* force same glyphs */
+  font-family: "Neue Machina", sans-serif;
   font-style: normal;
 }
 
+/* Title */
 .title {
-  font-size: clamp(48px, 12vw, 165px);
+  font-size: clamp(24px, 8vw, 165px);
   text-align: left;
   margin: 0;
   margin-bottom: 0 !important;
-  line-height: 1.2;
+  line-height: 1;
+  font-weight: 800; /* Ultrabold */
 }
 
 @media (max-width: 768px) {
@@ -23,6 +23,7 @@
   }
 }
 
+/* Subtitle */
 .subtitle {
   font-size: clamp(24px, 5vw, 48px);
   color: #cfcfcf;
@@ -31,6 +32,7 @@
   margin: 0;
   margin-top: 0 !important;
   line-height: 1;
+  font-weight: 400; /* Regular */
 }
 
 @media (max-width: 768px) {

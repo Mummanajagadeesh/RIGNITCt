@@ -281,7 +281,7 @@ body {
 }
 
 .media-showcase h2 {
-  font-family: "Pricedown", sans-serif !important;
+  font-family: "Neue Machina", sans-serif !important;
   font-size: 2.6rem;
   margin-bottom: 12px;
   color: #ffffff;
@@ -384,19 +384,19 @@ body {
 }
 
 @font-face {
-  font-family: "Pricedown";
-  src: url("/assets/fonts/Pricedown Bl.otf") format("opentype");
+  font-family: "Neue Machina";
+  src: url("/assets/fonts/Neue Machina Bl.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
 
 .site-title {
-  font-family: "Pricedown", sans-serif !important;
+  font-family: "Neue Machina", sans-serif !important;
   font-size: 5em;
   /* adjust size as needed */
 }
 
 h1,
 h2 {
-  font-family: "Pricedown", sans-serif !important;
+  font-family: "Neue Machina", sans-serif !important;
 }
