@@ -127,7 +127,7 @@
     </div>
 
     <script>
-      const images = [
+      const pics = [
         "assets/images/lab-ol-h1.webp",
         "assets/images/lab-ol-h2.webp"
       ];
@@ -136,8 +136,8 @@
       const img = document.getElementById("labImage");
 
       setInterval(() => {
-        index = (index + 1) % images.length;
-        img.src = images[index];
+        index = (index + 1) % pics.length;
+        img.src = pics[index];
       }, 1000);
     </script>
 
