@@ -64,7 +64,7 @@ This ensures that all visitors see a secure HTTPS version of the site, even befo
 
 In your GitHub repository:
 
-* Open **Settings → Pages**.
+* Open **Settings ↗ Pages**.
 * Enter `rignitc.com` as the custom domain.
 * Save the setting.
 * At the root of your repository, create a file named `CNAME` containing only:

@@ -15,7 +15,7 @@ if response.status_code == 200:
 else:
     raise Exception("Failed to download file, status code:", response.status_code)
 
-# Step 2: Convert APNG → GIF
+# Step 2: Convert APNG ↗ GIF
 print("Converting to GIF...")
 apng = APNG.open(apng_file)
 

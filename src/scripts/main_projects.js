@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async function() {
           <h2><strong>${project.title}</strong></h2>
           <p>${project.short_description || 'No description available.'}</p>
           <a href="/projects/#${project.id}" class="project-link" data-project-id="${project.id}">
-            View Project →
+            View Project ↗
           </a>
         </div>
       `;
