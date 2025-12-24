@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 from PIL import Image, ImageSequence
 
-SUPPORTED_EXTS = {".png", ".jpg", ".jpeg", ".gif"}
+SUPPORTED_EXTS = {".svg" ".png", ".jpg", ".jpeg", ".gif"}
 
 def convert_image(image_path: Path):
     output_path = image_path.with_suffix(".webp")

@@ -1,6 +1,5 @@
 #people {
   position: relative;
-  /* allow pseudo-element overlay */
   background: #111;
   color: #fff;
   font-family: "Orbitron", sans-serif;
@@ -10,29 +9,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 40px;
   height: auto !important;
 }
+
+/* ===============================
+   BACKGROUND GRID
+================================ */
 
 #people::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background-image: radial-gradient(circle, #fff 2px, transparent 2px),
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #fff 2px, transparent 2px),
     radial-gradient(circle, #fff 2px, transparent 2px);
   background-size: 50px 50px;
   background-position: 0 0, 25px 25px;
-
   opacity: 0.15;
-  /* subtle dot grid */
   pointer-events: none;
-  /* allow clicks through */
   z-index: 0;
 }
+
+/* ===============================
+   HEADER
+================================ */
 
 #people .people-header {
   font-size: 2.5rem;
@@ -40,6 +41,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease-out;
+  z-index: 1;
 }
 
 #people .people-header.show {
@@ -47,72 +49,102 @@
   transform: translateY(0);
 }
 
-/* --- SCROLLING COMPANY SLIDER --- */
-#people .company-slider {
+/* ===============================
+   SLIDER WRAPPERS
+================================ */
+
+#people .slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+   SLIDERS
+================================ */
+
+#companySlider,
+#universitySlider {
   display: flex;
-  gap: 50px;
-  white-space: nowrap;
+  flex-wrap: nowrap;
   align-items: center;
+  width: max-content;
+  white-space: nowrap;
 }
 
-#people .company-slider img {
+/* Slider logos */
+#companySlider img,
+#universitySlider img {
   height: 50px;
+  margin-right: 50px;
   object-fit: contain;
-  display: inline-block;
   filter: brightness(0) invert(1);
-  /* white logos */
   user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
+/* ===============================
+   ANIMATIONS
+================================ */
 
-  100% {
-    transform: translateX(-50%);
-  }
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-#people .company-slider.scroll {
-  animation: scroll 40s linear infinite;
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
 }
 
-/* --- STATIC STARTUP GRID --- */
+#companySlider {
+  animation: scroll-left 40s linear infinite;
+}
+
+#universitySlider {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* ===============================
+   STARTUP SECTION (RESTORED)
+================================ */
+
 #people .startup-header {
   font-size: 2.5rem;
   text-align: center;
   margin-top: 80px;
+  z-index: 1;
 }
 
 #people .startup-grid {
   display: flex;
-  /* use flex instead of grid */
   justify-content: center;
-  /* center logos */
   align-items: center;
   gap: 80px;
-  /* spacing between logos */
   margin-top: 40px;
-  max-width: 1000px;
   width: 100%;
+  max-width: 1000px;
+  z-index: 1;
 }
 
 #people .startup-grid img {
   height: 100px;
-  /* make logos big */
   max-width: 280px;
   object-fit: contain;
-  filter: none !important;
-  /* colored logos */
+  filter: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #people .startup-grid img:hover {
   transform: scale(1.15);
-  /* pop out effect */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
 }
+
+/* ===============================
+   RESPONSIVE
+================================ */
 
 @media (max-width: 900px) {
   #people {
@@ -124,13 +156,10 @@
     font-size: 1.8rem;
   }
 
-  #people .company-slider {
-    gap: 25px;
-  }
-
-  #people .company-slider img {
+  #companySlider img,
+  #universitySlider img {
     height: 30px;
-    /* smaller logos */
+    margin-right: 30px;
   }
 
   #people .startup-header {
@@ -144,7 +173,7 @@
   }
 
   #people .startup-grid img {
-    height: 100px;
-    max-width: 140px;
+    height: 80px;
+    max-width: 160px;
   }
 }
