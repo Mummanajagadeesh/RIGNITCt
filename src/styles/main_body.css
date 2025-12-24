@@ -73,7 +73,7 @@ section:not(#footer-new) {
   align-items: center;
   font-size: 3rem;
   font-weight: bold;
-  background: #111;
+  background: #000;
   color: #ffffff;
   border-bottom: 2px solid #ccc;
   /* divider for all sections */
