@@ -6,34 +6,51 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-
-  /* Solid white background for clean inversion */
   background: #fff;
-  /* Applies the visual inversion/difference blend effect */
   mix-blend-mode: difference;
-
-  transform: translate(-50%, -50%) scale(0); /* Starts hidden and scaled down */
-  opacity: 0; /* Starts invisible */
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
   pointer-events: none;
-  z-index: 2000;
-  /* Increased transition time for smoother fade/scale effect on mouseenter/mouseleave */
+  z-index: 2001;
   transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.2s ease;
 }
 
-/* Requirement 1: Show when mouse is over the document */
-.cursor.visible {
+/* Cursor Ring with Inertia Effect */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1999;
+  transition: transform 0.05s linear, opacity 0.3s ease;
+}
+
+.cursor.visible,
+.cursor-ring.visible {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
 .cursor.hovered {
-  /* Note: .visible must be present for .hovered to work correctly */
   transform: translate(-50%, -50%) scale(1.6);
-  /* Use a bright box-shadow since the background is dark */
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-/* Hide the default cursor by overriding the default browser cursor */
+.cursor-ring.hovered {
+  width: 45px;
+  height: 45px;
+  border-width: 3px;
+  opacity: 0.8;
+}
+
+/* Hide the default cursor */
 body,
 a,
 button,
@@ -43,12 +60,11 @@ button,
 }
 
 @media (max-width: 768px), (pointer: coarse) {
-  /* 1. Hide the custom cursor */
-  .cursor {
+  .cursor,
+  .cursor-ring {
     display: none !important;
   }
-
-  /* 2. Re-enable the default system cursor on mobile/touch elements */
+  
   body,
   a,
   button,
