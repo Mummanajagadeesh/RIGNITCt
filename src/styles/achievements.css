@@ -102,6 +102,69 @@ h1:hover:after {
   mix-blend-mode: screen;
 }
 
+/* ================================
+   COMPETITIONS CATEGORY FILTER
+   (SCOPED – DOES NOT AFFECT OTHERS)
+================================ */
+
+#achievements + .filter-bar,
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 30px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: var(--fg);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.12);
+}
+
+.filter-btn.active {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.18);
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .filter-bar {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .filter-btn {
+    padding: 7px 16px;
+    font-size: 0.78rem;
+  }
+}
+
+/* ================================
+   ACHIEVEMENTS (COMMON)
+================================ */
+
 .achievements {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -230,6 +293,10 @@ h1:hover:after {
   }
 }
 
+/* ================================
+   RESEARCH
+================================ */
+
 .achievements.research-list {
   grid-template-columns: 1fr;
 }
@@ -263,6 +330,10 @@ h1:hover:after {
   flex: 1 1 auto;
 }
 
+/* ================================
+   VIEW MORE BUTTON
+================================ */
+
 .view-more-btn {
   background: var(--fg);
   color: var(--bg);
@@ -278,7 +349,10 @@ h1:hover:after {
   background: rgba(255, 255, 255, 0.85);
 }
 
-/* Startups special styling */
+/* ================================
+   STARTUPS (UNCHANGED)
+================================ */
+
 .startups-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
