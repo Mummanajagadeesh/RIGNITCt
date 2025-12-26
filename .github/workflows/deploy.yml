@@ -36,17 +36,19 @@ jobs:
             exit 1
           fi
 
-      # 🔥 THE ONLY FIX THAT MATCHES YOUR SITE
+      # 🔥 FIX: prefix absolute paths (INCLUDING inline JS for components)
       - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
           echo "Prefixing paths with /$REPO"
 
-          # HTML files
+          # HTML files (attributes + inline JS)
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
               -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
+              -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
+              -e "s|'/src/components/|'/$REPO/src/components/|g" \
               "$file"
           done
 
