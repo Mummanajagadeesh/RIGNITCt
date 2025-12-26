@@ -1,4 +1,4 @@
-name: Build and Deploy (inject base href)
+name: Build and Deploy (project pages, fix absolute paths)
 
 on:
   push:
@@ -13,46 +13,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js 🟢
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies 📦
+      - name: Install deps
         run: npm install
 
-      - name: Build site 🏗️
+      - name: Build
         run: npm run build
 
-      # 🔥 THIS IS THE FIX — inject <base> automatically
-      - name: Inject base href for GitHub Pages
+      # 🔥 FIX: rewrite absolute paths for ALL HTML files
+      - name: Rewrite absolute paths for GitHub project pages
         run: |
-          REPO_NAME="${GITHUB_REPOSITORY##*/}"
-          for file in dist/**/*.html dist/*.html; do
-            if grep -q "<base " "$file"; then
-              echo "Base tag already exists in $file"
-            else
-              sed -i "s|<head>|<head>\n  <base href=\"/${REPO_NAME}/\">|i" "$file"
-            fi
+          echo "Rewriting absolute paths in dist/"
+
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e 's|href="/|href="|g' \
+              -e 's|src="/|src="|g' \
+              -e 's|action="/|action="|g' \
+              "$file"
           done
 
-      - name: Deploy to deploy branch 🚀
+      - name: Deploy to deploy branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git checkout deploy || git checkout -b deploy
 
-          find . -mindepth 1 -maxdepth 1 ! -name dist ! -name .git -exec rm -rf {} +
+          # wipe deploy branch except .git
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 
+          # move built site to root
           cp -r dist/* .
           rm -rf dist
 
           git add .
-          git commit -m "Deploy from main: $GITHUB_SHA" || echo "No changes"
+          git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
           git push origin deploy
