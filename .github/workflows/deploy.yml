@@ -84,7 +84,7 @@ jobs:
               "$file"
           done
 
-      # 🔒 FINAL FINAL FIX: JSON asset paths in src/data/**
+      # 🔒 FINAL FINAL FIX: asset paths inside JSON data files
       - name: Fix asset paths inside JSON data files
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
