@@ -1,4 +1,4 @@
-name: Build and Deploy (project pages – final fix)
+name: Build and Deploy (stable, component-only fix)
 
 on:
   push:
@@ -36,14 +36,24 @@ jobs:
             exit 1
           fi
 
-      # 🔥 FIX: prefix /src/ paths inside JS ONLY
-      - name: Fix absolute /src paths in JS
+      # ✅ FIX ONLY WHAT IS BROKEN (IDEMPOTENT)
+      - name: Fix navbar, footer, and data paths (JS only)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
-          echo "Using repo: $REPO"
+          echo "Using repo prefix: /$REPO"
 
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
-            sed -i "s|\"/src/|\"/$REPO/src/|g" "$file"
+            # navbar
+            sed -i \
+              -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
+              -e "s|'/src/components/|'/$REPO/src/components/|g" \
+              "$file"
+
+            # data (JSON fetches)
+            sed -i \
+              -e "s|\"/src/data/|\"/$REPO/src/data/|g" \
+              -e "s|'/src/data/|'/$REPO/src/data/|g" \
+              "$file"
           done
 
       # Save build output before branch switch
