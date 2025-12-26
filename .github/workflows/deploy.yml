@@ -1,4 +1,4 @@
-name: Build and Deploy (relative assets + components fix)
+name: Build and Deploy (absolute-path prefix fix)
 
 on:
   push:
@@ -36,29 +36,32 @@ jobs:
             exit 1
           fi
 
-      # ✅ FIX 1: navbar & footer component paths
-      # /src/components/... → src/components/...
-      - name: Fix component paths (HTML + JS)
+      # 🔥 THE ONLY FIX THAT MATCHES YOUR SITE
+      - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
-          find dist -type f \( -name "*.html" -o -name "*.js" \) -print0 | while IFS= read -r -d '' file; do
+          REPO="${GITHUB_REPOSITORY##*/}"
+          echo "Prefixing paths with /$REPO"
+
+          # HTML files
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
-              -e 's|"/src/components/|"src/components/|g' \
-              -e "s|'/src/components/|'src/components/|g" \
+              -e "s|=\"/src/|=\"/$REPO/src/|g" \
+              -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               "$file"
           done
 
-      # ✅ FIX 2: images must start with assets/, not /assets/
-      - name: Fix asset paths (HTML + JS)
-        run: |
-          find dist -type f \( -name "*.html" -o -name "*.js" \) -print0 | while IFS= read -r -d '' file; do
+          # JS files
+          find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
-              -e 's|"/assets/|"assets/|g' \
-              -e "s|'/assets/|'assets/|g" \
+              -e "s|\"/src/|\"/$REPO/src/|g" \
+              -e "s|'/src/|'/$REPO/src/|g" \
+              -e "s|\"/assets/|\"/$REPO/assets/|g" \
+              -e "s|'/assets/|'/$REPO/assets/|g" \
               "$file"
           done
 
-      # Save build before switching branches
-      - name: Save build output
+      # Save build before branch switch
+      - name: Save build
         run: |
           rm -rf /tmp/site
           mkdir -p /tmp/site
