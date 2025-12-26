@@ -84,6 +84,18 @@ jobs:
               "$file"
           done
 
+      # 🔒 FINAL FINAL FIX: JSON asset paths in src/data/**
+      - name: Fix asset paths inside JSON data files
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          echo "Fixing JSON asset paths for /$REPO"
+
+          find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|\"/assets/|\"/$REPO/assets/|g" \
+              "$file"
+          done
+
       # Save build before branch switch
       - name: Save build
         run: |
