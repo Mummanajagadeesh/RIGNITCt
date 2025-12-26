@@ -36,16 +36,20 @@ jobs:
             exit 1
           fi
 
+      # ✅ SAFE prefixing for GitHub Pages repo deployment
       - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
+          echo "Prefixing paths with /$REPO"
 
+          # ---------- HTML ----------
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
               -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
               -e "s|'/src/components/|'/$REPO/src/components/|g" \
+              \
               -e "s|href=\"/about/|href=\"/$REPO/about/|g" \
               -e "s|href=\"/projects/|href=\"/$REPO/projects/|g" \
               -e "s|href=\"/achievements/|href=\"/$REPO/achievements/|g" \
@@ -57,48 +61,54 @@ jobs:
               "$file"
           done
 
+          # ---------- JS ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
+              -e "s|\"/src/data/|\"/$REPO/src/data/|g" \
+              -e "s|'/src/data/|'/$REPO/src/data/|g" \
               -e "s|\"/src/|\"/$REPO/src/|g" \
+              -e "s|'/src/|'/$REPO/src/|g" \
+              -e "s|\"/assets/|\"/$REPO/assets/|g" \
+              -e "s|'/assets/|'/$REPO/assets/|g" \
+              "$file"
+          done
+
+      # 🔒 FINAL, ISOLATED FIX: font-face URLs in CSS
+      - name: Fix CSS font-face asset URLs
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          find dist/src/styles -type f -name "*.css" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|url(\"/assets/|url(\"/$REPO/assets/|g" \
+              -e "s|url('/assets/|url('/$REPO/assets/|g" \
+              "$file"
+          done
+
+      # 🔒 FINAL FINAL FIX: asset paths inside JSON data files
+      - name: Fix asset paths inside JSON data files
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
               -e "s|\"/assets/|\"/$REPO/assets/|g" \
               "$file"
           done
 
-      - name: Fix CSS font-face asset URLs
-        run: |
-          REPO="${GITHUB_REPOSITORY##*/}"
-          find dist/src/styles -name "*.css" -exec sed -i \
-            -e "s|url(\"/assets/|url(\"/$REPO/assets/|g" \
-            -e "s|url('/assets/|url('/$REPO/assets/|g" {} +
-
-      - name: Fix asset paths inside JSON data files
-        run: |
-          REPO="${GITHUB_REPOSITORY##*/}"
-          find dist/src/data -name "*.json" -exec sed -i \
-            -e "s|\"/assets/|\"/$REPO/assets/|g" {} +
-
-      # 🔥 FORCE a content change every run
-      - name: Force deploy diff
-        run: |
-          echo "deploy $(date -u +%s)" > dist/.deploy-trigger
-
-      # Save build
+      # Save build before branch switch
       - name: Save build
         run: |
           rm -rf /tmp/site
           mkdir -p /tmp/site
           cp -r dist/* /tmp/site/
 
-      # 🔥 FORCE recreate deploy branch and commit
-      - name: Deploy to deploy branch (FORCED)
+      - name: Deploy to deploy branch
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git checkout -B deploy
+          git checkout deploy || git checkout -b deploy
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -r /tmp/site/* .
-
           git add .
-          git commit --allow-empty -m "Deploy from main $GITHUB_SHA"
-          git push -f origin deploy
+          git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
+          git push origin deploy
