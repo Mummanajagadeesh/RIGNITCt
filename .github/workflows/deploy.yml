@@ -71,6 +71,19 @@ jobs:
               "$file"
           done
 
+      # 🔒 FINAL, ISOLATED FIX: font-face URLs in CSS
+      - name: Fix CSS font-face asset URLs
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          echo "Fixing CSS font URLs for /$REPO"
+
+          find dist/src/styles -type f -name "*.css" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|url(\"/assets/|url(\"/$REPO/assets/|g" \
+              -e "s|url('/assets/|url('/$REPO/assets/|g" \
+              "$file"
+          done
+
       # Save build before branch switch
       - name: Save build
         run: |
