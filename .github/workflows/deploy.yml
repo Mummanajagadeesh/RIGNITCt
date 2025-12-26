@@ -1,4 +1,4 @@
-name: Build and Deploy (deploy branch)
+name: Build and Deploy (inject base href)
 
 on:
   push:
@@ -6,14 +6,14 @@ on:
       - main
 
 permissions:
-  contents: write   # REQUIRED to push to deploy branch
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main 🛎️
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -29,22 +29,30 @@ jobs:
       - name: Build site 🏗️
         run: npm run build
 
+      # 🔥 THIS IS THE FIX — inject <base> automatically
+      - name: Inject base href for GitHub Pages
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY##*/}"
+          for file in dist/**/*.html dist/*.html; do
+            if grep -q "<base " "$file"; then
+              echo "Base tag already exists in $file"
+            else
+              sed -i "s|<head>|<head>\n  <base href=\"/${REPO_NAME}/\">|i" "$file"
+            fi
+          done
+
       - name: Deploy to deploy branch 🚀
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # Create deploy branch if it doesn't exist
           git checkout deploy || git checkout -b deploy
 
-          # Remove everything except dist
           find . -mindepth 1 -maxdepth 1 ! -name dist ! -name .git -exec rm -rf {} +
 
-          # Move dist contents to root
           cp -r dist/* .
           rm -rf dist
 
-          # Commit & push
           git add .
-          git commit -m "Deploy from main: $GITHUB_SHA" || echo "No changes to commit"
+          git commit -m "Deploy from main: $GITHUB_SHA" || echo "No changes"
           git push origin deploy
