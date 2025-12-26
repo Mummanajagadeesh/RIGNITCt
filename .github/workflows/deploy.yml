@@ -1,4 +1,4 @@
-name: Build and Deploy (project pages, fix absolute paths)
+name: Build and Deploy (project pages, hard fix)
 
 on:
   push:
@@ -26,14 +26,26 @@ jobs:
       - name: Install deps
         run: npm install
 
+      # 🔧 GUARANTEE dist EXISTS
+      - name: Prepare dist
+        run: mkdir -p dist
+
       - name: Build
         run: npm run build
 
-      # 🔥 FIX: rewrite absolute paths for ALL HTML files
-      - name: Rewrite absolute paths for GitHub project pages
+      # 🔍 HARD CHECK — STOP IF dist IS EMPTY
+      - name: Verify build output
         run: |
-          echo "Rewriting absolute paths in dist/"
+          if [ -z "$(ls -A dist 2>/dev/null)" ]; then
+            echo "❌ dist is empty or missing. Build failed."
+            exit 1
+          fi
+          echo "✅ dist contents:"
+          ls -R dist
 
+      # 🔥 FIX ABSOLUTE PATHS FOR ALL HTML FILES
+      - name: Rewrite absolute paths
+        run: |
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e 's|href="/|href="|g' \
@@ -49,10 +61,8 @@ jobs:
 
           git checkout deploy || git checkout -b deploy
 
-          # wipe deploy branch except .git
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 
-          # move built site to root
           cp -r dist/* .
           rm -rf dist
 
