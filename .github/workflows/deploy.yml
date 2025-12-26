@@ -36,43 +36,28 @@ jobs:
             exit 1
           fi
 
-      # 🔥 FIX ALL ABSOLUTE PATHS FOR REPO-BASED GITHUB PAGES
+      # Prefix absolute paths for GitHub Pages repo deployment
       - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
           echo "Prefixing paths with /$REPO"
 
-          # --------------------
-          # HTML files
-          # --------------------
+          # ---- HTML files ----
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
-              \
-              # assets + src
               -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
-              \
-              # inline JS component paths
               -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
               -e "s|'/src/components/|'/$REPO/src/components/|g" \
-              \
-              # internal navigation links (about, projects, etc.)
               -e "s|href=\"/|href=\"/$REPO/|g" \
-              \
-              # undo over-fixes (keep assets/src correct)
               -e "s|href=\"/$REPO/assets/|href=\"/$REPO/assets/|g" \
               -e "s|href=\"/$REPO/src/|href=\"/$REPO/src/|g" \
-              \
-              # do NOT touch external links
               -e "s|href=\"/$REPO/http|href=\"http|g" \
               -e "s|href=\"/$REPO/https|href=\"https|g" \
-              \
               "$file"
           done
 
-          # --------------------
-          # JS files
-          # --------------------
+          # ---- JS files ----
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|\"/src/|\"/$REPO/src/|g" \
