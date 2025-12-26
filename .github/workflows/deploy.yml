@@ -1,4 +1,4 @@
-name: Build and Deploy (stable, component-only fix)
+name: Build and Deploy (absolute-path prefix fix)
 
 on:
   push:
@@ -36,27 +36,31 @@ jobs:
             exit 1
           fi
 
-      # ✅ FIX ONLY WHAT IS BROKEN (IDEMPOTENT)
-      - name: Fix navbar, footer, and data paths (JS only)
+      # 🔥 THE ONLY FIX THAT MATCHES YOUR SITE
+      - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
-          echo "Using repo prefix: /$REPO"
+          echo "Prefixing paths with /$REPO"
 
-          find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
-            # navbar
+          # HTML files
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
-              -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
-              -e "s|'/src/components/|'/$REPO/src/components/|g" \
-              "$file"
-
-            # data (JSON fetches)
-            sed -i \
-              -e "s|\"/src/data/|\"/$REPO/src/data/|g" \
-              -e "s|'/src/data/|'/$REPO/src/data/|g" \
+              -e "s|=\"/src/|=\"/$REPO/src/|g" \
+              -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               "$file"
           done
 
-      # Save build output before branch switch
+          # JS files
+          find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|\"/src/|\"/$REPO/src/|g" \
+              -e "s|'/src/|'/$REPO/src/|g" \
+              -e "s|\"/assets/|\"/$REPO/assets/|g" \
+              -e "s|'/assets/|'/$REPO/assets/|g" \
+              "$file"
+          done
+
+      # Save build before branch switch
       - name: Save build
         run: |
           rm -rf /tmp/site
