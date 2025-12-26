@@ -1,42 +1,50 @@
-name: Build and Deploy
+name: Build and Deploy (deploy branch)
 
 on:
   push:
     branches:
-      - main # Runs the build when pushing to your test branch
+      - main
 
-# Set permissions for the GITHUB_TOKEN to allow uploading and deploying
 permissions:
-  contents: read # Read permission is usually sufficient for source code
-  pages: write   # REQUIRED for deploying to GitHub Pages
-  id-token: write # REQUIRED for authenticating with the deploy action
+  contents: write   # REQUIRED to push to deploy branch
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout main 🛎️
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 🟢
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
       - name: Install dependencies 📦
         run: npm install
 
-      - name: Build Site 🏗️
+      - name: Build site 🏗️
         run: npm run build
-      
-      # 1. Upload the built site (your 'dist' folder) as an artifact
-      - name: Upload Artifact ⬆️
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist' # This must match your output folder
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # The final URL output
-    runs-on: ubuntu-latest
-    needs: build # This job must wait for the 'build' job to finish
-    steps:
-      - name: Deploy to GitHub Pages 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4 # This official action handles the final deployment
+      - name: Deploy to deploy branch 🚀
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          # Create deploy branch if it doesn't exist
+          git checkout deploy || git checkout -b deploy
+
+          # Remove everything except dist
+          find . -mindepth 1 -maxdepth 1 ! -name dist ! -name .git -exec rm -rf {} +
+
+          # Move dist contents to root
+          cp -r dist/* .
+          rm -rf dist
+
+          # Commit & push
+          git add .
+          git commit -m "Deploy from main: $GITHUB_SHA" || echo "No changes to commit"
+          git push origin deploy
