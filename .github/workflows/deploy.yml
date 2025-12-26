@@ -1,4 +1,4 @@
-name: Build and Deploy (project pages full fix)
+name: Build and Deploy (project pages – absolute path fix)
 
 on:
   push:
@@ -36,35 +36,23 @@ jobs:
             exit 1
           fi
 
-      # 🔥 FIX 1: Inject <base> for nested pages
-      - name: Inject base href
+      # 🔥 FIX: prefix absolute paths with repo name (HTML + JS)
+      - name: Prefix absolute paths with repo name
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
+          echo "Using repo prefix: /$REPO"
+
+          # HTML files
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
-            if ! grep -qi "<base " "$file"; then
-              sed -i "s|<head>|<head>\n  <base href=\"/${REPO}/\">|i" "$file"
-            fi
+            sed -i "s|=\"/|=\"/$REPO/|g" "$file"
           done
 
-      # 🔥 FIX 2: Rewrite absolute paths in HTML
-      - name: Rewrite absolute paths in HTML
-        run: |
-          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
-            sed -i \
-              -e 's|href="/|href="|g' \
-              -e 's|src="/|src="|g' \
-              -e 's|action="/|action="|g' \
-              "$file"
-          done
-
-      # 🔥 FIX 3: Rewrite absolute paths INSIDE JS (components, fetch, JSON)
-      - name: Rewrite absolute paths in JS
-        run: |
+          # JS files (fetch, loadComponent, JSON, etc.)
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
-            sed -i 's|"/|\"|g' "$file"
+            sed -i "s|\"/|\"/$REPO/|g" "$file"
           done
 
-      # 🔒 Save build output before branch switch
+      # Save build before branch switch
       - name: Save build
         run: |
           rm -rf /tmp/site
