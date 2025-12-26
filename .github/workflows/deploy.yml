@@ -42,14 +42,12 @@ jobs:
           REPO="${GITHUB_REPOSITORY##*/}"
           echo "Prefixing paths with /$REPO"
 
-          # ---------- HTML ----------
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
               -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
               -e "s|'/src/components/|'/$REPO/src/components/|g" \
-              \
               -e "s|href=\"/about/|href=\"/$REPO/about/|g" \
               -e "s|href=\"/projects/|href=\"/$REPO/projects/|g" \
               -e "s|href=\"/achievements/|href=\"/$REPO/achievements/|g" \
@@ -61,7 +59,6 @@ jobs:
               "$file"
           done
 
-          # ---------- JS ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|\"/src/|\"/$REPO/src/|g" \
@@ -71,18 +68,29 @@ jobs:
               "$file"
           done
 
-      # 🔒 FINAL, ISOLATED FIX: font-face URLs in CSS
       - name: Fix CSS font-face asset URLs
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
-          echo "Fixing CSS font URLs for /$REPO"
-
           find dist/src/styles -type f -name "*.css" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|url(\"/assets/|url(\"/$REPO/assets/|g" \
               -e "s|url('/assets/|url('/$REPO/assets/|g" \
               "$file"
           done
+
+      - name: Fix asset paths inside JSON data files
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+            sed -i \
+              -e "s|\"/assets/|\"/$REPO/assets/|g" \
+              "$file"
+          done
+
+      # 🔥 THE ACTUAL FIX: force Pages to redeploy EVERY TIME
+      - name: Force GitHub Pages rebuild
+        run: |
+          echo "build $(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/.pages-build
 
       # Save build before branch switch
       - name: Save build
@@ -97,11 +105,8 @@ jobs:
           git config user.email "github-actions@github.com"
 
           git checkout deploy || git checkout -b deploy
-
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-
           cp -r /tmp/site/* .
-
           git add .
           git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
           git push origin deploy
