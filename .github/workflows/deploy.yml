@@ -36,7 +36,7 @@ jobs:
             exit 1
           fi
 
-      # 🔥 FIX 1: inject <base> for nested pages
+      # 🔥 FIX 1: Inject <base> for nested pages
       - name: Inject base href
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -46,7 +46,7 @@ jobs:
             fi
           done
 
-      # 🔥 FIX 2: rewrite absolute paths in HTML
+      # 🔥 FIX 2: Rewrite absolute paths in HTML
       - name: Rewrite absolute paths in HTML
         run: |
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
@@ -57,14 +57,14 @@ jobs:
               "$file"
           done
 
-      # 🔥 FIX 3: rewrite absolute paths INSIDE JS (components, fetch, JSON)
+      # 🔥 FIX 3: Rewrite absolute paths INSIDE JS (components, fetch, JSON)
       - name: Rewrite absolute paths in JS
         run: |
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
-            sed -i 's|"/|"'|g "$file"
+            sed -i 's|"/|\"|g' "$file"
           done
 
-      # Save build before branch switch
+      # 🔒 Save build output before branch switch
       - name: Save build
         run: |
           rm -rf /tmp/site
