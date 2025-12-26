@@ -1,4 +1,4 @@
-name: Build and Deploy (project pages, hard fix)
+name: Build and Deploy (project pages, actually fixed)
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -26,22 +26,16 @@ jobs:
       - name: Install deps
         run: npm install
 
-      # 🔧 GUARANTEE dist EXISTS
-      - name: Prepare dist
-        run: mkdir -p dist
-
       - name: Build
         run: npm run build
 
-      # 🔍 HARD CHECK — STOP IF dist IS EMPTY
       - name: Verify build output
         run: |
-          if [ -z "$(ls -A dist 2>/dev/null)" ]; then
-            echo "❌ dist is empty or missing. Build failed."
+          if [ ! -d dist ] || [ -z "$(ls -A dist)" ]; then
+            echo "❌ dist missing or empty"
             exit 1
           fi
-          echo "✅ dist contents:"
-          ls -R dist
+          echo "✅ dist ready"
 
       # 🔥 FIX ABSOLUTE PATHS FOR ALL HTML FILES
       - name: Rewrite absolute paths
@@ -54,6 +48,13 @@ jobs:
               "$file"
           done
 
+      # 🔒 SAVE BUILD OUTPUT BEFORE BRANCH SWITCH
+      - name: Save build output
+        run: |
+          rm -rf /tmp/site
+          mkdir -p /tmp/site
+          cp -r dist/* /tmp/site/
+
       - name: Deploy to deploy branch
         run: |
           git config user.name "github-actions"
@@ -61,10 +62,11 @@ jobs:
 
           git checkout deploy || git checkout -b deploy
 
+          # clean branch
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 
-          cp -r dist/* .
-          rm -rf dist
+          # restore built site
+          cp -r /tmp/site/* .
 
           git add .
           git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
