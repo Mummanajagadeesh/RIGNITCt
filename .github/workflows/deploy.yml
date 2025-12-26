@@ -36,28 +36,32 @@ jobs:
             exit 1
           fi
 
-      # Prefix absolute paths for GitHub Pages repo deployment
+      # ✅ SAFE prefixing for GitHub Pages repo deployment
       - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
           echo "Prefixing paths with /$REPO"
 
-          # ---- HTML files ----
+          # ---------- HTML ----------
           find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|=\"/assets/|=\"/$REPO/assets/|g" \
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
               -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
               -e "s|'/src/components/|'/$REPO/src/components/|g" \
-              -e "s|href=\"/|href=\"/$REPO/|g" \
-              -e "s|href=\"/$REPO/assets/|href=\"/$REPO/assets/|g" \
-              -e "s|href=\"/$REPO/src/|href=\"/$REPO/src/|g" \
-              -e "s|href=\"/$REPO/http|href=\"http|g" \
-              -e "s|href=\"/$REPO/https|href=\"https|g" \
+              \
+              -e "s|href=\"/about/|href=\"/$REPO/about/|g" \
+              -e "s|href=\"/projects/|href=\"/$REPO/projects/|g" \
+              -e "s|href=\"/achievements/|href=\"/$REPO/achievements/|g" \
+              -e "s|href=\"/activities/|href=\"/$REPO/activities/|g" \
+              -e "s|href=\"/team/|href=\"/$REPO/team/|g" \
+              -e "s|href=\"/contact/|href=\"/$REPO/contact/|g" \
+              -e "s|href=\"/hof/|href=\"/$REPO/hof/|g" \
+              -e "s|href=\"/sitemap.xml|href=\"/$REPO/sitemap.xml|g" \
               "$file"
           done
 
-          # ---- JS files ----
+          # ---------- JS ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|\"/src/|\"/$REPO/src/|g" \
