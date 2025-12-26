@@ -1,4 +1,4 @@
-name: Build and Deploy (project pages – absolute path fix)
+name: Build and Deploy (project pages – final fix)
 
 on:
   push:
@@ -36,23 +36,17 @@ jobs:
             exit 1
           fi
 
-      # 🔥 FIX: prefix absolute paths with repo name (HTML + JS)
-      - name: Prefix absolute paths with repo name
+      # 🔥 FIX: prefix /src/ paths inside JS ONLY
+      - name: Fix absolute /src paths in JS
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
-          echo "Using repo prefix: /$REPO"
+          echo "Using repo: $REPO"
 
-          # HTML files
-          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
-            sed -i "s|=\"/|=\"/$REPO/|g" "$file"
-          done
-
-          # JS files (fetch, loadComponent, JSON, etc.)
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
-            sed -i "s|\"/|\"/$REPO/|g" "$file"
+            sed -i "s|\"/src/|\"/$REPO/src/|g" "$file"
           done
 
-      # Save build before branch switch
+      # Save build output before branch switch
       - name: Save build
         run: |
           rm -rf /tmp/site
