@@ -62,7 +62,7 @@ jobs:
               "$file"
           done
 
-          # ---------- JS (INCLUDING fetch("/src/data/...")) ----------
+          # ---------- JS (including fetch("/src/data/...")) ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|fetch(\"/src/data/|fetch(\"/$REPO/src/data/|g" \
@@ -100,6 +100,20 @@ jobs:
           done
 
       # --------------------------------------------------
+      # 🔒 FINAL RUNTIME FIX:
+      # Fix JS-generated <img src="/assets/...">
+      # --------------------------------------------------
+      - name: Inject runtime fix for JS-generated asset URLs
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+
+          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
+            sed -i "/<\/body>/i \
+<script>(function(){document.querySelectorAll('img[src^=\"\\/assets\\/\"],img[data-src^=\"\\/assets\\/\" ]').forEach(function(img){img.src='\\/'+'$REPO'+img.getAttribute('src');});})();</script>" \
+            "$file"
+          done
+
+      # --------------------------------------------------
       # FORCE a real diff every run (mandatory)
       # --------------------------------------------------
       - name: Force deploy diff
@@ -123,13 +137,10 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          # Always recreate branch from scratch
           git checkout -B deploy
 
-          # Clean branch completely
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 
-          # Copy new site
           cp -r /tmp/site/* .
 
           git add .
