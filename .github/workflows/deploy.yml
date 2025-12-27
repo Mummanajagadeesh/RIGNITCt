@@ -36,8 +36,10 @@ jobs:
             exit 1
           fi
 
-      # ✅ Prefix absolute paths for GitHub Pages repo deployment
-      - name: Prefix absolute paths with repo name (HTML + JS)
+      # --------------------------------------------------
+      # Prefix absolute paths for GitHub Pages repo deploy
+      # --------------------------------------------------
+      - name: Prefix absolute paths (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
           echo "Prefixing paths with /$REPO"
@@ -49,7 +51,6 @@ jobs:
               -e "s|=\"/src/|=\"/$REPO/src/|g" \
               -e "s|\"/src/components/|\"/$REPO/src/components/|g" \
               -e "s|'/src/components/|'/$REPO/src/components/|g" \
-              \
               -e "s|href=\"/about/|href=\"/$REPO/about/|g" \
               -e "s|href=\"/projects/|href=\"/$REPO/projects/|g" \
               -e "s|href=\"/achievements/|href=\"/$REPO/achievements/|g" \
@@ -61,7 +62,7 @@ jobs:
               "$file"
           done
 
-          # ---------- JS (FIX fetch('/src/data/...')) ----------
+          # ---------- JS (INCLUDING fetch("/src/data/...")) ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|fetch(\"/src/data/|fetch(\"/$REPO/src/data/|g" \
@@ -73,7 +74,9 @@ jobs:
               "$file"
           done
 
-      # 🔒 Fix font-face URLs in CSS
+      # --------------------------------------------------
+      # Fix font-face URLs in CSS
+      # --------------------------------------------------
       - name: Fix CSS font-face asset URLs
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -84,7 +87,9 @@ jobs:
               "$file"
           done
 
-      # 🔒 Fix asset paths inside ALL src/data JSON files
+      # --------------------------------------------------
+      # Fix asset paths INSIDE ALL src/data/**/*.json
+      # --------------------------------------------------
       - name: Fix asset paths inside JSON data files
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -94,22 +99,39 @@ jobs:
               "$file"
           done
 
-      # Save build before branch switch
+      # --------------------------------------------------
+      # FORCE a real diff every run (mandatory)
+      # --------------------------------------------------
+      - name: Force deploy diff
+        run: |
+          echo "deploy $(date -u +%s)" > dist/.deploy-trigger
+
+      # --------------------------------------------------
+      # Save build
+      # --------------------------------------------------
       - name: Save build
         run: |
           rm -rf /tmp/site
           mkdir -p /tmp/site
           cp -r dist/* /tmp/site/
 
-      - name: Deploy to deploy branch
+      # --------------------------------------------------
+      # FORCE recreate deploy branch EVERY TIME
+      # --------------------------------------------------
+      - name: Deploy to deploy branch (forced)
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git checkout deploy || git checkout -b deploy
+          # Always recreate branch from scratch
+          git checkout -B deploy
+
+          # Clean branch completely
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+
+          # Copy new site
           cp -r /tmp/site/* .
 
           git add .
-          git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
-          git push origin deploy
+          git commit --allow-empty -m "Deploy from main $GITHUB_SHA"
+          git push -f origin deploy
