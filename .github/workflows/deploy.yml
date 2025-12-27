@@ -36,7 +36,7 @@ jobs:
             exit 1
           fi
 
-      # ✅ SAFE prefixing for GitHub Pages repo deployment
+      # ✅ Prefix absolute paths for GitHub Pages repo deployment
       - name: Prefix absolute paths with repo name (HTML + JS)
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -61,11 +61,11 @@ jobs:
               "$file"
           done
 
-          # ---------- JS ----------
+          # ---------- JS (FIX fetch('/src/data/...')) ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
-              -e "s|\"/src/data/|\"/$REPO/src/data/|g" \
-              -e "s|'/src/data/|'/$REPO/src/data/|g" \
+              -e "s|fetch(\"/src/data/|fetch(\"/$REPO/src/data/|g" \
+              -e "s|fetch('/src/data/|fetch('/$REPO/src/data/|g" \
               -e "s|\"/src/|\"/$REPO/src/|g" \
               -e "s|'/src/|'/$REPO/src/|g" \
               -e "s|\"/assets/|\"/$REPO/assets/|g" \
@@ -73,7 +73,7 @@ jobs:
               "$file"
           done
 
-      # 🔒 FINAL, ISOLATED FIX: font-face URLs in CSS
+      # 🔒 Fix font-face URLs in CSS
       - name: Fix CSS font-face asset URLs
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -84,7 +84,7 @@ jobs:
               "$file"
           done
 
-      # 🔒 FINAL FINAL FIX: asset paths inside JSON data files
+      # 🔒 Fix asset paths inside ALL src/data JSON files
       - name: Fix asset paths inside JSON data files
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
@@ -109,6 +109,7 @@ jobs:
           git checkout deploy || git checkout -b deploy
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -r /tmp/site/* .
+
           git add .
           git commit -m "Deploy from main $GITHUB_SHA" || echo "No changes"
           git push origin deploy
