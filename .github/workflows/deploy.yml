@@ -1,4 +1,4 @@
-name: Build and Deploy (absolute-path prefix fix)
+name: Build and Deploy (branch-deploy)
 
 on:
   push:
@@ -88,7 +88,6 @@ jobs:
           done
 
       # --------------------------------------------------
-      # ✅ ONLY REQUIRED FIX
       # Replace assets/ → repo/assets/ INSIDE JSON FILES
       # --------------------------------------------------
       - name: Fix asset paths inside src/data JSON files
