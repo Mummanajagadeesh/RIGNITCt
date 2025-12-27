@@ -62,7 +62,7 @@ jobs:
               "$file"
           done
 
-          # ---------- JS (including fetch("/src/data/...")) ----------
+          # ---------- JS ----------
           find dist -type f -name "*.js" -print0 | while IFS= read -r -d '' file; do
             sed -i \
               -e "s|fetch(\"/src/data/|fetch(\"/$REPO/src/data/|g" \
@@ -88,35 +88,14 @@ jobs:
           done
 
       # --------------------------------------------------
-      # Fix asset paths INSIDE ALL src/data/**/*.json
+      # ✅ ONLY REQUIRED FIX
+      # Replace assets/ → repo/assets/ INSIDE JSON FILES
       # --------------------------------------------------
-      - name: Fix asset paths inside JSON data files
+      - name: Fix asset paths inside src/data JSON files
         run: |
           REPO="${GITHUB_REPOSITORY##*/}"
           find dist/src/data -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
-            sed -i \
-              -e "s|\"/assets/|\"/$REPO/assets/|g" \
-              "$file"
-          done
-
-      # --------------------------------------------------
-      # FINAL RUNTIME FIX (SAFE, YAML-VALID)
-      # Fix JS-generated <img src="/assets/...">
-      # --------------------------------------------------
-      - name: Inject runtime fix for JS-generated asset URLs
-        run: |
-          REPO="${GITHUB_REPOSITORY##*/}"
-
-          FIX_SCRIPT="<script>(function(){document.querySelectorAll('img[src^=\"/assets/\"],img[data-src^=\"/assets/\"]').forEach(function(img){img.src='/'+'$REPO'+img.getAttribute('src');});})();</script>"
-
-          find dist -type f -name "*.html" -print0 | while IFS= read -r -d '' file; do
-            awk -v fix="$FIX_SCRIPT" '
-              /<\/body>/ && !done {
-                print fix
-                done=1
-              }
-              { print }
-            ' "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+            sed -i "s|assets/|$REPO/assets/|g" "$file"
           done
 
       # --------------------------------------------------
